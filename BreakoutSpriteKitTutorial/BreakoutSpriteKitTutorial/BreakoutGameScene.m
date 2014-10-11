@@ -27,12 +27,8 @@ static const uint32_t aiKeeperCategory = 0x1 << 6;
 static const uint32_t aiForwardCategory = 0x1 << 7;
 
 
-NSTimeInterval startTime;
-NSTimeInterval endTime;
-int internal = 0;
-int gateRedScore = 0;
-int gateBlueScore = 0;
-int maxGameTime = 30;
+
+
 
 @interface BreakoutGameScene()
 
@@ -44,8 +40,20 @@ int maxGameTime = 30;
 
 @implementation BreakoutGameScene
 
+NSTimeInterval startTime;
+NSTimeInterval endTime;
+int internal = 0;
+int gateRedScore = 0;
+int gateBlueScore = 0;
+int maxGameTime = 30;
+
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+
+        internal = 0;
+        gateRedScore = 0;
+        gateBlueScore = 0;
+        maxGameTime = 30;
         
         // Setup the scene
        screenRect = [[UIScreen mainScreen]bounds];
@@ -116,40 +124,24 @@ int maxGameTime = 30;
         _player2.physicsBody.allowsRotation = NO;
         _player2.physicsBody.mass = 100;
         
-        
-        
-        // ADD GATE UP
-//        _gateRed = [SKShapeNode node];
-//        CGMutablePathRef pathToDraw = CGPathCreateMutable();
-//        CGPathMoveToPoint(pathToDraw, NULL, screenWidth/2-110, 60);
-//        CGPathAddLineToPoint(pathToDraw, NULL, screenWidth/2+110,60);
-//        _gateRed.path = pathToDraw;
-//        [_gateRed setStrokeColor:[UIColor redColor]];
-        
-        
-        _gateRed = [[SKSpriteNode alloc] initWithImageNamed: @"gateRed.png"];
-        _gateRed.position = CGPointMake(screenWidth/2-110,60);
-        _gateRed.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateRed.frame.size];
-        _gateRed.name = gateRedCategoryName;
-        [self addChild:_gateRed];
+         // ADD GATE down
+        _gateUp = [[SKSpriteNode alloc] initWithImageNamed: @"Gate_down_normal.png"];
+        _gateUp.position = CGPointMake(screenWidth/2-100,60);
+        _gateUp.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateUp.frame.size];
+        _gateUp.name = gateRedCategoryName;
+        [self addChild:_gateUp];
         
         [self CallingAi];
         
-        // ADD GATE DOWN
-//        _gateBlue = [SKShapeNode node];
-//        CGMutablePathRef pathToDraw2 = CGPathCreateMutable();
-//        CGPathMoveToPoint(pathToDraw2, NULL, screenWidth/2-110, screenHeight - 70);
-//        CGPathAddLineToPoint(pathToDraw2, NULL, screenWidth/2+110, screenHeight - 70);
-//        _gateBlue.path = pathToDraw2;
-//        [_gateBlue setStrokeColor:[UIColor blueColor]];
-        _gateBlue = [[SKSpriteNode alloc] initWithImageNamed: @"gateRed.png"];
-        _gateBlue.position = CGPointMake(screenWidth/2-110,screenHeight - 70);
-         _gateBlue.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateBlue.frame.size];
-        _gateBlue.name = gateBlueCategoryName;
-        [self addChild:_gateBlue];
+        // ADD GATE up
+        _gateDown = [[SKSpriteNode alloc] initWithImageNamed: @"Gate_UP_normal.png"];
+        _gateDown.position = CGPointMake(screenWidth/2-100,screenHeight - 70);
+        _gateDown.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateDown.frame.size];
+        _gateDown.name = gateBlueCategoryName;
+        [self addChild:_gateDown];
         
-        _gateRed.physicsBody.dynamic = NO;
-        _gateBlue.physicsBody.dynamic = NO;
+        _gateUp.physicsBody.dynamic = NO;
+        _gateDown.physicsBody.dynamic = NO;
       
         
         CGRect borderRect = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
@@ -161,8 +153,8 @@ int maxGameTime = 30;
         _soccer.physicsBody.categoryBitMask = soccerCategory;
         _player1.physicsBody.categoryBitMask = player1Category;
         _player2.physicsBody.categoryBitMask = player2Category;
-        _gateRed.physicsBody.categoryBitMask = gateRedCategory;
-        _gateBlue.physicsBody.categoryBitMask = gateBlueCategory;
+        _gateUp.physicsBody.categoryBitMask = gateRedCategory;
+        _gateDown.physicsBody.categoryBitMask = gateBlueCategory;
         _aiKeeper.physicsBody.categoryBitMask = aiKeeperCategory;
         _aiForward.physicsBody.categoryBitMask = aiForwardCategory;
         
@@ -175,8 +167,8 @@ int maxGameTime = 30;
         
         //loading internal
         _internal = [SKLabelNode labelNodeWithFontNamed:@"internalTime"];
-        _internal.fontSize = 50;
-        _internal.position = CGPointMake(screenWidth-50, screenHeight-50);
+        _internal.fontSize = 40;
+        _internal.position = CGPointMake(screenWidth-200, screenHeight-50);
         _internal.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter; //good for positioning with other sprites
         _internal.fontColor = [SKColor whiteColor ];
         _internal.name = @"countDown";
@@ -202,8 +194,6 @@ int maxGameTime = 30;
         //3
         //only for test
         if([[touchedNode name] isEqualToString:player1CategoryName]||[[touchedNode name] isEqualToString:player2CategoryName]) {
-            //SKAction *sequence = [SKAction sequence:@[[SKAction rotateByAngle:degToRad(-4.0f) duration:0.1],[SKAction rotateByAngle:0.0 duration:0.1],[SKAction rotateByAngle:degToRad(4.0f) duration:0.1]]];
-            //[_selectedNode runAction:[SKAction repeatActionForever:sequence]];
         }
     }
 }
@@ -243,15 +233,12 @@ int maxGameTime = 30;
     }
         if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == player1Category) {
         _soccer.physicsBody.velocity = CGVectorMake(secondBody.velocity.dx*5, secondBody.velocity.dy*5);
-//        _player1.physicsBody.velocity = CGVectorMake(0,0);
-//        _player2.physicsBody.velocity = CGVectorMake(0,0);
-//        NSLog(@"SPEED1,%f,%f", _soccer.physicsBody.velocity.dx,_soccer.physicsBody.velocity.dy);
+
     }
     
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == player2Category) {
         _soccer.physicsBody.velocity = CGVectorMake(secondBody.velocity.dx*5, secondBody.velocity.dy*5);
-//        _player1.physicsBody.velocity = CGVectorMake(0,0);
-//        _player2.physicsBody.velocity = CGVectorMake(0,0);
+
     }
 
     
@@ -292,11 +279,26 @@ int maxGameTime = 30;
     //NSLog(@"INTERNAL,%d",internal);
     if(maxGameTime -internal>0)
         {  //if counting down to 0 show counter
-        _internal.text = [NSString stringWithFormat:@"%i", maxGameTime -internal];
+            _internal.text = [NSString stringWithFormat:@"%i           %i : %i", maxGameTime -internal,gateBlueScore,gateRedScore];
         }
     else{
-        GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:YES];
-        [self.view presentScene:gameWonScene];
+        NSString *result;
+        if(gateRedScore<gateBlueScore){
+            result = @"win";
+            GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:result];
+            [self.view presentScene:gameWonScene];
+        }
+        else if(gateRedScore == gateBlueScore){
+            result = @"draw";
+            GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:result];
+            [self.view presentScene:gameWonScene];
+        }
+        else {
+            result = @"lose";
+            GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:result];
+            [self.view presentScene:gameWonScene];
+        }
+            
         }
     
 }

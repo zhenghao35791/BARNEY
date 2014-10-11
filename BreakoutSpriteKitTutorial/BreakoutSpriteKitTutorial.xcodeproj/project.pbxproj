@@ -11,7 +11,13 @@
 		18372CB419E7DCEC009E92C2 /* player1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18372CB019E7DCEC009E92C2 /* player1.png */; };
 		18372CB519E7DCEC009E92C2 /* player2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18372CB119E7DCEC009E92C2 /* player2.png */; };
 		18372CB619E7DCEC009E92C2 /* soccer.png in Resources */ = {isa = PBXBuildFile; fileRef = 18372CB219E7DCEC009E92C2 /* soccer.png */; };
-		1884E40F19E8C4EF0049D1B2 /* gateRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 1884E40E19E8C4EF0049D1B2 /* gateRed.png */; };
+		1B984AEA19E8D40B007533CF /* Gate_down_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE419E8D40B007533CF /* Gate_down_large.png */; };
+		1B984AEB19E8D40B007533CF /* Gate_UP_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE519E8D40B007533CF /* Gate_UP_large.png */; };
+		1B984AEC19E8D40B007533CF /* Gate_down_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE619E8D40B007533CF /* Gate_down_small.png */; };
+		1B984AED19E8D40B007533CF /* Gate_down_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE719E8D40B007533CF /* Gate_down_normal.png */; };
+		1B984AEE19E8D40B007533CF /* Gate_UP_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE819E8D40B007533CF /* Gate_UP_normal.png */; };
+		1B984AEF19E8D40B007533CF /* Gate_UP_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE919E8D40B007533CF /* Gate_UP_small.png */; };
+		1B984AF619E8DEE3007533CF /* game_over_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AF519E8DEE3007533CF /* game_over_bg.png */; };
 		66DF6A1717FB871B00CC9BD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DF6A1617FB871B00CC9BD1 /* Foundation.framework */; };
 		66DF6A1917FB871B00CC9BD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DF6A1817FB871B00CC9BD1 /* CoreGraphics.framework */; };
 		66DF6A1B17FB871B00CC9BD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DF6A1A17FB871B00CC9BD1 /* UIKit.framework */; };
@@ -51,7 +57,13 @@
 		18372CB019E7DCEC009E92C2 /* player1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player1.png; sourceTree = "<group>"; };
 		18372CB119E7DCEC009E92C2 /* player2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player2.png; sourceTree = "<group>"; };
 		18372CB219E7DCEC009E92C2 /* soccer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soccer.png; sourceTree = "<group>"; };
-		1884E40E19E8C4EF0049D1B2 /* gateRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gateRed.png; sourceTree = "<group>"; };
+		1B984AE419E8D40B007533CF /* Gate_down_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gate_down_large.png; sourceTree = "<group>"; };
+		1B984AE519E8D40B007533CF /* Gate_UP_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gate_UP_large.png; sourceTree = "<group>"; };
+		1B984AE619E8D40B007533CF /* Gate_down_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gate_down_small.png; sourceTree = "<group>"; };
+		1B984AE719E8D40B007533CF /* Gate_down_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gate_down_normal.png; sourceTree = "<group>"; };
+		1B984AE819E8D40B007533CF /* Gate_UP_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gate_UP_normal.png; sourceTree = "<group>"; };
+		1B984AE919E8D40B007533CF /* Gate_UP_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gate_UP_small.png; sourceTree = "<group>"; };
+		1B984AF519E8DEE3007533CF /* game_over_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_over_bg.png; sourceTree = "<group>"; };
 		66DF6A1317FB871B00CC9BD1 /* BreakoutSpriteKitTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakoutSpriteKitTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DF6A1617FB871B00CC9BD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66DF6A1817FB871B00CC9BD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -142,6 +154,13 @@
 		66DF6A1E17FB871B00CC9BD1 /* BreakoutSpriteKitTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				1B984AF519E8DEE3007533CF /* game_over_bg.png */,
+				1B984AE419E8D40B007533CF /* Gate_down_large.png */,
+				1B984AE519E8D40B007533CF /* Gate_UP_large.png */,
+				1B984AE619E8D40B007533CF /* Gate_down_small.png */,
+				1B984AE719E8D40B007533CF /* Gate_down_normal.png */,
+				1B984AE819E8D40B007533CF /* Gate_UP_normal.png */,
+				1B984AE919E8D40B007533CF /* Gate_UP_small.png */,
 				66DF6A2717FB871B00CC9BD1 /* AppDelegate.h */,
 				66DF6A2817FB871B00CC9BD1 /* AppDelegate.m */,
 				66DF6A2A17FB871B00CC9BD1 /* Main.storyboard */,
@@ -149,7 +168,6 @@
 				66DF6A2E17FB871B00CC9BD1 /* ViewController.m */,
 				66DF6A3017FB871B00CC9BD1 /* BreakoutGameScene.h */,
 				66DF6A3117FB871B00CC9BD1 /* BreakoutGameScene.m */,
-				1884E40E19E8C4EF0049D1B2 /* gateRed.png */,
 				66DF6A6217FC6E1500CC9BD1 /* GameOverScene.h */,
 				66DF6A6317FC6E1500CC9BD1 /* GameOverScene.m */,
 				18372CAF19E7DCEC009E92C2 /* background.jpeg */,
@@ -290,15 +308,21 @@
 			files = (
 				18372CB619E7DCEC009E92C2 /* soccer.png in Resources */,
 				66DF6A5E17FB87DB00CC9BD1 /* bg~ipad.png in Resources */,
-				1884E40F19E8C4EF0049D1B2 /* gateRed.png in Resources */,
+				1B984AEA19E8D40B007533CF /* Gate_down_large.png in Resources */,
 				18372CB319E7DCEC009E92C2 /* background.jpeg in Resources */,
 				66DF6A2317FB871B00CC9BD1 /* InfoPlist.strings in Resources */,
+				1B984AEE19E8D40B007533CF /* Gate_UP_normal.png in Resources */,
 				66DF6A3617FB871B00CC9BD1 /* Images.xcassets in Resources */,
+				1B984AEC19E8D40B007533CF /* Gate_down_small.png in Resources */,
+				1B984AF619E8DEE3007533CF /* game_over_bg.png in Resources */,
+				1B984AED19E8D40B007533CF /* Gate_down_normal.png in Resources */,
 				18372CB519E7DCEC009E92C2 /* player2.png in Resources */,
+				1B984AEB19E8D40B007533CF /* Gate_UP_large.png in Resources */,
 				66DF6A5A17FB87DB00CC9BD1 /* assets.atlas in Resources */,
 				66DF6A5C17FB87DB00CC9BD1 /* bg@2x~ipad.png in Resources */,
 				66DF6A5F17FB87DB00CC9BD1 /* bg~iphone.png in Resources */,
 				66DF6A2C17FB871B00CC9BD1 /* Main.storyboard in Resources */,
+				1B984AEF19E8D40B007533CF /* Gate_UP_small.png in Resources */,
 				18372CB419E7DCEC009E92C2 /* player1.png in Resources */,
 				66DF6A5D17FB87DB00CC9BD1 /* bg@2x~iphone.png in Resources */,
 			);

@@ -11,7 +11,7 @@
 
 @implementation GameOverScene
 
-- (id)initWithSize:(CGSize)size playerWon:(BOOL)isWon
+- (id)initWithSize:(CGSize)size playerWon:(NSString *)results
 {
     self = [super initWithSize:size];
     if (self) {
@@ -23,10 +23,14 @@
         SKLabelNode* gameOverLabel = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
         gameOverLabel.fontSize = 42;
         gameOverLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-        if (isWon) {
-            gameOverLabel.text = @"Game Won";
-        } else {
-            gameOverLabel.text = @"Game Over";
+        if ([results isEqualToString:@"win"]) {
+            gameOverLabel.text = @"Congratulation";
+        }
+        else if([results isEqualToString:@"lose"]) {
+            gameOverLabel.text = @"You lose the game";
+        }
+        else if([results isEqualToString:@"draw"]) {
+            gameOverLabel.text = @"Draw";
         }
         [self addChild:gameOverLabel];
     }

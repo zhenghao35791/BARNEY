@@ -20,9 +20,13 @@
 @property SKSpriteNode *aiForward;
 @property SKSpriteNode *aiKeeper;
 @property SKSpriteNode *soccer;
-@property SKSpriteNode *gateRed;
-@property SKSpriteNode *gateBlue;
+@property SKSpriteNode *gateUp;
+@property SKSpriteNode *gateDown;
 @property SKSpriteNode *background;
 @property SKLabelNode *internal;
+@property SKLabelNode *myScore;
+@property SKLabelNode *aIcon;
+@property SKLabelNode *enemyScore;
+
 
 @end
