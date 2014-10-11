@@ -8,7 +8,7 @@
 
 #import "GameOverViewController.h"
 #import "SystemSetting.h"
-#import "ViewController.h"
+//#import "ViewController.h"
 
 @interface GameOverViewController ()
 
@@ -22,6 +22,7 @@
     NSString *myScore = [[NSUserDefaults standardUserDefaults]objectForKey:@"myScore"];
     NSString *enemyScore = [[NSUserDefaults standardUserDefaults]objectForKey:@"enemyScore"];
     NSString *result;
+    //NSLog(@"result : %@",result);
     if([myScore integerValue]>[enemyScore integerValue]){
         result = @"3";
         _gameOverLable.text = @"Congratulation";
@@ -34,11 +35,14 @@
         result = @"0";
         _gameOverLable.text = @"You lose the match";
     }
+    NSLog(@"result : %@",result);
     _currentScore.text = result;
     NSString *currentUser = @"test3";
     NSString *rank = [self getRankBy:currentUser and:result];
     
     _currentRanking.text = rank;
+    NSLog(@"rank : %@",rank);
+    [self.view setNeedsDisplay];
 }
 
 -(NSString *) getRankBy:(NSString *)username and: (NSString *)score
@@ -149,19 +153,19 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-    if ([[segue identifier] isEqualToString:@"single_continue"]){
-        //NSString *currentUser = [[NSUserDefaults standardUserDefaults]objectForKey:@"currentUser"];
-        
-        ViewController *aController = [segue destinationViewController];
-        //NSMutableDictionary *jsonData = [[NSMutableDictionary alloc] init];
-        aController.skView = (SKView *)aController.view;
-    }
-    
-    
-}
+//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    
+//    if ([[segue identifier] isEqualToString:@"single_continue"]){
+//        //NSString *currentUser = [[NSUserDefaults standardUserDefaults]objectForKey:@"currentUser"];
+//        
+//        ViewController *aController = [segue destinationViewController];
+//        //NSMutableDictionary *jsonData = [[NSMutableDictionary alloc] init];
+//        aController.skView = (SKView *)aController.view;
+//    }
+//    
+//    
+//}
 
 - (IBAction)clickHome:(id)sender {
     [self performSegueWithIdentifier:@"single_continue" sender:self];//page nivagation

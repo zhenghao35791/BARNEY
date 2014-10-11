@@ -11,6 +11,11 @@
 
 @implementation ViewController
 
+//- (void)viewDidLoad {
+//    [super viewDidLoad];
+//    //SKView * skView = (SKView *)self.view;
+//}
+
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -18,17 +23,20 @@
     //[_results setObject:@"" forKey:@"enemyScore"];
     
     // Configure the view.
-    _skView = (SKView *)self.view;
-    if (!_skView.scene) {
-        _skView.showsFPS = YES;
-        _skView.showsNodeCount = YES;
+    NSLog(@"test1");
+    SKView * skView = (SKView *)self.view;
+    NSLog(@"test2");
+    if (!skView.scene) {
+        skView.showsFPS = YES;
+        skView.showsNodeCount = YES;
         
         // Create and configure the scene.
-        SKScene * scene = [BreakoutGameScene sceneWithSize:_skView.bounds.size];
+        NSLog(@"test3");
+        SKScene * scene = [BreakoutGameScene sceneWithSize:skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
-        
+        NSLog(@"test4");
         // Present the scene.
-        [_skView presentScene:scene];
+        [skView presentScene:scene];
         
     }
 }

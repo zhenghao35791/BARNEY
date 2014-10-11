@@ -5,11 +5,12 @@
 //  Created by Barbara Reichart on 10/2/13.
 //  Copyright (c) 2013 Barbara Köhler. All rights reserved.
 /////
-
+#import <UIKit/UIKit.h>
 #import "BreakoutGameScene.h"
 #import "GameOverScene.h"
 #import "GameOverViewController.h"
 #import "ViewController.h"
+
 
 static NSString* soccerCategoryName = @"soccer";
 static NSString* player1CategoryName = @"player1";
@@ -308,8 +309,11 @@ int maxGameTime = 10;
         [[NSUserDefaults standardUserDefaults]setObject:myScore forKey:@"myScore"];
         [[NSUserDefaults standardUserDefaults]setObject:enenmyScore forKey:@"enemyScore"];
     
-        ViewController *UIViewCTL =  (ViewController *)self.view;
+
+        UIViewController *UIViewCTL =  self.view.window.rootViewController;
+        
         [UIViewCTL performSegueWithIdentifier:@"single_game_over" sender:self];//page nivagation
+        //[UIViewCTL presentViewController:testctl animated: NO completion:nil];
         [self.view removeFromSuperview];
 
         }
