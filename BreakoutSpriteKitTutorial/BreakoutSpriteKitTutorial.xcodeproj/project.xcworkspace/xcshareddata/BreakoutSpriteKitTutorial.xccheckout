@@ -10,24 +10,36 @@
 	<string>BreakoutSpriteKitTutorial</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>5E135B018D30616008D88FA60CE84BC9382F6CA6</key>
+		<string>https://github.com/zhenghao35791/BARNEY.git</string>
 		<key>F230DDA9-F8F0-4713-8186-57E6773172B3</key>
 		<string>https://github.com/gebirgsbaerbel/BreakoutSpriteKitTutorialSolution.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>BreakoutSpriteKitTutorial/BreakoutSpriteKitTutorial.xcodeproj/project.xcworkspace</string>
+	<string>BreakoutSpriteKitTutorial/BreakoutSpriteKitTutorial.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F230DDA9-F8F0-4713-8186-57E6773172B3</key>
+		<key>5E135B018D30616008D88FA60CE84BC9382F6CA6</key>
 		<string>../../..</string>
+		<key>F230DDA9-F8F0-4713-8186-57E6773172B3</key>
+		<string>../../../../BreakoutSpriteKitSolution</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/gebirgsbaerbel/BreakoutSpriteKitTutorialSolution.git</string>
+	<string>https://github.com/zhenghao35791/BARNEY.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F230DDA9-F8F0-4713-8186-57E6773172B3</string>
+	<string>5E135B018D30616008D88FA60CE84BC9382F6CA6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5E135B018D30616008D88FA60CE84BC9382F6CA6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BARNEY</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
