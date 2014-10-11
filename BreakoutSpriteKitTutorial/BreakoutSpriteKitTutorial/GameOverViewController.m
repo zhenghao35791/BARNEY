@@ -18,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setNeedsDisplay];
+
     // Do any additional setup after loading the view.
     NSString *myScore = [[NSUserDefaults standardUserDefaults]objectForKey:@"myScore"];
     NSString *enemyScore = [[NSUserDefaults standardUserDefaults]objectForKey:@"enemyScore"];
@@ -42,7 +44,7 @@
     
     _currentRanking.text = rank;
     NSLog(@"rank : %@",rank);
-    [self.view setNeedsDisplay];
+    //[self.view setNeedsDisplay];
 }
 
 -(NSString *) getRankBy:(NSString *)username and: (NSString *)score

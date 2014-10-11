@@ -7,6 +7,7 @@
 //
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+//#import "ViewController.h"
 
 @interface BreakoutGameScene : SKScene<SKPhysicsContactDelegate>{
     CGRect screenRect;
@@ -27,6 +28,7 @@
 @property SKLabelNode *myScore;
 @property SKLabelNode *aIcon;
 @property SKLabelNode *enemyScore;
+//@property ViewController *spyViewCotroller;
 
 
 @end

@@ -306,19 +306,28 @@ int maxGameTime = 10;
         
         NSString *myScore = [NSString stringWithFormat:@"%i",gateBlueScore];
         NSString *enenmyScore = [NSString stringWithFormat:@"%i",gateRedScore];
+        _internal.text = [NSString stringWithFormat:@"Game over, please check result."];
         [[NSUserDefaults standardUserDefaults]setObject:myScore forKey:@"myScore"];
         [[NSUserDefaults standardUserDefaults]setObject:enenmyScore forKey:@"enemyScore"];
     
-
-        UIViewController *UIViewCTL =  self.view.window.rootViewController;
         
-        [UIViewCTL performSegueWithIdentifier:@"single_game_over" sender:self];//page nivagation
-        //[UIViewCTL presentViewController:testctl animated: NO completion:nil];
-        [self.view removeFromSuperview];
+        //[self alertStatus:@"check result" :@"game over" :0];
+        //ViewController *spyCotroller = [[ViewController alloc] init];
+        //if ([self.view.window.rootViewController isKindOfClass:[ViewController class]]){
+          //  NSLog(@"is ViewController");
+            //spyCotroller = self.view.window.rootViewController;
+            //[spyCotroller performSegueWithIdentifier:@"single_game_over"sender:self];
+            //page nivagation
+        //}
+        
+        //[self removeAllChildren];
+        //NSLog(@"!!!!!!!!!!!");
 
         }
     
 }
+
+
 
 
 // AI gate keeper

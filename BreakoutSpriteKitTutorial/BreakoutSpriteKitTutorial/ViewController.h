@@ -11,4 +11,7 @@
 
 @interface ViewController : UIViewController
 //@property SKView * skView;
+//- (IBAction)results:(id)sender;
+
+
 @end

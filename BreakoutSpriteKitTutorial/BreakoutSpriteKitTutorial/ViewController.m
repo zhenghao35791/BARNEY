@@ -34,10 +34,10 @@
         NSLog(@"test3");
         SKScene * scene = [BreakoutGameScene sceneWithSize:skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
+        
         NSLog(@"test4");
         // Present the scene.
         [skView presentScene:scene];
-        
     }
 }
 
@@ -61,4 +61,9 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (IBAction)results:(id)sender {
+    [self performSegueWithIdentifier:@"single_game_over" sender:self];//page nivagation
+
+    
+}
 @end
