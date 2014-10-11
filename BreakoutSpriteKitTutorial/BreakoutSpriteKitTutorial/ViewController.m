@@ -11,21 +11,25 @@
 
 @implementation ViewController
 
+
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    //[_results setObject:@"" forKey:@"myScore"];
+    //[_results setObject:@"" forKey:@"enemyScore"];
     
     // Configure the view.
-    SKView * skView = (SKView *)self.view;
-    if (!skView.scene) {
-        skView.showsFPS = YES;
-        skView.showsNodeCount = YES;
+    _skView = (SKView *)self.view;
+    if (!_skView.scene) {
+        _skView.showsFPS = YES;
+        _skView.showsNodeCount = YES;
         
         // Create and configure the scene.
-        SKScene * scene = [BreakoutGameScene sceneWithSize:skView.bounds.size];
+        SKScene * scene = [BreakoutGameScene sceneWithSize:_skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
         
         // Present the scene.
-        [skView presentScene:scene];
+        [_skView presentScene:scene];
+        
     }
 }
 

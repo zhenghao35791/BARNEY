@@ -8,6 +8,8 @@
 
 #import "BreakoutGameScene.h"
 #import "GameOverScene.h"
+#import "GameOverViewController.h"
+#import "ViewController.h"
 
 static NSString* soccerCategoryName = @"soccer";
 static NSString* player1CategoryName = @"player1";
@@ -45,15 +47,18 @@ NSTimeInterval endTime;
 int internal = 0;
 int gateRedScore = 0;
 int gateBlueScore = 0;
-int maxGameTime = 30;
+int maxGameTime = 10;
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-
+        //NSString *myScore = [NSString stringWithFormat:@"%i",gateBlueScore];
+        //NSString *enenmyScore = [NSString stringWithFormat:@"%i",gateRedScore];
+        [[NSUserDefaults standardUserDefaults]setObject:@"none" forKey:@"myScore"];
+        [[NSUserDefaults standardUserDefaults]setObject:@"none" forKey:@"enemyScore"];
         internal = 0;
         gateRedScore = 0;
         gateBlueScore = 0;
-        maxGameTime = 30;
+        maxGameTime = 10;
         
         // Setup the scene
        screenRect = [[UIScreen mainScreen]bounds];
@@ -192,9 +197,6 @@ int maxGameTime = 30;
         [_selectedNode runAction:[SKAction rotateToAngle:0.0f duration:0.1]];
         _selectedNode = touchedNode;
         //3
-        //only for test
-        if([[touchedNode name] isEqualToString:player1CategoryName]||[[touchedNode name] isEqualToString:player2CategoryName]) {
-        }
     }
 }
 
@@ -243,11 +245,11 @@ int maxGameTime = 30;
 
     
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateRedCategory) {
-        NSLog(@"red");
+        //NSLog(@"red");
         gateRedScore++;
     }
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateBlueCategory) {
-        NSLog(@"blue");
+       // NSLog(@"blue");
         gateBlueScore++;
         
     }
@@ -277,28 +279,39 @@ int maxGameTime = 30;
     //NSLog(@"END,%f",endTime);
     internal = (endTime - startTime);
     //NSLog(@"INTERNAL,%d",internal);
+    
     if(maxGameTime -internal>0)
         {  //if counting down to 0 show counter
             _internal.text = [NSString stringWithFormat:@"%i           %i : %i", maxGameTime -internal,gateBlueScore,gateRedScore];
         }
     else{
-        NSString *result;
-        if(gateRedScore<gateBlueScore){
-            result = @"win";
-            GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:result];
-            [self.view presentScene:gameWonScene];
-        }
-        else if(gateRedScore == gateBlueScore){
-            result = @"draw";
-            GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:result];
-            [self.view presentScene:gameWonScene];
-        }
-        else {
-            result = @"lose";
-            GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:result];
-            [self.view presentScene:gameWonScene];
-        }
-            
+        //NSString *result;
+        
+        //if(gateRedScore<gateBlueScore){
+//            result = @"win";
+//            GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:result];
+//            [self.view presentScene:gameWonScene];
+//        }
+//        else if(gateRedScore == gateBlueScore){
+//            result = @"draw";
+//            GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:result];
+//            [self.view presentScene:gameWonScene];
+//        }
+//        else {
+//            result = @"lose";
+//            GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:result];
+//            [self.view presentScene:gameWonScene];
+//        }
+        
+        NSString *myScore = [NSString stringWithFormat:@"%i",gateBlueScore];
+        NSString *enenmyScore = [NSString stringWithFormat:@"%i",gateRedScore];
+        [[NSUserDefaults standardUserDefaults]setObject:myScore forKey:@"myScore"];
+        [[NSUserDefaults standardUserDefaults]setObject:enenmyScore forKey:@"enemyScore"];
+    
+        ViewController *UIViewCTL =  (ViewController *)self.view;
+        [UIViewCTL performSegueWithIdentifier:@"single_game_over" sender:self];//page nivagation
+        [self.view removeFromSuperview];
+
         }
     
 }

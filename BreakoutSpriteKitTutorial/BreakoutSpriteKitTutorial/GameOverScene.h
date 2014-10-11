@@ -8,8 +8,8 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface GameOverScene : SKScene
+@interface GameOverScene : SKScene<SKPhysicsContactDelegate>
 
 - (id)initWithSize:(CGSize)size playerWon:(NSString *)result;
-
+@property SKSpriteNode *selectedNode;
 @end

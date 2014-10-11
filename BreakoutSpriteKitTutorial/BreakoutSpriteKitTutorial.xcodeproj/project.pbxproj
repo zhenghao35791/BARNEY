@@ -18,6 +18,7 @@
 		1B984AEE19E8D40B007533CF /* Gate_UP_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE819E8D40B007533CF /* Gate_UP_normal.png */; };
 		1B984AEF19E8D40B007533CF /* Gate_UP_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE919E8D40B007533CF /* Gate_UP_small.png */; };
 		1B984AF619E8DEE3007533CF /* game_over_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AF519E8DEE3007533CF /* game_over_bg.png */; };
+		1B984AF919E8FF94007533CF /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B984AF819E8FF94007533CF /* GameOverViewController.m */; };
 		66DF6A1717FB871B00CC9BD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DF6A1617FB871B00CC9BD1 /* Foundation.framework */; };
 		66DF6A1917FB871B00CC9BD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DF6A1817FB871B00CC9BD1 /* CoreGraphics.framework */; };
 		66DF6A1B17FB871B00CC9BD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DF6A1A17FB871B00CC9BD1 /* UIKit.framework */; };
@@ -64,6 +65,9 @@
 		1B984AE819E8D40B007533CF /* Gate_UP_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gate_UP_normal.png; sourceTree = "<group>"; };
 		1B984AE919E8D40B007533CF /* Gate_UP_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gate_UP_small.png; sourceTree = "<group>"; };
 		1B984AF519E8DEE3007533CF /* game_over_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_over_bg.png; sourceTree = "<group>"; };
+		1B984AF719E8FF94007533CF /* GameOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverViewController.h; sourceTree = "<group>"; };
+		1B984AF819E8FF94007533CF /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
+		1B984AFA19E915CF007533CF /* SystemSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemSetting.h; sourceTree = "<group>"; };
 		66DF6A1317FB871B00CC9BD1 /* BreakoutSpriteKitTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakoutSpriteKitTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DF6A1617FB871B00CC9BD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66DF6A1817FB871B00CC9BD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -177,6 +181,9 @@
 				66DF6A5217FB87DA00CC9BD1 /* Resources */,
 				66DF6A3517FB871B00CC9BD1 /* Images.xcassets */,
 				66DF6A1F17FB871B00CC9BD1 /* Supporting Files */,
+				1B984AF719E8FF94007533CF /* GameOverViewController.h */,
+				1B984AF819E8FF94007533CF /* GameOverViewController.m */,
+				1B984AFA19E915CF007533CF /* SystemSetting.h */,
 			);
 			path = BreakoutSpriteKitTutorial;
 			sourceTree = "<group>";
@@ -343,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B984AF919E8FF94007533CF /* GameOverViewController.m in Sources */,
 				66DF6A6417FC6E1500CC9BD1 /* GameOverScene.m in Sources */,
 				66DF6A3217FB871B00CC9BD1 /* BreakoutGameScene.m in Sources */,
 				66DF6A2F17FB871B00CC9BD1 /* ViewController.m in Sources */,
