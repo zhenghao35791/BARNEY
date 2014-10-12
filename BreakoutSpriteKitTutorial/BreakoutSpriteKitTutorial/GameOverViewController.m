@@ -39,7 +39,7 @@
     }
     NSLog(@"result : %@",result);
     _currentScore.text = result;
-    NSString *currentUser = @"test3";
+    NSString *currentUser = @"test5";
     NSString *rank = [self getRankBy:currentUser and:result];
     
     _currentRanking.text = rank;
