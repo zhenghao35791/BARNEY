@@ -21,6 +21,8 @@
 @property SKSpriteNode *player2;
 @property SKSpriteNode *aiForward;
 @property SKSpriteNode *aiKeeper;
+@property SKSpriteNode *myKeeper;
+
 @property SKSpriteNode *soccer;
 @property SKSpriteNode *gateUp;
 @property SKSpriteNode *gateDown;

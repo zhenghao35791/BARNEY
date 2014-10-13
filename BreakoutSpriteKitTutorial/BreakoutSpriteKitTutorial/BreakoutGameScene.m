@@ -197,6 +197,7 @@ int maxGameTime = 60;
         [self CallingAiGateKeeper];
         [self CallingAiGateForward];
         [self dropingMushroom];
+        [self CallingMyGateKeeper];
     }
     return self;
 }
@@ -406,6 +407,12 @@ int maxGameTime = 60;
         _internal.text = [NSString stringWithFormat:@"Game over, please check result."];
         [[NSUserDefaults standardUserDefaults]setObject:myScore forKey:@"myScore"];
         [[NSUserDefaults standardUserDefaults]setObject:enenmyScore forKey:@"enemyScore"];
+        //[self removeFromParent]
+        [_soccer removeFromParent];
+        [_player2 removeFromParent];
+        [_aiKeeper removeFromParent];
+        [_aiForward removeFromParent];
+        
     }
     
     [self setEatingGreenBOOL];
@@ -429,6 +436,9 @@ int maxGameTime = 60;
     CGPathMoveToPoint(cgpath,NULL, start.x, start.y);
     CGPathAddCurveToPoint(cgpath, NULL, path1.x, path1.y, path2.x, path2.y, end.x, end.y);
     SKAction *defend = [SKAction followPath:cgpath asOffset:NO orientToPath:YES duration:2];
+    _aiKeeper.physicsBody.dynamic = NO;
+    _aiKeeper.physicsBody.allowsRotation = NO;
+
     [self addChild:_aiKeeper];
     [_aiKeeper runAction:[SKAction repeatActionForever:(defend)]];
     
@@ -441,6 +451,7 @@ int maxGameTime = 60;
     _aiForward.position = CGPointMake(screenWidth/2, self.frame.size.height/2 + 100);
     _aiForward.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_aiForward.frame.size];
     _aiForward.physicsBody.allowsRotation = NO;
+    _aiForward.physicsBody.dynamic = NO;
     [self addChild:_aiForward];
    
 }
@@ -525,6 +536,26 @@ int maxGameTime = 60;
     _player1.physicsBody.friction = 0.1f;
     _player1.physicsBody.allowsRotation = NO;
     _player1.physicsBody.mass = 100;
+}
+
+- (void) CallingMyGateKeeper{
+    _myKeeper  = [SKSpriteNode spriteNodeWithImageNamed:@"MyKeeper"];
+    _myKeeper.position = CGPointMake(screenWidth/2, 100);
+    _myKeeper.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_aiKeeper.frame.size];
+    CGMutablePathRef cgpath = CGPathCreateMutable();
+    CGPoint start = CGPointMake(_myKeeper.position.x, _myKeeper.position.y);
+    CGPoint end = CGPointMake(screenWidth/2+150, _myKeeper.position.y);
+    CGPoint path1 = CGPointMake(screenWidth/2 -160, _myKeeper.position.y);
+    CGPoint path2 = CGPointMake(_myKeeper.position.x, _myKeeper.position.y);
+    CGPathMoveToPoint(cgpath,NULL, start.x, start.y);
+    CGPathAddCurveToPoint(cgpath, NULL, path1.x, path1.y, path2.x, path2.y, end.x, end.y);
+    SKAction *defend = [SKAction followPath:cgpath asOffset:NO orientToPath:YES duration:2];
+    _myKeeper.physicsBody.dynamic = NO;
+    _myKeeper.physicsBody.allowsRotation = NO;
+    
+    [self addChild:_myKeeper];
+    [_myKeeper runAction:[SKAction repeatActionForever:(defend)]];
+    
 }
 
 @end
