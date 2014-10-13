@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *gameOverLable;
 - (IBAction)clickHome:(id)sender;
 - (IBAction)clickContinue:(id)sender;
+- (IBAction)clickSingleGameHome:(id)sender;
 
 
 @end

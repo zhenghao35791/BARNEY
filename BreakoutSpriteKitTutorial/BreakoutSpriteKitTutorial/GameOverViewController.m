@@ -39,7 +39,7 @@
     }
     NSLog(@"result : %@",result);
     _currentScore.text = result;
-    NSString *currentUser = @"test5";
+    NSString *currentUser = [[NSUserDefaults standardUserDefaults]objectForKey:@"userName"];
     NSString *rank = [self getRankBy:currentUser and:result];
     
     _currentRanking.text = rank;
@@ -175,7 +175,17 @@
 }
 
 - (IBAction)clickContinue:(id)sender {
-    [self performSegueWithIdentifier:@"single_continue" sender:self];//page nivagation
+     NSString *from_level = [[NSUserDefaults standardUserDefaults]objectForKey:@"from_level"];
+    if([from_level isEqualToString:@"level1"])
+        [self performSegueWithIdentifier:@"single_continue_level1" sender:self];//page nivagation
+    if([from_level isEqualToString:@"level2"])
+        [self performSegueWithIdentifier:@"single_continue_level2" sender:self];//page nivagation
+    if([from_level isEqualToString:@"level3"])
+        [self performSegueWithIdentifier:@"single_continue_level1" sender:self];//page nivagation
 
+}
+
+- (IBAction)clickSingleGameHome:(id)sender {
+    [self performSegueWithIdentifier:@"result_2_single_home" sender:self];//page nivagation
 }
 @end

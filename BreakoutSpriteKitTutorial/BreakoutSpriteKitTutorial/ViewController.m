@@ -62,6 +62,7 @@
 }
 
 - (IBAction)results:(id)sender {
+    [[NSUserDefaults standardUserDefaults]setObject:@"level2" forKey:@"from_level"];
     [self performSegueWithIdentifier:@"single_game_over" sender:self];//page nivagation
 
     

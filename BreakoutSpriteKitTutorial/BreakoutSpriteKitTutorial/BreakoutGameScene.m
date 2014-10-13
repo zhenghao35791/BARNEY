@@ -7,7 +7,7 @@
 /////
 #import <UIKit/UIKit.h>
 #import "BreakoutGameScene.h"
-#import "GameOverScene.h"
+
 #import "GameOverViewController.h"
 #import "ViewController.h"
 
@@ -310,6 +310,8 @@ int maxGameTime = 60;
         _gateDown.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateDown.frame.size];
         _gateDown.name = gateDownCategoryName;
         _gateDown.physicsBody.dynamic = NO;
+        _gateUp.physicsBody.categoryBitMask = gateUpCategory;
+        _gateDown.physicsBody.categoryBitMask = gateDownCategory;
         [self addChild:_gateDown];
         
         isEatingGreen = true;
@@ -349,6 +351,7 @@ int maxGameTime = 60;
         _gateDown.position = CGPointMake(screenWidth/2,screenHeight-40);
         _gateDown.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateDown.frame.size];
         _gateDown.name = gateDownCategoryName;
+        _gateDown.physicsBody.categoryBitMask =gateDownCategory;
         _gateDown.physicsBody.dynamic = NO;
         [self addChild:_gateDown];
 
@@ -412,7 +415,7 @@ int maxGameTime = 60;
         [_player2 removeFromParent];
         [_aiKeeper removeFromParent];
         [_aiForward removeFromParent];
-        
+        [_myKeeper removeFromParent];
     }
     
     [self setEatingGreenBOOL];
@@ -435,7 +438,7 @@ int maxGameTime = 60;
     CGPoint path2 = CGPointMake(_aiKeeper.position.x, _aiKeeper.position.y);
     CGPathMoveToPoint(cgpath,NULL, start.x, start.y);
     CGPathAddCurveToPoint(cgpath, NULL, path1.x, path1.y, path2.x, path2.y, end.x, end.y);
-    SKAction *defend = [SKAction followPath:cgpath asOffset:NO orientToPath:YES duration:2];
+    SKAction *defend = [SKAction followPath:cgpath asOffset:NO orientToPath:YES duration:4];
     _aiKeeper.physicsBody.dynamic = NO;
     _aiKeeper.physicsBody.allowsRotation = NO;
 

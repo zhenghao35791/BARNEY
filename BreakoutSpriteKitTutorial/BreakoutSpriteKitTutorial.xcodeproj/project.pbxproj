@@ -16,6 +16,8 @@
 		18EC42EA19EB957400CFB641 /* MyKeeper.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EC42E819EB957400CFB641 /* MyKeeper.png */; };
 		18EC42EB19EB957400CFB641 /* gateForward.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EC42E919EB957400CFB641 /* gateForward.png */; };
 		18EC42ED19EB95B700CFB641 /* player2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EC42EC19EB95B700CFB641 /* player2.png */; };
+		1B4070E719EB9869000861DD /* singleGameWelcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B4070E619EB9869000861DD /* singleGameWelcome.png */; };
+		1B4070EF19EB9E71000861DD /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4070EE19EB9E71000861DD /* WelcomeViewController.m */; };
 		1B984AEA19E8D40B007533CF /* Gate_down_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE419E8D40B007533CF /* Gate_down_large.png */; };
 		1B984AEB19E8D40B007533CF /* Gate_UP_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE519E8D40B007533CF /* Gate_UP_large.png */; };
 		1B984AEC19E8D40B007533CF /* Gate_down_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE619E8D40B007533CF /* Gate_down_small.png */; };
@@ -45,7 +47,6 @@
 		66DF6A5D17FB87DB00CC9BD1 /* bg@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DF6A5717FB87DA00CC9BD1 /* bg@2x~iphone.png */; };
 		66DF6A5E17FB87DB00CC9BD1 /* bg~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DF6A5817FB87DA00CC9BD1 /* bg~ipad.png */; };
 		66DF6A5F17FB87DB00CC9BD1 /* bg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DF6A5917FB87DA00CC9BD1 /* bg~iphone.png */; };
-		66DF6A6417FC6E1500CC9BD1 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DF6A6317FC6E1500CC9BD1 /* GameOverScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,9 @@
 		18EC42E819EB957400CFB641 /* MyKeeper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyKeeper.png; sourceTree = "<group>"; };
 		18EC42E919EB957400CFB641 /* gateForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gateForward.png; sourceTree = "<group>"; };
 		18EC42EC19EB95B700CFB641 /* player2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player2.png; sourceTree = "<group>"; };
+		1B4070E619EB9869000861DD /* singleGameWelcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = singleGameWelcome.png; sourceTree = "<group>"; };
+		1B4070ED19EB9E71000861DD /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		1B4070EE19EB9E71000861DD /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		1B984AE419E8D40B007533CF /* Gate_down_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gate_down_large.png; sourceTree = "<group>"; };
 		1B984AE519E8D40B007533CF /* Gate_UP_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gate_UP_large.png; sourceTree = "<group>"; };
 		1B984AE619E8D40B007533CF /* Gate_down_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gate_down_small.png; sourceTree = "<group>"; };
@@ -105,8 +109,6 @@
 		66DF6A5717FB87DA00CC9BD1 /* bg@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x~iphone.png"; sourceTree = "<group>"; };
 		66DF6A5817FB87DA00CC9BD1 /* bg~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg~ipad.png"; sourceTree = "<group>"; };
 		66DF6A5917FB87DA00CC9BD1 /* bg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg~iphone.png"; sourceTree = "<group>"; };
-		66DF6A6217FC6E1500CC9BD1 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
-		66DF6A6317FC6E1500CC9BD1 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,10 +136,84 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		66DF6A0A17FB871A00CC9BD1 = {
+		1B19F54E19EBAC9200BF9B8C /* level1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = level1;
+			sourceTree = "<group>";
+		};
+		1B19F54F19EBAC9B00BF9B8C /* level3 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = level3;
+			sourceTree = "<group>";
+		};
+		1B4070E819EB9C4F000861DD /* PNGS */ = {
+			isa = PBXGroup;
+			children = (
+				1B4070E619EB9869000861DD /* singleGameWelcome.png */,
+				1B984AF519E8DEE3007533CF /* game_over_bg.png */,
+				1B984AE419E8D40B007533CF /* Gate_down_large.png */,
+				1B984AE519E8D40B007533CF /* Gate_UP_large.png */,
+				1B984AE619E8D40B007533CF /* Gate_down_small.png */,
+				1B984AE719E8D40B007533CF /* Gate_down_normal.png */,
+				1B984AE819E8D40B007533CF /* Gate_UP_normal.png */,
+				1B984AE919E8D40B007533CF /* Gate_UP_small.png */,
+				18372CAF19E7DCEC009E92C2 /* background.jpeg */,
+				18EC42E819EB957400CFB641 /* MyKeeper.png */,
+				18EC42E919EB957400CFB641 /* gateForward.png */,
+				18372CB219E7DCEC009E92C2 /* soccer.png */,
+				18D0159919EA91CE000E8B01 /* gateForward.png */,
+				18D0159A19EA91CE000E8B01 /* gateKeeper.png */,
+				18D015A319EA9D21000E8B01 /* redMushroom.png */,
+				18D015A519EA9D33000E8B01 /* greenMushroom.png */,
+			);
+			name = PNGS;
+			sourceTree = "<group>";
+		};
+		1B4070E919EB9C74000861DD /* levle2 */ = {
+			isa = PBXGroup;
+			children = (
+				66DF6A2D17FB871B00CC9BD1 /* ViewController.h */,
+				66DF6A2E17FB871B00CC9BD1 /* ViewController.m */,
+				66DF6A3017FB871B00CC9BD1 /* BreakoutGameScene.h */,
+				66DF6A3117FB871B00CC9BD1 /* BreakoutGameScene.m */,
+			);
+			name = levle2;
+			sourceTree = "<group>";
+		};
+		1B4070EA19EB9CA2000861DD /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				1B984AF719E8FF94007533CF /* GameOverViewController.h */,
+				1B984AF819E8FF94007533CF /* GameOverViewController.m */,
+			);
+			name = GameOver;
+			sourceTree = "<group>";
+		};
+		1B4070EB19EB9E29000861DD /* SingleGame */ = {
 			isa = PBXGroup;
 			children = (
 				66DF6A1E17FB871B00CC9BD1 /* BreakoutSpriteKitTutorial */,
+			);
+			name = SingleGame;
+			sourceTree = "<group>";
+		};
+		1B4070EC19EB9E4F000861DD /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				1B4070ED19EB9E71000861DD /* WelcomeViewController.h */,
+				1B4070EE19EB9E71000861DD /* WelcomeViewController.m */,
+			);
+			name = Welcome;
+			sourceTree = "<group>";
+		};
+		66DF6A0A17FB871A00CC9BD1 = {
+			isa = PBXGroup;
+			children = (
+				1B4070EB19EB9E29000861DD /* SingleGame */,
 				66DF6A4217FB871B00CC9BD1 /* BreakoutSpriteKitTutorialTests */,
 				66DF6A1517FB871B00CC9BD1 /* Frameworks */,
 				66DF6A1417FB871B00CC9BD1 /* Products */,
@@ -168,36 +244,19 @@
 		66DF6A1E17FB871B00CC9BD1 /* BreakoutSpriteKitTutorial */ = {
 			isa = PBXGroup;
 			children = (
-				1B984AF519E8DEE3007533CF /* game_over_bg.png */,
-				1B984AE419E8D40B007533CF /* Gate_down_large.png */,
-				1B984AE519E8D40B007533CF /* Gate_UP_large.png */,
-				1B984AE619E8D40B007533CF /* Gate_down_small.png */,
-				1B984AE719E8D40B007533CF /* Gate_down_normal.png */,
-				1B984AE819E8D40B007533CF /* Gate_UP_normal.png */,
-				1B984AE919E8D40B007533CF /* Gate_UP_small.png */,
+				1B19F54F19EBAC9B00BF9B8C /* level3 */,
+				1B19F54E19EBAC9200BF9B8C /* level1 */,
+				1B4070EC19EB9E4F000861DD /* Welcome */,
+				1B4070EA19EB9CA2000861DD /* GameOver */,
+				1B4070E919EB9C74000861DD /* levle2 */,
+				1B4070E819EB9C4F000861DD /* PNGS */,
 				66DF6A2717FB871B00CC9BD1 /* AppDelegate.h */,
 				66DF6A2817FB871B00CC9BD1 /* AppDelegate.m */,
 				66DF6A2A17FB871B00CC9BD1 /* Main.storyboard */,
-				66DF6A2D17FB871B00CC9BD1 /* ViewController.h */,
-				66DF6A2E17FB871B00CC9BD1 /* ViewController.m */,
-				66DF6A3017FB871B00CC9BD1 /* BreakoutGameScene.h */,
-				66DF6A3117FB871B00CC9BD1 /* BreakoutGameScene.m */,
-				66DF6A6217FC6E1500CC9BD1 /* GameOverScene.h */,
-				66DF6A6317FC6E1500CC9BD1 /* GameOverScene.m */,
 				18EC42EC19EB95B700CFB641 /* player2.png */,
-				18372CAF19E7DCEC009E92C2 /* background.jpeg */,
-				18EC42E819EB957400CFB641 /* MyKeeper.png */,
-				18EC42E919EB957400CFB641 /* gateForward.png */,
-				18372CB219E7DCEC009E92C2 /* soccer.png */,
-				18D0159919EA91CE000E8B01 /* gateForward.png */,
-				18D0159A19EA91CE000E8B01 /* gateKeeper.png */,
-				18D015A319EA9D21000E8B01 /* redMushroom.png */,
-				18D015A519EA9D33000E8B01 /* greenMushroom.png */,
 				66DF6A5217FB87DA00CC9BD1 /* Resources */,
 				66DF6A3517FB871B00CC9BD1 /* Images.xcassets */,
 				66DF6A1F17FB871B00CC9BD1 /* Supporting Files */,
-				1B984AF719E8FF94007533CF /* GameOverViewController.h */,
-				1B984AF819E8FF94007533CF /* GameOverViewController.m */,
 				1B984AFA19E915CF007533CF /* SystemSetting.h */,
 			);
 			path = BreakoutSpriteKitTutorial;
@@ -341,6 +400,7 @@
 				18D0159E19EA91CE000E8B01 /* gateKeeper.png in Resources */,
 				1B984AF619E8DEE3007533CF /* game_over_bg.png in Resources */,
 				1B984AED19E8D40B007533CF /* Gate_down_normal.png in Resources */,
+				1B4070E719EB9869000861DD /* singleGameWelcome.png in Resources */,
 				18D015A619EA9D33000E8B01 /* greenMushroom.png in Resources */,
 				1B984AEB19E8D40B007533CF /* Gate_UP_large.png in Resources */,
 				66DF6A5A17FB87DB00CC9BD1 /* assets.atlas in Resources */,
@@ -371,11 +431,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B984AF919E8FF94007533CF /* GameOverViewController.m in Sources */,
-				66DF6A6417FC6E1500CC9BD1 /* GameOverScene.m in Sources */,
 				66DF6A3217FB871B00CC9BD1 /* BreakoutGameScene.m in Sources */,
 				66DF6A2F17FB871B00CC9BD1 /* ViewController.m in Sources */,
 				66DF6A2917FB871B00CC9BD1 /* AppDelegate.m in Sources */,
 				66DF6A2517FB871B00CC9BD1 /* main.m in Sources */,
+				1B4070EF19EB9E71000861DD /* WelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

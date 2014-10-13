@@ -8,6 +8,6 @@
 
 #ifndef BreakoutSpriteKitTutorial_SystemSetting_h
 #define BreakoutSpriteKitTutorial_SystemSetting_h
-#define URLADDRESS  @ "http://10.9.153.6/SoccerGame/DatabaseAccess.php"
+#define URLADDRESS  @ "http://10.9.153.26/SoccerGame/DatabaseAccess.php"
 
 #endif

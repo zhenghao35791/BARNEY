@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cJx-9i-Otg">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="r5s-aH-V57">
+            <objects>
+                <viewController id="Soc-bU-PGl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GdO-OE-hMi"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ys8-Di-Sot"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KSX-T6-zpI">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Psf-7m-LpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="756" y="-2507"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
@@ -38,7 +57,139 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32" y="161"/>
+            <point key="canvasLocation" x="768" y="-1033"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="oAN-U0-gaq">
+            <objects>
+                <viewController id="ndd-8j-ozC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7R6-Ia-32l"/>
+                        <viewControllerLayoutGuide type="bottom" id="PDu-JI-uow"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p5H-6E-giv">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VlZ-Rt-BHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="761" y="297"/>
+        </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="kee-08-qbA">
+            <objects>
+                <viewController id="cJx-9i-Otg" customClass="WelcomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LHp-Ul-pGc"/>
+                        <viewControllerLayoutGuide type="bottom" id="rSZ-eB-mss"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="STs-rE-C11">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="singleGameWelcome.png" translatesAutoresizingMaskIntoConstraints="NO" id="68W-1I-Du1">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="mYB-UA-IdZ" appends="YES" id="Zz5-XN-I5f"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NtA-8f-viP">
+                                <rect key="frame" x="340" y="716" width="94" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Level 3">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="level3Game:" destination="cJx-9i-Otg" eventType="touchUpInside" id="VjW-Xk-xfs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeR-DL-9Sv">
+                                <rect key="frame" x="340" y="648" width="94" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Level 2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="level2Game:" destination="cJx-9i-Otg" eventType="touchUpInside" id="GDW-Ym-j7M"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a level:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKp-WD-IQ8">
+                                <rect key="frame" x="85" y="535" width="154" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnN-6v-ceH">
+                                <rect key="frame" x="85" y="444" width="72" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQB-sE-Gx7">
+                                <rect key="frame" x="262" y="164" width="245" height="87"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please set a gaming name and select the level of game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwF-Qq-RBT">
+                                <rect key="frame" x="25" y="329" width="719" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SAz-1g-GH3">
+                                <rect key="frame" x="262" y="449" width="245" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cJx-9i-Otg" id="6sb-ig-cD4"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKN-ae-MWI">
+                                <rect key="frame" x="340" y="586" width="94" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Level 1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leve1Game:" destination="cJx-9i-Otg" eventType="touchUpInside" id="j6c-Pm-mYp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Qk-76-PVg">
+                                <rect key="frame" x="357" y="874" width="55" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Quit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Quit:" destination="cJx-9i-Otg" eventType="touchUpInside" id="Y8H-d7-xvg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
+                    <connections>
+                        <outlet property="userName" destination="SAz-1g-GH3" id="bYx-e7-rDR"/>
+                        <segue destination="LVB-YS-i5n" kind="modal" identifier="game_level2" id="hDh-KI-x4I"/>
+                        <segue destination="Soc-bU-PGl" kind="modal" identifier="game_level1" id="rgA-Qj-eI0"/>
+                        <segue destination="ndd-8j-ozC" kind="modal" identifier="game_level3" id="NSB-jQ-5dz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ka9-ri-K9u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="mYB-UA-IdZ">
+                    <connections>
+                        <action selector="backgroundTap:" destination="cJx-9i-Otg" id="O0h-cE-rrO"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-410" y="-1033"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="2Qb-YF-p44">
@@ -68,7 +219,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Uz-ZY-Hz7">
-                                <rect key="frame" x="120" y="755" width="80" height="48"/>
+                                <rect key="frame" x="309" y="586" width="80" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Home">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -78,7 +229,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPF-4E-o2X">
-                                <rect key="frame" x="540" y="755" width="118" height="48"/>
+                                <rect key="frame" x="290" y="782" width="118" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Try again">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,6 +256,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvn-nV-YeE">
+                                <rect key="frame" x="237" y="664" width="238" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Single Game Home">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickSingleGameHome:" destination="tAA-qa-bxs" eventType="touchUpInside" id="x2J-Sh-F2V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -114,20 +275,29 @@
                         <outlet property="currentRanking" destination="yrH-tE-4XE" id="uL4-by-FCv"/>
                         <outlet property="currentScore" destination="Z8a-1C-6hL" id="hc9-lC-qYL"/>
                         <outlet property="gameOverLable" destination="V2X-ln-AXD" id="mpK-KA-9Gm"/>
-                        <segue destination="LVB-YS-i5n" kind="modal" identifier="single_continue" id="ZVz-ms-Mw5"/>
+                        <segue destination="LVB-YS-i5n" kind="modal" identifier="single_continue_level2" id="ZVz-ms-Mw5"/>
+                        <segue destination="cJx-9i-Otg" kind="modal" identifier="result_2_single_home" id="4W4-u7-psl"/>
+                        <segue destination="Soc-bU-PGl" kind="modal" identifier="single_continue_level1" id="BcO-QE-qIE"/>
+                        <segue destination="ndd-8j-ozC" kind="modal" identifier="single_continue_level3" id="99v-Um-8Ih"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SnK-Ar-fJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1359" y="161"/>
+            <point key="canvasLocation" x="2043" y="-981"/>
         </scene>
     </scenes>
     <resources>
         <image name="game_over_bg.png" width="768" height="1024"/>
+        <image name="singleGameWelcome.png" width="768" height="1024"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="hDh-KI-x4I"/>
+        <segue reference="BcO-QE-qIE"/>
+        <segue reference="NSB-jQ-5dz"/>
+    </inferredMetricsTieBreakers>
 </document>
