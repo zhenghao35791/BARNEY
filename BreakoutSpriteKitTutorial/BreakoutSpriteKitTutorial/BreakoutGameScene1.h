@@ -7,9 +7,9 @@
 //
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
-//#import "ViewController.h"
+//#import "Level1ViewController.h"
 
-@interface BreakoutGameScene : SKScene<SKPhysicsContactDelegate>{
+@interface BreakoutGameScene1 : SKScene<SKPhysicsContactDelegate>{
     CGRect screenRect;
     CGFloat screenHeight;
     CGFloat screenWidth;
@@ -34,8 +34,8 @@
 @property SKLabelNode *enemyScore;
 @property SKSpriteNode *redMushroom;
 @property SKSpriteNode *greenMushroom;
-@property BOOL isEatingGreen;
-@property BOOL isEatingRed;
+@property BOOL isEatingGreen1;
+@property BOOL isEatingRed1;
 @property NSInteger internalCounter;
 @property int gateUpScore;
 @property int gateDownScore;

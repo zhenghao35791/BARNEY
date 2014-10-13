@@ -16,6 +16,9 @@
 		18EC42EA19EB957400CFB641 /* MyKeeper.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EC42E819EB957400CFB641 /* MyKeeper.png */; };
 		18EC42EB19EB957400CFB641 /* gateForward.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EC42E919EB957400CFB641 /* gateForward.png */; };
 		18EC42ED19EB95B700CFB641 /* player2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EC42EC19EB95B700CFB641 /* player2.png */; };
+		1B19F55B19EBAE5F00BF9B8C /* Level3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B19F55A19EBAE5F00BF9B8C /* Level3ViewController.m */; };
+		1B19F55E19EBAF6200BF9B8C /* BreakoutGameScene1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B19F55D19EBAF6200BF9B8C /* BreakoutGameScene1.m */; };
+		1B19F56119EBB82500BF9B8C /* Level1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B19F56019EBB82500BF9B8C /* Level1ViewController.m */; };
 		1B4070E719EB9869000861DD /* singleGameWelcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B4070E619EB9869000861DD /* singleGameWelcome.png */; };
 		1B4070EF19EB9E71000861DD /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4070EE19EB9E71000861DD /* WelcomeViewController.m */; };
 		1B984AEA19E8D40B007533CF /* Gate_down_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE419E8D40B007533CF /* Gate_down_large.png */; };
@@ -69,6 +72,12 @@
 		18EC42E819EB957400CFB641 /* MyKeeper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyKeeper.png; sourceTree = "<group>"; };
 		18EC42E919EB957400CFB641 /* gateForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gateForward.png; sourceTree = "<group>"; };
 		18EC42EC19EB95B700CFB641 /* player2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player2.png; sourceTree = "<group>"; };
+		1B19F55919EBAE5F00BF9B8C /* Level3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level3ViewController.h; sourceTree = "<group>"; };
+		1B19F55A19EBAE5F00BF9B8C /* Level3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level3ViewController.m; sourceTree = "<group>"; };
+		1B19F55C19EBAF6200BF9B8C /* BreakoutGameScene1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreakoutGameScene1.h; sourceTree = "<group>"; };
+		1B19F55D19EBAF6200BF9B8C /* BreakoutGameScene1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreakoutGameScene1.m; sourceTree = "<group>"; };
+		1B19F55F19EBB82500BF9B8C /* Level1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level1ViewController.h; sourceTree = "<group>"; };
+		1B19F56019EBB82500BF9B8C /* Level1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level1ViewController.m; sourceTree = "<group>"; };
 		1B4070E619EB9869000861DD /* singleGameWelcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = singleGameWelcome.png; sourceTree = "<group>"; };
 		1B4070ED19EB9E71000861DD /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		1B4070EE19EB9E71000861DD /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
@@ -139,6 +148,10 @@
 		1B19F54E19EBAC9200BF9B8C /* level1 */ = {
 			isa = PBXGroup;
 			children = (
+				1B19F55C19EBAF6200BF9B8C /* BreakoutGameScene1.h */,
+				1B19F55D19EBAF6200BF9B8C /* BreakoutGameScene1.m */,
+				1B19F55F19EBB82500BF9B8C /* Level1ViewController.h */,
+				1B19F56019EBB82500BF9B8C /* Level1ViewController.m */,
 			);
 			name = level1;
 			sourceTree = "<group>";
@@ -146,6 +159,8 @@
 		1B19F54F19EBAC9B00BF9B8C /* level3 */ = {
 			isa = PBXGroup;
 			children = (
+				1B19F55919EBAE5F00BF9B8C /* Level3ViewController.h */,
+				1B19F55A19EBAE5F00BF9B8C /* Level3ViewController.m */,
 			);
 			name = level3;
 			sourceTree = "<group>";
@@ -430,11 +445,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B19F55E19EBAF6200BF9B8C /* BreakoutGameScene1.m in Sources */,
 				1B984AF919E8FF94007533CF /* GameOverViewController.m in Sources */,
 				66DF6A3217FB871B00CC9BD1 /* BreakoutGameScene.m in Sources */,
 				66DF6A2F17FB871B00CC9BD1 /* ViewController.m in Sources */,
+				1B19F55B19EBAE5F00BF9B8C /* Level3ViewController.m in Sources */,
 				66DF6A2917FB871B00CC9BD1 /* AppDelegate.m in Sources */,
 				66DF6A2517FB871B00CC9BD1 /* main.m in Sources */,
+				1B19F56119EBB82500BF9B8C /* Level1ViewController.m in Sources */,
 				1B4070EF19EB9E71000861DD /* WelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

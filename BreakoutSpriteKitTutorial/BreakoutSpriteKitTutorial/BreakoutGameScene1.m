@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Barbara Köhler. All rights reserved.
 /////
 #import <UIKit/UIKit.h>
-#import "BreakoutGameScene.h"
+#import "BreakoutGameScene1.h"
 
 #import "GameOverViewController.h"
-#import "ViewController.h"
+#import "Level1ViewController.h"
 
 
 static NSString* soccerCategoryName = @"soccer";
@@ -36,7 +36,7 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
 
 
 
-@interface BreakoutGameScene()
+@interface BreakoutGameScene1()
 
 @property (nonatomic) BOOL isFingerOnPlayer1;
 @property (nonatomic) BOOL isFingerOnPlayer2;
@@ -45,15 +45,12 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
 @end
 
 
-@implementation BreakoutGameScene
+@implementation BreakoutGameScene1
 
-NSTimeInterval startTime;
-NSTimeInterval endTime;
-NSTimeInterval eatGreenTime = 0;
-NSTimeInterval eatRedTime = 0;
-
-
-
+NSTimeInterval startTime1;
+NSTimeInterval endTime1;
+NSTimeInterval eatGreenTime1 = 0;
+NSTimeInterval eatRedTime1 = 0;
 
 
 
@@ -64,22 +61,25 @@ NSTimeInterval eatRedTime = 0;
         _gateDownScore = 0;
         _gateUpScore = 0;
         _internalCounter= 0;
-        _isEatingGreen = FALSE;
-        _isEatingRed = FALSE;
+        _isEatingGreen1 = FALSE;
+        _isEatingRed1 = FALSE;
         _is5Times = false;
+
+        _isEatingGreen1 = FALSE;
+        _isEatingRed1 = FALSE;
         //NSString *myScore = [NSString stringWithFormat:@"%i",_gateDownScore];
         //NSString *enenmyScore = [NSString stringWithFormat:@"%i",_gateUpScore];
         [[NSUserDefaults standardUserDefaults]setObject:@"none" forKey:@"myScore"];
         [[NSUserDefaults standardUserDefaults]setObject:@"none" forKey:@"enemyScore"];
-       _internalCounter= 0;
+        _internalCounter= 0;
         _gateUpScore = 0;
         _gateDownScore = 0;
         _maxGameTime = 60;
         
         // Setup the scene
-       screenRect = [[UIScreen mainScreen]bounds];
-       screenHeight = screenRect.size.height;
-       screenWidth = screenRect.size.width;
+        screenRect = [[UIScreen mainScreen]bounds];
+        screenHeight = screenRect.size.height;
+        screenWidth = screenRect.size.width;
         
         
         //adding backgroud
@@ -105,7 +105,7 @@ NSTimeInterval eatRedTime = 0;
         
         // 2
         _soccer.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:_soccer.frame.size.width/2];
-       // _soccer.physicsBody.usesPreciseCollisionDetection =  YES;
+        // _soccer.physicsBody.usesPreciseCollisionDetection =  YES;
         // 3
         _soccer.physicsBody.friction = 0.2f;
         // 4
@@ -137,7 +137,7 @@ NSTimeInterval eatRedTime = 0;
         _player2.physicsBody.allowsRotation = NO;
         _player2.physicsBody.mass = 100;
         
-         // ADD GATE down
+        // ADD GATE down
         _gateUp = [[SKSpriteNode alloc] initWithImageNamed: @"Gate_down_normal.png"];
         _gateUp.position = CGPointMake(screenWidth/2,40);
         _gateUp.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateUp.frame.size];
@@ -154,17 +154,17 @@ NSTimeInterval eatRedTime = 0;
         
         _gateUp.physicsBody.dynamic = NO;
         _gateDown.physicsBody.dynamic = NO;
-      
         
-//        CGRect bottomRect = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 1);
-//        SKNode* bottom = [SKNode node];
-//        bottom.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:bottomRect];
-//        [self addChild:bottom];
+        
+        //        CGRect bottomRect = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 1);
+        //        SKNode* bottom = [SKNode node];
+        //        bottom.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:bottomRect];
+        //        [self addChild:bottom];
         
         
         CGRect borderRect = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
         SKNode* border = [SKNode node];
-
+        
         border.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:borderRect];
         [self addChild:border];
         
@@ -186,7 +186,7 @@ NSTimeInterval eatRedTime = 0;
         
         self.physicsWorld.contactDelegate = self;
         
-        startTime = CACurrentMediaTime();
+        startTime1 = CACurrentMediaTime();
         
         
         //loading internal
@@ -236,7 +236,7 @@ NSTimeInterval eatRedTime = 0;
         [_selectedNode setPosition:CGPointMake(position.x + translation.x, position.y + translation.y)];
         _player2.physicsBody.velocity = CGVectorMake(translation.x, translation.y);//speed
     }
-
+    
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
@@ -259,18 +259,18 @@ NSTimeInterval eatRedTime = 0;
         firstBody = contact.bodyB;
         secondBody = contact.bodyA;
     }
-        if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == player1Category) {
+    if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == player1Category) {
         _soccer.physicsBody.velocity = CGVectorMake(secondBody.velocity.dx*10, secondBody.velocity.dy*10);
         _player1.physicsBody.velocity = CGVectorMake(0,0);
-
+        
     }
     
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == player2Category) {
         _soccer.physicsBody.velocity = CGVectorMake(secondBody.velocity.dx*10, secondBody.velocity.dy*10);
         _player2.physicsBody.velocity = CGVectorMake(0,0);
-
+        
     }
-
+    
     
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateUpCategory) {
         NSLog(@"gateupsoring");
@@ -279,7 +279,7 @@ NSTimeInterval eatRedTime = 0;
         [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
         [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
-
+        
     }
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateDownCategory) {
         NSLog(@"gatedownsoring");
@@ -288,14 +288,14 @@ NSTimeInterval eatRedTime = 0;
         [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
         [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
-
+        
     }
     
     if (firstBody.categoryBitMask == borderCategory && secondBody.categoryBitMask == greenMushroomCategory ) {
         NSLog(@"greenMushroom BORDER");
         //[_greenMushroom runAction:[SKAction removeFromParent]];
         [secondBody.node removeFromParent];
-
+        
     }
     
     if (firstBody.categoryBitMask == borderCategory && secondBody.categoryBitMask == redMushroomCategory ) {
@@ -306,7 +306,7 @@ NSTimeInterval eatRedTime = 0;
     }
     
     if (firstBody.categoryBitMask == player2Category && secondBody.categoryBitMask == greenMushroomCategory ) {
-         NSLog(@"greenMushroom");
+        NSLog(@"greenMushroom");
         //[_greenMushroom runAction:[SKAction removeFromParent]];
         [secondBody.node removeFromParent];
         [_gateDown removeFromParent];
@@ -319,16 +319,16 @@ NSTimeInterval eatRedTime = 0;
         _gateDown.physicsBody.categoryBitMask = gateDownCategory;
         [self addChild:_gateDown];
         
-        _isEatingGreen = TRUE;
-        eatGreenTime = CACurrentMediaTime();
-
+        _isEatingGreen1 = true;
+        eatGreenTime1 = CACurrentMediaTime();
+        
     }
     
     if (firstBody.categoryBitMask == player2Category && secondBody.categoryBitMask == redMushroomCategory ) {
-         NSLog(@"redMushroom");
+        NSLog(@"redMushroom");
         [secondBody.node removeFromParent];
-        _isEatingRed = true;
-        eatRedTime = CACurrentMediaTime();
+        _isEatingRed1 = true;
+        eatRedTime1 = CACurrentMediaTime();
     }
     
     
@@ -348,8 +348,8 @@ NSTimeInterval eatRedTime = 0;
 }
 
 - (void) setEatingGreenBOOL{
-    if( !eatGreenTime==0 &&CACurrentMediaTime()-eatGreenTime > 5 && _isEatingGreen){
-        _isEatingGreen = false;
+    if( !eatGreenTime1==0 &&CACurrentMediaTime()-eatGreenTime1 > 5 && _isEatingGreen1){
+        _isEatingGreen1 = false;
         [_gateDown removeFromParent];
         [_gateDown removeFromParent];
         _gateDown = [[SKSpriteNode alloc] initWithImageNamed: @"Gate_UP_normal.png"];
@@ -359,15 +359,15 @@ NSTimeInterval eatRedTime = 0;
         _gateDown.physicsBody.categoryBitMask =gateDownCategory;
         _gateDown.physicsBody.dynamic = NO;
         [self addChild:_gateDown];
-
+        
     }
 }
 
 
 
 - (void) setEatingRedBOOL{
-    if( !eatRedTime==0 &&CACurrentMediaTime()-eatRedTime > 5){
-        _isEatingRed = false;
+    if( !eatRedTime1==0 &&CACurrentMediaTime()-eatRedTime1 > 5){
+        _isEatingRed1 = false;
     }
 }
 
@@ -381,20 +381,20 @@ NSTimeInterval eatRedTime = 0;
     } else {
         _soccer.physicsBody.linearDamping = 0.4f;
     }
-  
-   // CGPoint newPositionSoccer = CGPointMake(_soccer.position.x+2, _soccer.position.y+2);
-   // _soccer.position = newPositionSoccer;
+    
+    // CGPoint newPositionSoccer = CGPointMake(_soccer.position.x+2, _soccer.position.y+2);
+    // _soccer.position = newPositionSoccer;
     
     
     //////////////////////////aiforward
     ///////////////////////////
-   if(!_isEatingRed) {
-       CGPoint moving = CGPointMake(_soccer.position.x - _aiForward.position.x, _soccer.position.y - _aiForward.position.y);
-       SKAction *offensive = [SKAction moveTo:CGPointMake(_soccer.position.x, _soccer.position.y) duration:3];
-       [_aiForward runAction:[SKAction repeatActionForever:offensive]];
+    if(!_isEatingRed1) {
+        CGPoint moving = CGPointMake(_soccer.position.x - _aiForward.position.x, _soccer.position.y - _aiForward.position.y);
+        SKAction *offensive = [SKAction moveTo:CGPointMake(_soccer.position.x, _soccer.position.y) duration:3];
+        [_aiForward runAction:[SKAction repeatActionForever:offensive]];
         _aiForward.physicsBody.velocity  = CGVectorMake(moving.x, moving.y);
-   }
-    if(_isEatingRed){
+    }
+    if(_isEatingRed1){
         CGPoint moving = CGPointMake(_soccer.position.x - _aiForward.position.x, _soccer.position.y - _aiForward.position.y);
         SKAction *offensive = [SKAction moveTo:CGPointMake(_soccer.position.x, _soccer.position.y) duration:30];
         [_aiForward runAction:[SKAction repeatActionForever:offensive]];
@@ -402,13 +402,13 @@ NSTimeInterval eatRedTime = 0;
     }
     
     
-    endTime = currentTime;
-   _internalCounter= (endTime - startTime);
-    if(_maxGameTime - _internalCounter>0)
-        {  //if counting down to 0 show counter
-            _internal.text = [NSString stringWithFormat:@"%i           %i : %i", _maxGameTime -_internalCounter,_gateDownScore,_gateUpScore];
-        }
-   
+    endTime1 = currentTime;
+    _internalCounter= (endTime1 - startTime1);
+    if(_maxGameTime -_internalCounter>0)
+    {  //if counting down to 0 show counter
+        _internal.text = [NSString stringWithFormat:@"%i           %i : %i", _maxGameTime -_internalCounter,_gateDownScore,_gateUpScore];
+    }
+    
     else{
         NSString *myScore = [NSString stringWithFormat:@"%i",_gateDownScore];
         NSString *enenmyScore = [NSString stringWithFormat:@"%i",_gateUpScore];
@@ -446,7 +446,7 @@ NSTimeInterval eatRedTime = 0;
     SKAction *defend = [SKAction followPath:cgpath asOffset:NO orientToPath:YES duration:4];
     _aiKeeper.physicsBody.dynamic = NO;
     _aiKeeper.physicsBody.allowsRotation = NO;
-
+    
     [self addChild:_aiKeeper];
     [_aiKeeper runAction:[SKAction repeatActionForever:(defend)]];
     
@@ -461,7 +461,7 @@ NSTimeInterval eatRedTime = 0;
     _aiForward.physicsBody.allowsRotation = NO;
     _aiForward.physicsBody.dynamic = NO;
     [self addChild:_aiForward];
-   
+    
 }
 
 - (void) CallingGreenMushroom{
@@ -506,7 +506,7 @@ NSTimeInterval eatRedTime = 0;
         if(randomInt==0)[self CallingGreenMushroom];
         if(randomInt==1) [self CallingRedMushroom];
         [NSThread sleepForTimeInterval:[self getRandomNumberBetween:5 to:10]];
-       
+        
     }
 }
 
