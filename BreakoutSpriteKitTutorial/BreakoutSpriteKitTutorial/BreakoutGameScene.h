@@ -14,6 +14,7 @@
     CGFloat screenHeight;
     CGFloat screenWidth;
 }
+-(int)getRandomNumberBetween:(int)from to:(int)to;
 
 @property SKSpriteNode *selectedNode;
 @property SKSpriteNode *player1;
@@ -27,7 +28,11 @@
 @property SKLabelNode *internal;
 @property SKLabelNode *myScore;
 @property SKLabelNode *aIcon;
+@property SKLabelNode *scoringLabel;
 @property SKLabelNode *enemyScore;
+@property SKSpriteNode *redMushroom;
+@property SKSpriteNode *greenMushroom;
+
 //@property ViewController *spyViewCotroller;
 
 

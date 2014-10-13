@@ -23,19 +23,19 @@
     //[_results setObject:@"" forKey:@"enemyScore"];
     
     // Configure the view.
-    NSLog(@"test1");
+   // NSLog(@"test1");
     SKView * skView = (SKView *)self.view;
-    NSLog(@"test2");
+    //NSLog(@"test2");
     if (!skView.scene) {
         skView.showsFPS = YES;
         skView.showsNodeCount = YES;
         
         // Create and configure the scene.
-        NSLog(@"test3");
+      //  NSLog(@"test3");
         SKScene * scene = [BreakoutGameScene sceneWithSize:skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
         
-        NSLog(@"test4");
+        //NSLog(@"test4");
         // Present the scene.
         [skView presentScene:scene];
     }

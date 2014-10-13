@@ -15,19 +15,22 @@
 static NSString* soccerCategoryName = @"soccer";
 static NSString* player1CategoryName = @"player1";
 static NSString* player2CategoryName = @"player2";
-static NSString* gateRedCategoryName = @"gateRedCategoryName";
-static NSString* gateBlueCategoryName = @"gateBlueCategoryName";
+static NSString* gateUpCategoryName = @"gateUpCategoryName";
+static NSString* gateDownCategoryName = @"gateDownCategoryName";
 static NSString* aiKeeperCategoryName = @"aiKeeperCategoryName";
+static NSString* scroingLableCategoryName = @"scroingLableCategoryName";
 
 
 static const uint32_t soccerCategory  = 0x1 << 0;  // 00000000000000000000000000000001
 static const uint32_t borderCategory = 0x1 << 1; // 00000000000000000000000000000010
 static const uint32_t player1Category = 0x1 << 2;  // 00000000000000000000000000000100
 static const uint32_t player2Category = 0x1 << 3; // 00000000000000000000000000001000
-static const uint32_t gateRedCategory = 0x1 << 4;
-static const uint32_t gateBlueCategory = 0x1 << 5;
+static const uint32_t gateUpCategory = 0x1 << 4;
+static const uint32_t gateDownCategory = 0x1 << 5;
 static const uint32_t aiKeeperCategory = 0x1 << 6;
 static const uint32_t aiForwardCategory = 0x1 << 7;
+static const uint32_t greenMushroomCategory = 0x1 << 8;
+static const uint32_t redMushroomCategory = 0x1 << 9;
 
 
 
@@ -37,29 +40,36 @@ static const uint32_t aiForwardCategory = 0x1 << 7;
 
 @property (nonatomic) BOOL isFingerOnPlayer1;
 @property (nonatomic) BOOL isFingerOnPlayer2;
+@property (nonatomic) BOOL is5Times;
 
 @end
 
 
 @implementation BreakoutGameScene
-
+bool isEatingGreen = false ;
+bool isEatingRed = false;
 NSTimeInterval startTime;
 NSTimeInterval endTime;
+NSTimeInterval eatGreenTime = 0;
+NSTimeInterval eatRedTime = 0;
+
+
 int internal = 0;
-int gateRedScore = 0;
-int gateBlueScore = 0;
-int maxGameTime = 10;
+int gateUpScore = 0;
+int gateDownScore = 0;
+int maxGameTime = 60;
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        //NSString *myScore = [NSString stringWithFormat:@"%i",gateBlueScore];
-        //NSString *enenmyScore = [NSString stringWithFormat:@"%i",gateRedScore];
+        _is5Times = false;
+        //NSString *myScore = [NSString stringWithFormat:@"%i",gateDownScore];
+        //NSString *enenmyScore = [NSString stringWithFormat:@"%i",gateUpScore];
         [[NSUserDefaults standardUserDefaults]setObject:@"none" forKey:@"myScore"];
         [[NSUserDefaults standardUserDefaults]setObject:@"none" forKey:@"enemyScore"];
         internal = 0;
-        gateRedScore = 0;
-        gateBlueScore = 0;
-        maxGameTime = 10;
+        gateUpScore = 0;
+        gateDownScore = 0;
+        maxGameTime = 60;
         
         // Setup the scene
        screenRect = [[UIScreen mainScreen]bounds];
@@ -90,28 +100,20 @@ int maxGameTime = 10;
         
         // 2
         _soccer.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:_soccer.frame.size.width/2];
+       // _soccer.physicsBody.usesPreciseCollisionDetection =  YES;
         // 3
-        _soccer.physicsBody.friction = 3.6f;
+        _soccer.physicsBody.friction = 0.2f;
         // 4
-        _soccer.physicsBody.restitution = 1.2f;
+        _soccer.physicsBody.restitution = 1.0f;
         // 5
-        _soccer.physicsBody.linearDamping = 3.6f;
+        _soccer.physicsBody.linearDamping = 0.2f;
         // 6
         _soccer.physicsBody.allowsRotation = YES;
         //7
         _soccer.physicsBody.mass = 10;
         
-       //////////////////////////////////////// [_soccer.physicsBody applyImpulse:CGVectorMake(10.0f, -10.0f)];
         
-        _player1 = [[SKSpriteNode alloc] initWithImageNamed: @"player1.png"];
-        _player1.name = player1CategoryName;
-        _player1.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 + 200);
-        [self addChild:_player1];
-        _player1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_player1.frame.size];
-        _player1.physicsBody.restitution = 0.1f;
-        _player1.physicsBody.friction = 0.4f;
-        _player1.physicsBody.allowsRotation = NO;
-        _player1.physicsBody.mass = 100;
+        
         
         
         
@@ -120,38 +122,44 @@ int maxGameTime = 10;
         // make physicsBody static
         //////////////////// _player2.physicsBody.dynamic = NO;
         
-         _player2 = [[SKSpriteNode alloc] initWithImageNamed: @"player2.png"];
+        _player2 = [[SKSpriteNode alloc] initWithImageNamed: @"player2.png"];
         _player2.name = player2CategoryName;
-        _player2.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 200);
+        _player2.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100);
         [self addChild:_player2];
         _player2.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_player2.frame.size];
-        _player2.physicsBody.restitution = 0.1f;
-        _player2.physicsBody.friction = 0.2f;
+        _player2.physicsBody.restitution = 0.0f;
+        _player2.physicsBody.friction = 0.1f;
         _player2.physicsBody.allowsRotation = NO;
         _player2.physicsBody.mass = 100;
         
          // ADD GATE down
         _gateUp = [[SKSpriteNode alloc] initWithImageNamed: @"Gate_down_normal.png"];
-        _gateUp.position = CGPointMake(screenWidth/2-100,60);
+        _gateUp.position = CGPointMake(screenWidth/2,40);
         _gateUp.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateUp.frame.size];
-        _gateUp.name = gateRedCategoryName;
+        _gateUp.name = gateUpCategoryName;
         [self addChild:_gateUp];
         
-        [self CallingAi];
         
         // ADD GATE up
         _gateDown = [[SKSpriteNode alloc] initWithImageNamed: @"Gate_UP_normal.png"];
-        _gateDown.position = CGPointMake(screenWidth/2-100,screenHeight - 70);
+        _gateDown.position = CGPointMake(screenWidth/2,screenHeight - 40);
         _gateDown.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateDown.frame.size];
-        _gateDown.name = gateBlueCategoryName;
+        _gateDown.name = gateDownCategoryName;
         [self addChild:_gateDown];
         
         _gateUp.physicsBody.dynamic = NO;
         _gateDown.physicsBody.dynamic = NO;
       
         
+//        CGRect bottomRect = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 1);
+//        SKNode* bottom = [SKNode node];
+//        bottom.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:bottomRect];
+//        [self addChild:bottom];
+        
+        
         CGRect borderRect = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
         SKNode* border = [SKNode node];
+
         border.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:borderRect];
         [self addChild:border];
         
@@ -159,12 +167,17 @@ int maxGameTime = 10;
         _soccer.physicsBody.categoryBitMask = soccerCategory;
         _player1.physicsBody.categoryBitMask = player1Category;
         _player2.physicsBody.categoryBitMask = player2Category;
-        _gateUp.physicsBody.categoryBitMask = gateRedCategory;
-        _gateDown.physicsBody.categoryBitMask = gateBlueCategory;
+        _gateUp.physicsBody.categoryBitMask = gateUpCategory;
+        _gateDown.physicsBody.categoryBitMask = gateDownCategory;
         _aiKeeper.physicsBody.categoryBitMask = aiKeeperCategory;
         _aiForward.physicsBody.categoryBitMask = aiForwardCategory;
         
-        _soccer.physicsBody.contactTestBitMask = borderCategory | player1Category|player2Category|gateRedCategory|gateBlueCategory|aiForwardCategory|aiKeeperCategory;
+        _soccer.physicsBody.contactTestBitMask = borderCategory | player1Category|player2Category|gateUpCategory|gateDownCategory|aiForwardCategory|aiKeeperCategory;
+        
+        _player2.physicsBody.contactTestBitMask = redMushroomCategory | greenMushroomCategory;
+        _greenMushroom.physicsBody.contactTestBitMask = borderCategory|player2Category;
+        border.physicsBody.contactTestBitMask = player2Category|greenMushroomCategory|redMushroomCategory;
+        _redMushroom.physicsBody.contactTestBitMask = borderCategory|player2Category;
         
         self.physicsWorld.contactDelegate = self;
         
@@ -179,6 +192,11 @@ int maxGameTime = 10;
         _internal.fontColor = [SKColor whiteColor ];
         _internal.name = @"countDown";
         [self addChild:_internal];
+        
+        
+        [self CallingAiGateKeeper];
+        [self CallingAiGateForward];
+        [self dropingMushroom];
     }
     return self;
 }
@@ -212,6 +230,7 @@ int maxGameTime = 10;
         [_selectedNode setPosition:CGPointMake(position.x + translation.x, position.y + translation.y)];
         _player2.physicsBody.velocity = CGVectorMake(translation.x, translation.y);//speed
     }
+
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
@@ -235,111 +254,173 @@ int maxGameTime = 10;
         secondBody = contact.bodyA;
     }
         if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == player1Category) {
-        _soccer.physicsBody.velocity = CGVectorMake(secondBody.velocity.dx*5, secondBody.velocity.dy*5);
+        _soccer.physicsBody.velocity = CGVectorMake(secondBody.velocity.dx*10, secondBody.velocity.dy*10);
+        _player1.physicsBody.velocity = CGVectorMake(0,0);
 
     }
     
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == player2Category) {
-        _soccer.physicsBody.velocity = CGVectorMake(secondBody.velocity.dx*5, secondBody.velocity.dy*5);
+        _soccer.physicsBody.velocity = CGVectorMake(secondBody.velocity.dx*10, secondBody.velocity.dy*10);
+        _player2.physicsBody.velocity = CGVectorMake(0,0);
 
     }
 
     
-    if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateRedCategory) {
-        //NSLog(@"red");
-        gateRedScore++;
+    if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateUpCategory) {
+        NSLog(@"gateupsoring");
+        gateUpScore++;
+        [self alertStatus:@"soring" :@"Notice" :0];
+        [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
+        [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
+        [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
+
     }
-    if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateBlueCategory) {
-       // NSLog(@"blue");
-        gateBlueScore++;
+    if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateDownCategory) {
+        NSLog(@"gatedownsoring");
+        gateDownScore++;
+        [self alertStatus:@"soring" :@"Notice" :0];
+        [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
+        [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
+        [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
+
+    }
+    
+    if (firstBody.categoryBitMask == borderCategory && secondBody.categoryBitMask == greenMushroomCategory ) {
+        NSLog(@"greenMushroom BORDER");
+        //[_greenMushroom runAction:[SKAction removeFromParent]];
+        [secondBody.node removeFromParent];
+
+    }
+    
+    if (firstBody.categoryBitMask == borderCategory && secondBody.categoryBitMask == redMushroomCategory ) {
+        NSLog(@"redMushroom  BORDER");
+        //[_greenMushroom runAction:[SKAction removeFromParent]];
+        [secondBody.node removeFromParent];
         
     }
     
-    if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == aiKeeperCategory ) {
-       // NSLog(@"keeper");
+    if (firstBody.categoryBitMask == player2Category && secondBody.categoryBitMask == greenMushroomCategory ) {
+         NSLog(@"greenMushroom");
+        //[_greenMushroom runAction:[SKAction removeFromParent]];
+        [secondBody.node removeFromParent];
+        [_gateDown removeFromParent];
+        _gateDown = [[SKSpriteNode alloc] initWithImageNamed: @"Gate_UP_large.png"];
+        _gateDown.position = CGPointMake(screenWidth/2+10,screenHeight-40);
+        _gateDown.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateDown.frame.size];
+        _gateDown.name = gateDownCategoryName;
+        _gateDown.physicsBody.dynamic = NO;
+        [self addChild:_gateDown];
         
-    }
+        isEatingGreen = true;
+        eatGreenTime = CACurrentMediaTime();
 
+    }
+    
+    if (firstBody.categoryBitMask == player2Category && secondBody.categoryBitMask == redMushroomCategory ) {
+         NSLog(@"redMushroom");
+        [secondBody.node removeFromParent];
+        isEatingRed = true;
+        eatRedTime = CACurrentMediaTime();
+    }
+    
+    
+    if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == borderCategory) {
+        NSLog(@"borderSoccer");
+        [self alertStatus:@"out-of-bounds" :@"Notice" :0];
+        [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
+        [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
+        [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
+    }
+    
+    if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask== aiForwardCategory ) {
+        NSLog(@"aiForward-soccer");
+        _soccer.physicsBody.velocity = CGVectorMake(secondBody.velocity.dx*10, secondBody.velocity.dy*10);
+    }
+    
+}
+
+- (void) setEatingGreenBOOL{
+    if( !eatGreenTime==0 &&CACurrentMediaTime()-eatGreenTime > 5 && isEatingGreen){
+        isEatingGreen = false;
+        [_gateDown removeFromParent];
+        [_gateDown removeFromParent];
+        _gateDown = [[SKSpriteNode alloc] initWithImageNamed: @"Gate_UP_normal.png"];
+        _gateDown.position = CGPointMake(screenWidth/2,screenHeight-40);
+        _gateDown.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateDown.frame.size];
+        _gateDown.name = gateDownCategoryName;
+        _gateDown.physicsBody.dynamic = NO;
+        [self addChild:_gateDown];
+
+    }
 }
 
 
 
+- (void) setEatingRedBOOL{
+    if( !eatRedTime==0 &&CACurrentMediaTime()-eatRedTime > 5){
+        isEatingRed = false;
+    }
+}
+
 -(void)update:(CFTimeInterval)currentTime {
+    
     /* Called before each frame is rendered */
-    static int maxSpeed = 10;
+    static int maxSpeed = 20;
     float speed = sqrt(_soccer.physicsBody.velocity.dx *_soccer.physicsBody.velocity.dx + _soccer.physicsBody.velocity.dy * _soccer.physicsBody.velocity.dy);
     if (speed > maxSpeed) {
-        _soccer.physicsBody.linearDamping = 0.7f;
+        _soccer.physicsBody.linearDamping = 1.0f;
     } else {
-        _soccer.physicsBody.linearDamping = 0.1f;
+        _soccer.physicsBody.linearDamping = 0.4f;
     }
-    CGPoint newPositionSoccer = CGPointMake(_soccer.position.x, _soccer.position.y);
-    _soccer.position = newPositionSoccer;
+  
+   // CGPoint newPositionSoccer = CGPointMake(_soccer.position.x+2, _soccer.position.y+2);
+   // _soccer.position = newPositionSoccer;
+    
+    
+    //////////////////////////aiforward
+    ///////////////////////////
+   if(!isEatingRed) {
+       CGPoint moving = CGPointMake(_soccer.position.x - _aiForward.position.x, _soccer.position.y - _aiForward.position.y);
+       SKAction *offensive = [SKAction moveTo:CGPointMake(_soccer.position.x, _soccer.position.y) duration:3];
+       [_aiForward runAction:[SKAction repeatActionForever:offensive]];
+        _aiForward.physicsBody.velocity  = CGVectorMake(moving.x, moving.y);
+   }
+    if(isEatingRed){
+        CGPoint moving = CGPointMake(_soccer.position.x - _aiForward.position.x, _soccer.position.y - _aiForward.position.y);
+        SKAction *offensive = [SKAction moveTo:CGPointMake(_soccer.position.x, _soccer.position.y) duration:30];
+        [_aiForward runAction:[SKAction repeatActionForever:offensive]];
+        _aiForward.physicsBody.velocity  = CGVectorMake(moving.x, moving.y);
+    }
+    
     
     endTime = currentTime;
-    //NSLog(@"END,%f",endTime);
     internal = (endTime - startTime);
-    //NSLog(@"INTERNAL,%d",internal);
-    
     if(maxGameTime -internal>0)
         {  //if counting down to 0 show counter
-            _internal.text = [NSString stringWithFormat:@"%i           %i : %i", maxGameTime -internal,gateBlueScore,gateRedScore];
+            _internal.text = [NSString stringWithFormat:@"%i           %i : %i", maxGameTime -internal,gateDownScore,gateUpScore];
         }
+   
     else{
-        //NSString *result;
-        
-        //if(gateRedScore<gateBlueScore){
-//            result = @"win";
-//            GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:result];
-//            [self.view presentScene:gameWonScene];
-//        }
-//        else if(gateRedScore == gateBlueScore){
-//            result = @"draw";
-//            GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:result];
-//            [self.view presentScene:gameWonScene];
-//        }
-//        else {
-//            result = @"lose";
-//            GameOverScene* gameWonScene = [[GameOverScene alloc] initWithSize:self.frame.size playerWon:result];
-//            [self.view presentScene:gameWonScene];
-//        }
-        
-        NSString *myScore = [NSString stringWithFormat:@"%i",gateBlueScore];
-        NSString *enenmyScore = [NSString stringWithFormat:@"%i",gateRedScore];
+        NSString *myScore = [NSString stringWithFormat:@"%i",gateDownScore];
+        NSString *enenmyScore = [NSString stringWithFormat:@"%i",gateUpScore];
         _internal.text = [NSString stringWithFormat:@"Game over, please check result."];
         [[NSUserDefaults standardUserDefaults]setObject:myScore forKey:@"myScore"];
         [[NSUserDefaults standardUserDefaults]setObject:enenmyScore forKey:@"enemyScore"];
+    }
     
-        
-        //[self alertStatus:@"check result" :@"game over" :0];
-        //ViewController *spyCotroller = [[ViewController alloc] init];
-        //if ([self.view.window.rootViewController isKindOfClass:[ViewController class]]){
-          //  NSLog(@"is ViewController");
-            //spyCotroller = self.view.window.rootViewController;
-            //[spyCotroller performSegueWithIdentifier:@"single_game_over"sender:self];
-            //page nivagation
-        //}
-        
-        //[self removeAllChildren];
-        //NSLog(@"!!!!!!!!!!!");
-
-        }
-    
+    [self setEatingGreenBOOL];
+    [self setEatingRedBOOL];
 }
 
 
 
 
 // AI gate keeper
-- (void) CallingAi{
+- (void) CallingAiGateKeeper{
     //loading aiKeeper,2
-    _aiKeeper = [SKSpriteNode spriteNodeWithImageNamed:@"player1"];
-    _aiForward = [SKSpriteNode spriteNodeWithImageNamed:@"player2"];
+    _aiKeeper = [SKSpriteNode spriteNodeWithImageNamed:@"gateKeeper"];
     _aiKeeper.position = CGPointMake(screenWidth/2, 900);
-    _aiForward.position = CGPointMake(screenWidth/2, _aiForward.size.height/2+750);
     _aiKeeper.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_aiKeeper.frame.size];
-    _aiForward.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_aiForward.frame.size];
-    
     CGMutablePathRef cgpath = CGPathCreateMutable();
     CGPoint start = CGPointMake(_aiKeeper.position.x, _aiKeeper.position.y);
     CGPoint end = CGPointMake(screenWidth/2+150, _aiKeeper.position.y);
@@ -347,11 +428,103 @@ int maxGameTime = 10;
     CGPoint path2 = CGPointMake(_aiKeeper.position.x, _aiKeeper.position.y);
     CGPathMoveToPoint(cgpath,NULL, start.x, start.y);
     CGPathAddCurveToPoint(cgpath, NULL, path1.x, path1.y, path2.x, path2.y, end.x, end.y);
-    SKAction *defend = [SKAction followPath:cgpath asOffset:NO orientToPath:YES duration:3];
+    SKAction *defend = [SKAction followPath:cgpath asOffset:NO orientToPath:YES duration:2];
     [self addChild:_aiKeeper];
-    [self addChild:_aiForward];
     [_aiKeeper runAction:[SKAction repeatActionForever:(defend)]];
     
+}
+
+// Ai Forward
+- (void) CallingAiGateForward{
+    //loading aiKeeper,2
+    _aiForward = [SKSpriteNode spriteNodeWithImageNamed:@"gateForward"];
+    _aiForward.position = CGPointMake(screenWidth/2, self.frame.size.height/2 + 100);
+    _aiForward.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_aiForward.frame.size];
+    _aiForward.physicsBody.allowsRotation = NO;
+    [self addChild:_aiForward];
+   
+}
+
+- (void) CallingGreenMushroom{
+    _greenMushroom = [SKSpriteNode spriteNodeWithImageNamed:@"greenMushroom"];
+    int randomNumber = [self getRandomNumberBetween:20 to:screenWidth/2-150];
+    _greenMushroom.position = CGPointMake((randomNumber),screenHeight-_greenMushroom.size.height);
+    _greenMushroom.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_greenMushroom.frame.size];
+    _greenMushroom.physicsBody.allowsRotation = NO;
+    _greenMushroom.physicsBody.velocity = CGVectorMake(0, -200);
+    _greenMushroom.physicsBody.categoryBitMask = greenMushroomCategory;
+    //_greenMushroom.physicsBody.dynamic = NO;
+    [self addChild:_greenMushroom];
+}
+
+- (void) CallingRedMushroom{
+    _redMushroom = [SKSpriteNode spriteNodeWithImageNamed:@"redMushroom"];
+    int randomNumber = [self getRandomNumberBetween:screenWidth/2+150 to:screenWidth-20];
+    _redMushroom.position = CGPointMake((randomNumber),screenHeight-_redMushroom.size.height);
+    _redMushroom.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_redMushroom.frame.size];
+    _redMushroom.physicsBody.allowsRotation = NO;
+    _redMushroom.physicsBody.velocity = CGVectorMake(0, -200);
+    _redMushroom.physicsBody.categoryBitMask = redMushroomCategory;
+    //_greenMushroom.physicsBody.dynamic = NO;
+    [self addChild:_redMushroom];
+}
+
+-(int)getRandomNumberBetween:(int)from to:(int)to {
+    
+    return (int)from + arc4random() % (to-from+1);
+}
+
+- (void) dropingMushroom
+{
+    NSThread *ticketsThreadone = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];
+    [ticketsThreadone setName:@"Thread-1"];
+    [ticketsThreadone start];
+}
+
+- (void) run{
+    while (true){
+        int randomInt = [self getRandomNumberBetween:0 to:1];
+        if(randomInt==0)[self CallingGreenMushroom];
+        if(randomInt==1) [self CallingRedMushroom];
+        [NSThread sleepForTimeInterval:[self getRandomNumberBetween:5 to:10]];
+       
+    }
+}
+
+- (void) showingScoringLabel{
+    _scoringLabel = [[SKLabelNode alloc] initWithFontNamed:@"Arial"];
+    //_scoringLabel.position = CGPointMake(CGRectGetMidX(self.frame)/2, CGRectGetMinY(self.frame)/2);
+    _scoringLabel.position = CGPointMake(screenWidth/2 - 200, screenHeight/2);
+    _scoringLabel.fontColor = [SKColor blueColor];
+    _scoringLabel.fontSize = 100;
+    _scoringLabel.name = scroingLableCategoryName;
+    _scoringLabel.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_scoringLabel.frame.size];
+    _scoringLabel.text = [NSString stringWithFormat:@"scoring!!!"];
+    _scoringLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+    _scoringLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeBottom;
+    [self addChild:_scoringLabel];}
+
+- (void) alertStatus:(NSString *)msg :(NSString *)title :(int) tag
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:msg
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil, nil];
+    alertView.tag = tag;
+    [alertView show];
+}
+
+- (void) addPlayer{
+    _player1 = [[SKSpriteNode alloc] initWithImageNamed: @"player1.png"];
+    _player1.name = player1CategoryName;
+    _player1.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 + 200);
+    [self addChild:_player1];
+    _player1.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_player1.frame.size];
+    _player1.physicsBody.restitution = 0.0f;
+    _player1.physicsBody.friction = 0.1f;
+    _player1.physicsBody.allowsRotation = NO;
+    _player1.physicsBody.mass = 100;
 }
 
 @end
