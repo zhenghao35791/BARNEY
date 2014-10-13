@@ -15,5 +15,12 @@
 - (IBAction)level3Game:(id)sender;
 - (IBAction)Quit:(id)sender;
 - (IBAction)backgroundTap:(id)sender;
+- (IBAction)checkScore:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *ScoreInformation;
+- (IBAction)informationHelper:(id)sender;
+
+
+
+@property NSString *score;
 
 @end

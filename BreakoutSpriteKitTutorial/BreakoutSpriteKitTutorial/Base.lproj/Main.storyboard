@@ -4,26 +4,29 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Level1 View Controller-->
-        <scene sceneID="r5s-aH-V57">
+        <!--Infor View Controller-->
+        <scene sceneID="t0r-uP-dsT">
             <objects>
-                <viewController id="Soc-bU-PGl" customClass="Level1ViewController" sceneMemberID="viewController">
+                <viewController id="p6P-Xb-cVb" customClass="InforViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GdO-OE-hMi"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ys8-Di-Sot"/>
+                        <viewControllerLayoutGuide type="top" id="nsT-1z-JFr"/>
+                        <viewControllerLayoutGuide type="bottom" id="UgB-Be-fIA"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KSX-T6-zpI">
+                    <view key="view" contentMode="scaleToFill" id="98i-jq-gsT">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yf2-Yo-UGU">
-                                <rect key="frame" x="16" y="20" width="97" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="Result">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="information.png" translatesAutoresizingMaskIntoConstraints="NO" id="HED-uj-7Ex">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOP-nN-m8D">
+                                <rect key="frame" x="16" y="20" width="90" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="results:" destination="Soc-bU-PGl" eventType="touchUpInside" id="THx-Fc-pyi"/>
+                                    <action selector="clickBack:" destination="p6P-Xb-cVb" eventType="touchUpInside" id="Mej-RY-p5R"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -31,10 +34,13 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
+                    <connections>
+                        <segue destination="cJx-9i-Otg" kind="modal" identifier="info_2_single_home" id="fqz-Eh-LDt"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Psf-7m-LpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hep-D0-CXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="756" y="-2507"/>
+            <point key="canvasLocation" x="506" y="-2223"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CtS-rA-C9T">
@@ -69,39 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768" y="-1033"/>
-        </scene>
-        <!--Level3 View Controller-->
-        <scene sceneID="oAN-U0-gaq">
-            <objects>
-                <viewController id="ndd-8j-ozC" customClass="Level3ViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7R6-Ia-32l"/>
-                        <viewControllerLayoutGuide type="bottom" id="PDu-JI-uow"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="p5H-6E-giv">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8D2-Vs-uIN">
-                                <rect key="frame" x="16" y="20" width="97" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="Result">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="results:" destination="ndd-8j-ozC" eventType="touchUpInside" id="gLN-lr-8Ka"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="768" height="1024"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VlZ-Rt-BHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="761" y="297"/>
+            <point key="canvasLocation" x="856" y="-989"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="kee-08-qbA">
@@ -160,8 +134,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please set a gaming name and select the level of game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwF-Qq-RBT">
-                                <rect key="frame" x="25" y="329" width="719" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set player name and check your level first" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwF-Qq-RBT">
+                                <rect key="frame" x="111" y="326" width="546" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -194,16 +168,44 @@
                                     <action selector="Quit:" destination="cJx-9i-Otg" eventType="touchUpInside" id="Y8H-d7-xvg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3T-Fr-yrG">
+                                <rect key="frame" x="568" y="449" width="53" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="check">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkScore:" destination="cJx-9i-Otg" eventType="touchUpInside" id="C8t-cs-yKN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKb-hV-v64">
+                                <rect key="frame" x="16" y="496" width="736" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="11949945401025437070documentinfo.png" translatesAutoresizingMaskIntoConstraints="NO" id="FO5-jI-Hef">
+                                <rect key="frame" x="652" y="20" width="100" height="100"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="din-Ub-1eM">
+                                <rect key="frame" x="652" y="20" width="100" height="100"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="informationHelper:" destination="cJx-9i-Otg" eventType="touchUpInside" id="cMh-qC-Otu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
+                        <outlet property="ScoreInformation" destination="SKb-hV-v64" id="Y7N-Ho-sag"/>
                         <outlet property="userName" destination="SAz-1g-GH3" id="bYx-e7-rDR"/>
-                        <segue destination="LVB-YS-i5n" kind="modal" identifier="game_level2" id="hDh-KI-x4I"/>
-                        <segue destination="Soc-bU-PGl" kind="modal" identifier="game_level1" id="rgA-Qj-eI0"/>
-                        <segue destination="ndd-8j-ozC" kind="modal" identifier="game_level3" id="NSB-jQ-5dz"/>
+                        <segue destination="LVB-YS-i5n" kind="modal" identifier="game_segue" id="hDh-KI-x4I"/>
+                        <segue destination="p6P-Xb-cVb" kind="modal" identifier="single_game_info" id="7Uy-HL-ljv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ka9-ri-K9u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -236,30 +238,20 @@
                                 <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2X-ln-AXD">
-                                <rect key="frame" x="325" y="127" width="118" height="83"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2X-ln-AXD">
+                                <rect key="frame" x="77" y="127" width="619" height="83"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Uz-ZY-Hz7">
-                                <rect key="frame" x="309" y="586" width="80" height="48"/>
+                                <rect key="frame" x="344" y="574" width="80" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Home">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="clickHome:" destination="tAA-qa-bxs" eventType="touchUpInside" id="qIf-RQ-J15"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPF-4E-o2X">
-                                <rect key="frame" x="290" y="782" width="118" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Try again">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickContinue:" destination="tAA-qa-bxs" eventType="touchUpInside" id="6BO-Ty-1ld"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5m-Ca-QVD">
@@ -281,13 +273,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jvn-nV-YeE">
-                                <rect key="frame" x="237" y="664" width="238" height="46"/>
+                                <rect key="frame" x="265" y="664" width="238" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Single Game Home">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="clickSingleGameHome:" destination="tAA-qa-bxs" eventType="touchUpInside" id="x2J-Sh-F2V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPF-4E-o2X">
+                                <rect key="frame" x="327" y="786" width="118" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Try again">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickContinue:" destination="tAA-qa-bxs" eventType="touchUpInside" id="6BO-Ty-1ld"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -301,8 +303,6 @@
                         <outlet property="gameOverLable" destination="V2X-ln-AXD" id="mpK-KA-9Gm"/>
                         <segue destination="LVB-YS-i5n" kind="modal" identifier="single_continue_level2" id="ZVz-ms-Mw5"/>
                         <segue destination="cJx-9i-Otg" kind="modal" identifier="result_2_single_home" id="4W4-u7-psl"/>
-                        <segue destination="Soc-bU-PGl" kind="modal" identifier="single_continue_level1" id="BcO-QE-qIE"/>
-                        <segue destination="ndd-8j-ozC" kind="modal" identifier="single_continue_level3" id="99v-Um-8Ih"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SnK-Ar-fJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -311,7 +311,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="11949945401025437070documentinfo.png" width="100" height="100"/>
         <image name="game_over_bg.png" width="768" height="1024"/>
+        <image name="information.png" width="768" height="1024"/>
         <image name="singleGameWelcome.png" width="768" height="1024"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -320,8 +322,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="fqz-Eh-LDt"/>
         <segue reference="hDh-KI-x4I"/>
-        <segue reference="rgA-Qj-eI0"/>
-        <segue reference="NSB-jQ-5dz"/>
     </inferredMetricsTieBreakers>
 </document>

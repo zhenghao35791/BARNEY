@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "BreakoutGameScene.h"
+#import "BreakoutGameScene1.h"
 
 @implementation ViewController
 
@@ -25,14 +26,20 @@
     // Configure the view.
    // NSLog(@"test1");
     SKView * skView = (SKView *)self.view;
-    //NSLog(@"test2");
+    NSLog(@"skView.class:%@",skView.class);
     if (!skView.scene) {
         skView.showsFPS = YES;
         skView.showsNodeCount = YES;
-        
+         NSString *model = [[NSUserDefaults standardUserDefaults]objectForKey:@"model"];
         // Create and configure the scene.
       //  NSLog(@"test3");
-        SKScene * scene = [BreakoutGameScene sceneWithSize:skView.bounds.size];
+        SKScene * scene;
+        if([model isEqualToString:@"level1"])
+            scene = [BreakoutGameScene1 sceneWithSize:skView.bounds.size];
+        if([model isEqualToString:@"level2"])
+            scene = [BreakoutGameScene sceneWithSize:skView.bounds.size];
+        if([model isEqualToString:@"level3"])
+            scene = [BreakoutGameScene sceneWithSize:skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
         
         //NSLog(@"test4");

@@ -9,7 +9,7 @@
 #import "BreakoutGameScene1.h"
 
 #import "GameOverViewController.h"
-#import "Level1ViewController.h"
+//#import "Level1ViewController.h"
 
 
 static NSString* soccerCategoryName = @"soccer";
@@ -200,9 +200,9 @@ NSTimeInterval eatRedTime1 = 0;
         
         
         [self CallingAiGateKeeper];
-        [self CallingAiGateForward];
+        //[self CallingAiGateForward];
         [self dropingMushroom];
-        [self CallingMyGateKeeper];
+        //[self CallingMyGateKeeper];
     }
     return self;
 }

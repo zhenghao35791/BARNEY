@@ -16,9 +16,11 @@
 		18EC42EA19EB957400CFB641 /* MyKeeper.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EC42E819EB957400CFB641 /* MyKeeper.png */; };
 		18EC42EB19EB957400CFB641 /* gateForward.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EC42E919EB957400CFB641 /* gateForward.png */; };
 		18EC42ED19EB95B700CFB641 /* player2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18EC42EC19EB95B700CFB641 /* player2.png */; };
-		1B19F55B19EBAE5F00BF9B8C /* Level3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B19F55A19EBAE5F00BF9B8C /* Level3ViewController.m */; };
 		1B19F55E19EBAF6200BF9B8C /* BreakoutGameScene1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B19F55D19EBAF6200BF9B8C /* BreakoutGameScene1.m */; };
-		1B19F56119EBB82500BF9B8C /* Level1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B19F56019EBB82500BF9B8C /* Level1ViewController.m */; };
+		1B19F56619EBD78B00BF9B8C /* 11949945401025437070documentinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B19F56519EBD78B00BF9B8C /* 11949945401025437070documentinfo.png */; };
+		1B19F56A19EBD84700BF9B8C /* InforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B19F56919EBD84700BF9B8C /* InforViewController.m */; };
+		1B19F56C19EBDBB000BF9B8C /* Football 1_920x550.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B19F56B19EBDBB000BF9B8C /* Football 1_920x550.jpg */; };
+		1B19F56E19EBDF2900BF9B8C /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B19F56D19EBDF2900BF9B8C /* information.png */; };
 		1B4070E719EB9869000861DD /* singleGameWelcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B4070E619EB9869000861DD /* singleGameWelcome.png */; };
 		1B4070EF19EB9E71000861DD /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B4070EE19EB9E71000861DD /* WelcomeViewController.m */; };
 		1B984AEA19E8D40B007533CF /* Gate_down_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE419E8D40B007533CF /* Gate_down_large.png */; };
@@ -72,12 +74,13 @@
 		18EC42E819EB957400CFB641 /* MyKeeper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyKeeper.png; sourceTree = "<group>"; };
 		18EC42E919EB957400CFB641 /* gateForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gateForward.png; sourceTree = "<group>"; };
 		18EC42EC19EB95B700CFB641 /* player2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player2.png; sourceTree = "<group>"; };
-		1B19F55919EBAE5F00BF9B8C /* Level3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level3ViewController.h; sourceTree = "<group>"; };
-		1B19F55A19EBAE5F00BF9B8C /* Level3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level3ViewController.m; sourceTree = "<group>"; };
 		1B19F55C19EBAF6200BF9B8C /* BreakoutGameScene1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreakoutGameScene1.h; sourceTree = "<group>"; };
 		1B19F55D19EBAF6200BF9B8C /* BreakoutGameScene1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreakoutGameScene1.m; sourceTree = "<group>"; };
-		1B19F55F19EBB82500BF9B8C /* Level1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level1ViewController.h; sourceTree = "<group>"; };
-		1B19F56019EBB82500BF9B8C /* Level1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level1ViewController.m; sourceTree = "<group>"; };
+		1B19F56519EBD78B00BF9B8C /* 11949945401025437070documentinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11949945401025437070documentinfo.png; sourceTree = "<group>"; };
+		1B19F56819EBD84700BF9B8C /* InforViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InforViewController.h; sourceTree = "<group>"; };
+		1B19F56919EBD84700BF9B8C /* InforViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InforViewController.m; sourceTree = "<group>"; };
+		1B19F56B19EBDBB000BF9B8C /* Football 1_920x550.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Football 1_920x550.jpg"; sourceTree = "<group>"; };
+		1B19F56D19EBDF2900BF9B8C /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
 		1B4070E619EB9869000861DD /* singleGameWelcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = singleGameWelcome.png; sourceTree = "<group>"; };
 		1B4070ED19EB9E71000861DD /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		1B4070EE19EB9E71000861DD /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
@@ -150,8 +153,6 @@
 			children = (
 				1B19F55C19EBAF6200BF9B8C /* BreakoutGameScene1.h */,
 				1B19F55D19EBAF6200BF9B8C /* BreakoutGameScene1.m */,
-				1B19F55F19EBB82500BF9B8C /* Level1ViewController.h */,
-				1B19F56019EBB82500BF9B8C /* Level1ViewController.m */,
 			);
 			name = level1;
 			sourceTree = "<group>";
@@ -159,15 +160,25 @@
 		1B19F54F19EBAC9B00BF9B8C /* level3 */ = {
 			isa = PBXGroup;
 			children = (
-				1B19F55919EBAE5F00BF9B8C /* Level3ViewController.h */,
-				1B19F55A19EBAE5F00BF9B8C /* Level3ViewController.m */,
 			);
 			name = level3;
+			sourceTree = "<group>";
+		};
+		1B19F56719EBD83300BF9B8C /* information */ = {
+			isa = PBXGroup;
+			children = (
+				1B19F56819EBD84700BF9B8C /* InforViewController.h */,
+				1B19F56919EBD84700BF9B8C /* InforViewController.m */,
+			);
+			name = information;
 			sourceTree = "<group>";
 		};
 		1B4070E819EB9C4F000861DD /* PNGS */ = {
 			isa = PBXGroup;
 			children = (
+				1B19F56D19EBDF2900BF9B8C /* information.png */,
+				1B19F56B19EBDBB000BF9B8C /* Football 1_920x550.jpg */,
+				1B19F56519EBD78B00BF9B8C /* 11949945401025437070documentinfo.png */,
 				1B4070E619EB9869000861DD /* singleGameWelcome.png */,
 				1B984AF519E8DEE3007533CF /* game_over_bg.png */,
 				1B984AE419E8D40B007533CF /* Gate_down_large.png */,
@@ -259,6 +270,7 @@
 		66DF6A1E17FB871B00CC9BD1 /* BreakoutSpriteKitTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				1B19F56719EBD83300BF9B8C /* information */,
 				1B19F54F19EBAC9B00BF9B8C /* level3 */,
 				1B19F54E19EBAC9200BF9B8C /* level1 */,
 				1B4070EC19EB9E4F000861DD /* Welcome */,
@@ -373,6 +385,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Barbara Köhler";
 				TargetAttributes = {
+					66DF6A1217FB871B00CC9BD1 = {
+						DevelopmentTeam = S64U42C86K;
+					};
 					66DF6A3A17FB871B00CC9BD1 = {
 						TestTargetID = 66DF6A1217FB871B00CC9BD1;
 					};
@@ -408,6 +423,7 @@
 				1B984AEA19E8D40B007533CF /* Gate_down_large.png in Resources */,
 				18372CB319E7DCEC009E92C2 /* background.jpeg in Resources */,
 				66DF6A2317FB871B00CC9BD1 /* InfoPlist.strings in Resources */,
+				1B19F56C19EBDBB000BF9B8C /* Football 1_920x550.jpg in Resources */,
 				1B984AEE19E8D40B007533CF /* Gate_UP_normal.png in Resources */,
 				66DF6A3617FB871B00CC9BD1 /* Images.xcassets in Resources */,
 				1B984AEC19E8D40B007533CF /* Gate_down_small.png in Resources */,
@@ -425,6 +441,8 @@
 				66DF6A2C17FB871B00CC9BD1 /* Main.storyboard in Resources */,
 				1B984AEF19E8D40B007533CF /* Gate_UP_small.png in Resources */,
 				18EC42ED19EB95B700CFB641 /* player2.png in Resources */,
+				1B19F56E19EBDF2900BF9B8C /* information.png in Resources */,
+				1B19F56619EBD78B00BF9B8C /* 11949945401025437070documentinfo.png in Resources */,
 				66DF6A5D17FB87DB00CC9BD1 /* bg@2x~iphone.png in Resources */,
 				18EC42EA19EB957400CFB641 /* MyKeeper.png in Resources */,
 			);
@@ -449,10 +467,9 @@
 				1B984AF919E8FF94007533CF /* GameOverViewController.m in Sources */,
 				66DF6A3217FB871B00CC9BD1 /* BreakoutGameScene.m in Sources */,
 				66DF6A2F17FB871B00CC9BD1 /* ViewController.m in Sources */,
-				1B19F55B19EBAE5F00BF9B8C /* Level3ViewController.m in Sources */,
 				66DF6A2917FB871B00CC9BD1 /* AppDelegate.m in Sources */,
+				1B19F56A19EBD84700BF9B8C /* InforViewController.m in Sources */,
 				66DF6A2517FB871B00CC9BD1 /* main.m in Sources */,
-				1B19F56119EBB82500BF9B8C /* Level1ViewController.m in Sources */,
 				1B4070EF19EB9E71000861DD /* WelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,6 +595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BreakoutSpriteKitTutorial/BreakoutSpriteKitTutorial-Prefix.pch";
 				INFOPLIST_FILE = "BreakoutSpriteKitTutorial/BreakoutSpriteKitTutorial-Info.plist";
@@ -593,6 +611,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BreakoutSpriteKitTutorial/BreakoutSpriteKitTutorial-Prefix.pch";
 				INFOPLIST_FILE = "BreakoutSpriteKitTutorial/BreakoutSpriteKitTutorial-Info.plist";

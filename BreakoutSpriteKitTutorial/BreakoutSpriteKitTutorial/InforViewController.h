@@ -1,5 +1,5 @@
 //
-//  Level1ViewController.h
+//  InforViewController.h
 //  BreakoutSpriteKitTutorial
 //
 //  Created by Hongnan Yang on 2014-10-13.
@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SpriteKit/SpriteKit.h>
 
-@interface Level1ViewController : UIViewController
-- (IBAction)results:(id)sender;
+@interface InforViewController : UIViewController
+- (IBAction)clickBack:(id)sender;
 
 @end
