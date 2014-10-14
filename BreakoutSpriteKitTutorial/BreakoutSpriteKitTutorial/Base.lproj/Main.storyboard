@@ -80,7 +80,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="kee-08-qbA">
             <objects>
-                <viewController id="cJx-9i-Otg" customClass="WelcomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cJx-9i-Otg" customClass="WelcomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LHp-Ul-pGc"/>
                         <viewControllerLayoutGuide type="bottom" id="rSZ-eB-mss"/>
@@ -215,7 +215,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-410" y="-1033"/>
+            <point key="canvasLocation" x="-518" y="-989"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="2Qb-YF-p44">
@@ -309,9 +309,55 @@
             </objects>
             <point key="canvasLocation" x="2043" y="-981"/>
         </scene>
+        <!--Game View Controller-->
+        <scene sceneID="6UC-bO-LkX">
+            <objects>
+                <viewController storyboardIdentifier="multiGameController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vxB-Jc-VdN" customClass="GameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="75q-Ff-cYl"/>
+                        <viewControllerLayoutGuide type="bottom" id="uXb-lg-kLp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pqR-zR-8Pw" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwb-KN-yly">
+                                <rect key="frame" x="0.0" y="0.0" width="146" height="66"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Result">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="results:" destination="vxB-Jc-VdN" eventType="touchUpInside" id="FiC-3w-SDj"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="HostGame.png" translatesAutoresizingMaskIntoConstraints="NO" id="9N6-m2-Kj8">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wating for game to start......" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvD-m4-0Al">
+                                <rect key="frame" x="229" y="480" width="311" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
+                    <connections>
+                        <outlet property="backGroundImage" destination="9N6-m2-Kj8" id="RYb-ff-GIp"/>
+                        <outlet property="waitingLabel" destination="pvD-m4-0Al" id="5Vb-AE-i1A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O5A-lM-aNc" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-518" y="349"/>
+        </scene>
     </scenes>
     <resources>
         <image name="11949945401025437070documentinfo.png" width="100" height="100"/>
+        <image name="HostGame.png" width="768" height="1024"/>
         <image name="game_over_bg.png" width="768" height="1024"/>
         <image name="information.png" width="768" height="1024"/>
         <image name="singleGameWelcome.png" width="768" height="1024"/>
@@ -322,7 +368,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ZVz-ms-Mw5"/>
+        <segue reference="hDh-KI-x4I"/>
         <segue reference="fqz-Eh-LDt"/>
     </inferredMetricsTieBreakers>
 </document>
