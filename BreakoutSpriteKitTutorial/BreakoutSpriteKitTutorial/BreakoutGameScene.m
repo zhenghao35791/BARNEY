@@ -7,7 +7,7 @@
 /////
 #import <UIKit/UIKit.h>
 #import "BreakoutGameScene.h"
-
+#import <AVFoundation/AVFoundation.h>
 #import "GameOverViewController.h"
 #import "ViewController.h"
 
@@ -41,6 +41,7 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
 @property (nonatomic) BOOL isFingerOnPlayer1;
 @property (nonatomic) BOOL isFingerOnPlayer2;
 @property (nonatomic) BOOL is5Times;
+//@property AVAudioPlayer *aAudioPlayer;
 
 @end
 
@@ -60,7 +61,11 @@ NSTimeInterval eatRedTime = 0;
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        _maxGameTime = 60;
+        //NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"newBackground" ofType:@"caf"]];
+        //_aAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        //[_aAudioPlayer stop];
+        //[_aAudioPlayer play];
+        _maxGameTime = 10;
         _gateDownScore = 0;
         _gateUpScore = 0;
         _internalCounter= 0;
@@ -71,10 +76,10 @@ NSTimeInterval eatRedTime = 0;
         //NSString *enenmyScore = [NSString stringWithFormat:@"%i",_gateUpScore];
         [[NSUserDefaults standardUserDefaults]setObject:@"none" forKey:@"myScore"];
         [[NSUserDefaults standardUserDefaults]setObject:@"none" forKey:@"enemyScore"];
-       _internalCounter= 0;
+        _internalCounter= 0;
         _gateUpScore = 0;
         _gateDownScore = 0;
-        _maxGameTime = 60;
+        //_maxGameTime = 60;
         
         // Setup the scene
        screenRect = [[UIScreen mainScreen]bounds];
@@ -380,7 +385,7 @@ NSTimeInterval eatRedTime = 0;
         _isEatingRed = false;
     }
 }
-
+//update
 -(void)update:(CFTimeInterval)currentTime {
     
     /* Called before each frame is rendered */
@@ -433,6 +438,7 @@ NSTimeInterval eatRedTime = 0;
         [_myKeeper removeFromParent];
         [_redMushroom removeFromParent];
         [_greenMushroom removeFromParent];
+        //[_aAudioPlayer stop];
     }
     
     [self setEatingGreenBOOL];

@@ -301,7 +301,7 @@
                         <outlet property="currentRanking" destination="yrH-tE-4XE" id="uL4-by-FCv"/>
                         <outlet property="currentScore" destination="Z8a-1C-6hL" id="hc9-lC-qYL"/>
                         <outlet property="gameOverLable" destination="V2X-ln-AXD" id="mpK-KA-9Gm"/>
-                        <segue destination="LVB-YS-i5n" kind="modal" identifier="single_continue_level2" id="ZVz-ms-Mw5"/>
+                        <segue destination="LVB-YS-i5n" kind="modal" identifier="single_continue" id="ZVz-ms-Mw5"/>
                         <segue destination="cJx-9i-Otg" kind="modal" identifier="result_2_single_home" id="4W4-u7-psl"/>
                     </connections>
                 </viewController>
@@ -322,7 +322,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="ZVz-ms-Mw5"/>
         <segue reference="fqz-Eh-LDt"/>
-        <segue reference="hDh-KI-x4I"/>
     </inferredMetricsTieBreakers>
 </document>

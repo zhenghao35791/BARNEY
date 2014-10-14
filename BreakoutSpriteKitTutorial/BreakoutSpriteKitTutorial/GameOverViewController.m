@@ -175,13 +175,13 @@
 }
 
 - (IBAction)clickContinue:(id)sender {
-     NSString *from_level = [[NSUserDefaults standardUserDefaults]objectForKey:@"from_level"];
+     NSString *from_level = [[NSUserDefaults standardUserDefaults]objectForKey:@"model"];
     if([from_level isEqualToString:@"level1"])
-        [self performSegueWithIdentifier:@"single_continue_level1" sender:self];//page nivagation
+        [self performSegueWithIdentifier:@"single_continue" sender:self];//page nivagation
     if([from_level isEqualToString:@"level2"])
-        [self performSegueWithIdentifier:@"single_continue_level2" sender:self];//page nivagation
+        [self performSegueWithIdentifier:@"single_continue" sender:self];//page nivagation
     if([from_level isEqualToString:@"level3"])
-        [self performSegueWithIdentifier:@"single_continue_level1" sender:self];//page nivagation
+        [self performSegueWithIdentifier:@"single_continue" sender:self];//page nivagation
 
 }
 

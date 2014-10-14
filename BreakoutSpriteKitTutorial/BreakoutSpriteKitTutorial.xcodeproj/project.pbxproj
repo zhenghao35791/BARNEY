@@ -239,8 +239,6 @@
 		1B4070E919EB9C74000861DD /* levle2 */ = {
 			isa = PBXGroup;
 			children = (
-				66DF6A2D17FB871B00CC9BD1 /* ViewController.h */,
-				66DF6A2E17FB871B00CC9BD1 /* ViewController.m */,
 				66DF6A3017FB871B00CC9BD1 /* BreakoutGameScene.h */,
 				66DF6A3117FB871B00CC9BD1 /* BreakoutGameScene.m */,
 			);
@@ -316,6 +314,8 @@
 				1B4070E919EB9C74000861DD /* levle2 */,
 				1B4070E819EB9C4F000861DD /* PNGS */,
 				66DF6A2717FB871B00CC9BD1 /* AppDelegate.h */,
+				66DF6A2D17FB871B00CC9BD1 /* ViewController.h */,
+				66DF6A2E17FB871B00CC9BD1 /* ViewController.m */,
 				66DF6A2817FB871B00CC9BD1 /* AppDelegate.m */,
 				66DF6A2A17FB871B00CC9BD1 /* Main.storyboard */,
 				18EC42EC19EB95B700CFB641 /* player2.png */,

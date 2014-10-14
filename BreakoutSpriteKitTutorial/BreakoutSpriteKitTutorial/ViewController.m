@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "BreakoutGameScene.h"
 #import "BreakoutGameScene1.h"
+#import <AVFoundation/AVFoundation.h>
 
 @implementation ViewController
 
@@ -16,18 +17,31 @@
 //    [super viewDidLoad];
 //    //SKView * skView = (SKView *)self.view;
 //}
-
+AVAudioPlayer * backgroundMusicPlayer;
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     ////////////////////loading background music
-    NSError *error;
-    NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"newBackground" withExtension:@"caf"];
-    self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+//    NSError *error;
+//    NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"newBackground" withExtension:@"caf"];
+//    self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+//    if([self.backgroundMusicPlayer isPlaying]){
+//        [self.backgroundMusicPlayer stop];
+//    }
+//    else{
+//        self.backgroundMusicPlayer.numberOfLoops = -1;
+//        //[self.backgroundMusicPlayer prepareToPlay];
+//        [self.backgroundMusicPlayer play];
+//    }
+    //AVAudioPlayer * backgroundMusicPlayer;
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"newBackground" ofType:@"caf"]];
+    backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    //[_aAudioPlayer stop];
+    [backgroundMusicPlayer play];
     
-    self.backgroundMusicPlayer.numberOfLoops = -1;
-    [self.backgroundMusicPlayer prepareToPlay];
-    [self.backgroundMusicPlayer play];
+    
+    
+    
     ////////////////////
     
     
@@ -76,9 +90,13 @@
 }
 
 - (IBAction)results:(id)sender {
-    [[NSUserDefaults standardUserDefaults]setObject:@"level2" forKey:@"from_level"];
+    //[[NSUserDefaults standardUserDefaults]setObject:@"level2" forKey:@"from_level"];
+    //[self performSegueWithIdentifier:@"single_game_over" sender:self];//page nivagation
+    //if([self.backgroundMusicPlayer ]){
+    [backgroundMusicPlayer stop];
+    
+    //}
     [self performSegueWithIdentifier:@"single_game_over" sender:self];//page nivagation
-
     
 }
 @end

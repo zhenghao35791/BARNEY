@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
-@import AVFoundation;
+#import <AVFoundation/AVFoundation.h>
 
 @interface ViewController : UIViewController
 //@property SKView * skView;
 - (IBAction)results:(id)sender;
-@property (nonatomic) AVAudioPlayer * backgroundMusicPlayer;
+
 
 
 @end
