@@ -99,28 +99,35 @@
         [self alertStatus:@"Please set the player name" :@"Notice" :0];
     else{
         _score = [self getScoreBy:_userName.text];
-        NSLog(@"_score: %@",_score);
-        NSMutableString *scoreInfo = [[NSMutableString alloc] init];;
-        [scoreInfo appendString:@"Your score is "];
-        [scoreInfo appendString:_score];
-        NSLog(@"scoreInfo: %@",scoreInfo);
-        if([_score integerValue]>=10){
-            [scoreInfo appendString:@"; you can play all"];
-            NSLog(@"scoreInfo: %@",scoreInfo);
+        if([_score isEqualToString:@"ERROR"]){
+            NSString *scoreInfo = @"connection failure.";
+            _ScoreInformation.text = scoreInfo;
         }
-        else if([_score integerValue]>=5){
-            [scoreInfo appendString:@"; you can play level1 and level2"];
+        else{
+            
+            NSLog(@"_score: %@",_score);
+            NSMutableString *scoreInfo = [[NSMutableString alloc] init];;
+            [scoreInfo appendString:@"Your score is "];
+            
+            [scoreInfo appendString:_score];
             NSLog(@"scoreInfo: %@",scoreInfo);
-        }
-        else if([_score integerValue]<5){
-            [scoreInfo appendString:@"; you can play only level1"];
+            if([_score integerValue]>=10){
+                [scoreInfo appendString:@"; you can play all"];
+                NSLog(@"scoreInfo: %@",scoreInfo);
+            }
+            else if([_score integerValue]>=5){
+                [scoreInfo appendString:@"; you can play level1 and level2"];
+                NSLog(@"scoreInfo: %@",scoreInfo);
+            }
+            else if([_score integerValue]<5){
+                [scoreInfo appendString:@"; you can play only level1"];
+                NSLog(@"scoreInfo: %@",scoreInfo);
+            }
             NSLog(@"scoreInfo: %@",scoreInfo);
+            NSLog(@"scoreInfo: %@",_ScoreInformation.text);
+            _ScoreInformation.text = scoreInfo;
+            NSLog(@"scoreInfo: %@",_ScoreInformation.text);
         }
-        NSLog(@"scoreInfo: %@",scoreInfo);
-        NSLog(@"scoreInfo: %@",_ScoreInformation.text);
-        _ScoreInformation.text = scoreInfo;
-        NSLog(@"scoreInfo: %@",_ScoreInformation.text);
-        
     }
 }
 
