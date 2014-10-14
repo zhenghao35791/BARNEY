@@ -430,6 +430,8 @@ NSTimeInterval eatRedTime1 = 0;
         [_aiKeeper removeFromParent];
         [_aiForward removeFromParent];
         [_myKeeper removeFromParent];
+        [_redMushroom removeFromParent];
+        [_greenMushroom removeFromParent];
     }
     
     [self setEatingGreenBOOL];
