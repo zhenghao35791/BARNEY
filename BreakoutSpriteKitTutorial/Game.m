@@ -33,6 +33,7 @@ GameState;
     NSString *_serverPeerID;
 	NSString *_localPlayerName;
     NSMutableDictionary *_players;
+    NSString *_playerName;
 }
 
 @synthesize delegate = _delegate;
@@ -61,7 +62,7 @@ GameState;
 - (void)startClientGameWithSession:(GKSession *)session playerName:(NSString *)name server:(NSString *)peerID
 {
     self.isServer = NO;
-    
+    _playerName = name;
 	_session = session;
 	_session.available = NO;
 	_session.delegate = self;
@@ -78,6 +79,7 @@ GameState;
 - (void) startServerGameWithSession:(GKSession *)session playerName:(NSString *)name clients:(NSArray *)clients
 {
     self.isServer = YES;
+    _playerName = name;
     _session = session;
     _session.available = NO;
     _session.delegate = self;
@@ -86,27 +88,27 @@ GameState;
     [self.delegate gameWaitingForClientsReady:self];
     
     
-    Player *player = [[Player alloc] init];
-    player.name = name;
-    player.peerID = _session.peerID;
-    [_players setObject:player forKey:player.peerID];
-    
-    //add a player object for each client
-    int index = 0;
-    for(NSString *peerID in clients)
-    {
-        Player *player = [[Player alloc] init];
-        player.peerID = peerID;
-        [_players setObject:player forKey:player.peerID];
-        if(index == 0)
-        {
-            player.positionX =(float) 768/2.0;
-            player.positionY = (float)1024/2.0;
-            
-        }
-        index ++;
-        
-    }
+//    Player *player = [[Player alloc] init];
+//    player.name = name;
+//    player.peerID = _session.peerID;
+//    [_players setObject:player forKey:player.peerID];
+//    
+//    //add a player object for each client
+//    int index = 0;
+//    for(NSString *peerID in clients)
+//    {
+//        Player *player = [[Player alloc] init];
+//        player.peerID = peerID;
+//        [_players setObject:player forKey:player.peerID];
+//        if(index == 0)
+//        {
+//            player.positionX =(float) 768/2.0;
+//            player.positionY = (float)1024/2.0;
+//            
+//        }
+//        index ++;
+//        
+//    }
     
     Packet *packet = [Packet packetWithType:PacketTypeSignInRequest];
     [self sendPacketToAllClients:packet];
@@ -335,13 +337,16 @@ GameState;
                 [self beginGame];
                 
                 NSLog(@"the players are: %@", _players);
+                
             }
+             break;
         case PacketTypeOtherClientQuit:
             if(_state != GameStateQuitting)
             {
                 PacketOtherClientQuit *quitPacket = ((PacketOtherClientQuit *)packet);
                 //[self clientDidDisconnect:quitPacket.peerID];
             }
+             break;
             
         case PacketTypeGame:
             if(_state == GameStatePlaying)
@@ -357,21 +362,16 @@ GameState;
 
 - (void)handleGameInfoPacket:(PacketGameInfo *)packet
 {
-//    [packet.players enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop)
-//     {
-//         Player *player = [self playerWithPeerID:key];
-//     }];
+
     NSLog(@"pack received %@", packet);
+    //Player *player = tmpPlayer;
+    //NSLog(@"new packet game %@", packet.packetType);
+
     [packet.players enumerateKeysAndObjectsUsingBlock:^(id key, Player *tmpPlayer, BOOL *stop)
      {
-         Player *player = tmpPlayer;
-         [GameIncomeQueue addContent:player];
+        
+         [GameIncomeQueue addContent:tmpPlayer];
 
-//         for (int t = 0; t < [array count]; ++t)
-//         {
-//             Player *player = [array objectAtIndex:t];
-//             [GameIncomeQueue addContent:player];
-//         }
      }];
 }
 
@@ -380,7 +380,7 @@ GameState;
 - (void)beginGame
 {
     _state = GameStatePlaying;
-    [self.delegate gameDidBegin:self];
+    [self.delegate gameDidBegin:self isServer:self.isServer localName:_playerName];
     
     [self.gameControllDelegate initSceneGameInstance:self];
     
@@ -402,16 +402,9 @@ GameState;
         
           NSMutableDictionary *players = [NSMutableDictionary dictionaryWithCapacity:2];
           __block int index = 0;
-          [_players enumerateKeysAndObjectsUsingBlock:^(id key, Player *obj, BOOL *stop)
-          {
-               GameObject *playerInfo = [GameOutcomeQueue dequeue];
-              if(playerInfo != nil)
-              {
-                  NSLog(@"game info :%@", playerInfo);
-                  [players setObject:playerInfo forKey:obj.peerID];
-                  index = index + 1;
-              }
-          }];
+            GameObject *playerInfo = [GameOutcomeQueue dequeue];
+
+            [players setObject:playerInfo forKey:@"Game"];
         
             PacketGameInfo *packet = [PacketGameInfo packetWithPlayers:players];
             [self sendPacketToAllClients:packet];

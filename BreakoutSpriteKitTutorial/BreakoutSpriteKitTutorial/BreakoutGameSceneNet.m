@@ -7,8 +7,10 @@
 /////
 #import <UIKit/UIKit.h>
 #import "BreakoutGameSceneNet.h"
-
+#import "Player.h"
 #import "GameOverViewController.h"
+#import "GameOutcomeQueue.h"
+#import "GameIncomeQueue.h"
 //#import "Level1ViewController.h"
 
 
@@ -19,6 +21,9 @@ static NSString* gateUpCategoryName = @"gateUpCategoryName";
 static NSString* gateDownCategoryName = @"gateDownCategoryName";
 static NSString* aiKeeperCategoryName = @"aiKeeperCategoryName";
 static NSString* scroingLableCategoryName = @"scroingLableCategoryName";
+static NSString* localName;
+static NSInteger sendPacketCount=0;
+static NSInteger soccerPacketCount=0;
 
 
 static const uint32_t soccerCategory  = 0x1 << 0;  // 00000000000000000000000000000001
@@ -54,12 +59,19 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
 
 
 
++ (id)sceneWithSize:(CGSize)size isServer:(BOOL)isServer initName: (NSString *)name
+{
+    return [[BreakoutGameSceneNet alloc] initWithSize:size isServer:isServer initName:name];
+}
 
 
-
--(id)initWithSize:(CGSize)size {
+-(id)initWithSize:(CGSize)size isServer:(BOOL)isServer initName: (NSString *)name{
     if (self = [super initWithSize:size]) {
-        _isServer = true;
+        _isServer = isServer;
+        NSLog(@"Player name %@", name);
+        localName = name;
+        
+        
         _eatGreenTime1 = 0;
         _eatRedTime1 = 0;
         _maxGameTime = 60;
@@ -219,15 +231,36 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
     CGPoint position = [_selectedNode position];
    //////if is server, control player1
     if(_isServer&&[[_selectedNode name] isEqualToString:player1CategoryName]) {
+        sendPacketCount ++;
+        
         [_selectedNode setPosition:CGPointMake(position.x + translation.x, position.y + translation.y)];
         _player1.physicsBody.velocity = CGVectorMake(translation.x, translation.y);//speed
+        if(sendPacketCount%3 ==0)
+        {
+            Player *player1 = [[Player alloc] initWithPostion:_player1.position.x positionY:_player1.position.y];
+            player1.name = player1CategoryName;
+            [GameOutcomeQueue addContent:player1];
+        }
+
         
     }
     // if isnot server, control player2
     if(!_isServer&&[[_selectedNode name] isEqualToString:player2CategoryName]) {
+        sendPacketCount ++;
+        
         [_selectedNode setPosition:CGPointMake(position.x + translation.x, position.y + translation.y)];
         _player2.physicsBody.velocity = CGVectorMake(translation.x, translation.y);//speed
+        if(sendPacketCount%3 ==0)
+        {
+            Player *player2 = [[Player alloc] initWithPostion:_player2.position.x positionY:_player2.position.y];
+            player2.name = player2CategoryName;
+            [GameOutcomeQueue addContent:player2];
+        }
+
     }
+    
+
+    [GameOutcomeQueue addCount];
     
 }
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -254,12 +287,18 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == player1Category) {
         _soccer.physicsBody.velocity = CGVectorMake(secondBody.velocity.dx*10, secondBody.velocity.dy*10);
         _player1.physicsBody.velocity = CGVectorMake(0,0);
+        Player *soccer = [[Player alloc] initWithPostion:_soccer.position.x positionY:_soccer.position.y];
+        soccer.name = soccerCategoryName;
+        [GameOutcomeQueue addContent:soccer];
         
     }
     
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == player2Category) {
         _soccer.physicsBody.velocity = CGVectorMake(secondBody.velocity.dx*10, secondBody.velocity.dy*10);
         _player2.physicsBody.velocity = CGVectorMake(0,0);
+        Player *soccer = [[Player alloc] initWithPostion:_soccer.position.x positionY:_soccer.position.y];
+        soccer.name = soccerCategoryName;
+        [GameOutcomeQueue addContent:soccer];
         
     }
     
@@ -369,6 +408,44 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
 
 -(void)update:(CFTimeInterval)currentTime {
     
+    Player *tmpPlayer;
+    if([GameIncomeQueue count] > 0)
+    {
+        tmpPlayer = [GameIncomeQueue dequeue];
+        
+        NSLog(@"new player postion %@", tmpPlayer);
+        
+        if(tmpPlayer.name != nil)
+        {
+            if([tmpPlayer.name isEqualToString:soccerCategoryName])
+            {
+                [_soccer setPosition:CGPointMake(tmpPlayer.positionX, tmpPlayer.positionY)];
+            }
+            else
+            {
+                if(_isServer)
+                {
+                    if([tmpPlayer.name isEqualToString:_player2.name])
+                    {
+                        [_player2 setPosition:CGPointMake(tmpPlayer.positionX, tmpPlayer.positionY)];
+                    }
+                
+                }
+                else
+                {
+                    if([tmpPlayer.name isEqualToString:_player1.name])
+                    {
+                        [_player1 setPosition:CGPointMake(tmpPlayer.positionX, tmpPlayer.positionY)];
+                    }
+                }
+            }
+            
+            
+        }
+        
+    }
+
+    
     /* Called before each frame is rendered */
     static int maxSpeed = 20;
     float speed = sqrt(_soccer.physicsBody.velocity.dx *_soccer.physicsBody.velocity.dx + _soccer.physicsBody.velocity.dy * _soccer.physicsBody.velocity.dy);
@@ -404,6 +481,14 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
     
     [self setEatingGreenBOOL];
     [self setEatingRedBOOL];
+    
+    if(soccerPacketCount %3 ==0)
+    {
+        Player *soccer = [[Player alloc] initWithPostion:_soccer.position.x positionY:_soccer.position.y];
+        soccer.name = soccerCategoryName;
+        [GameOutcomeQueue addContent:soccer];
+    }
+    soccerPacketCount ++;
 }
 
 

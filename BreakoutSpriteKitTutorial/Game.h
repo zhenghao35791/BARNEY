@@ -15,7 +15,7 @@
 - (void)game:(Game *)game didQuitWithReason:(QuitReason)reason;
 - (void)gameWaitingForServerReady:(Game *)game;
 - (void)gameWaitingForClientsReady:(Game *)game;
-- (void)gameDidBegin:(Game *)game;
+- (void)gameDidBegin:(Game *)game  isServer:(BOOL)isServer localName:(NSString *)name;
 - (void)game:(Game *)game playerDidDisconnect:(Player *)disconnectedPlayer;
 
 @end

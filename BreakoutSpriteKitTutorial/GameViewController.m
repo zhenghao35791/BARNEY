@@ -99,7 +99,7 @@
     //    self.centerLabel.text = NSLocalizedString(@"Waiting for other players...", @"Status text: waiting for clients");
 }
 
-- (void)gameDidBegin:(Game *)game
+- (void)gameDidBegin:(Game *)game isServer:(BOOL)isServer localName:(NSString *)name
 {
 //        // Configure the view.
 //    SKView * skView = (SKView *)self.view;
@@ -125,7 +125,7 @@
         // Create and configure the scene.
         //  NSLog(@"test3");
         SKScene * scene;
-        scene = [BreakoutGameSceneNet sceneWithSize:skView.bounds.size];
+        scene = [BreakoutGameSceneNet sceneWithSize:skView.bounds.size isServer:isServer initName:name ];
         scene.scaleMode = SKSceneScaleModeAspectFill;
         
         //NSLog(@"test4");

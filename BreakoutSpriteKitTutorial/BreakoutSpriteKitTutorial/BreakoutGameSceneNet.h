@@ -41,6 +41,9 @@
 @property int gateDownScore;
 @property int maxGameTime;
 
+-(id)initWithSize:(CGSize)size isServer:(BOOL)isServer initName: (NSString *)name;
++ (id)sceneWithSize:(CGSize)size isServer:(BOOL)isServer initName: (NSString *)name;
+
 //@property ViewController *spyViewCotroller;
 
 
