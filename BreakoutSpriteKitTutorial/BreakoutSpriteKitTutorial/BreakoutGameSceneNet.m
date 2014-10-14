@@ -13,8 +13,8 @@
 
 
 static NSString* soccerCategoryName = @"soccer";
-static NSString* player1CategoryName = @"player1";
-static NSString* player2CategoryName = @"player2";
+static NSString* player1CategoryName = @"player1";///////////////////////
+static NSString* player2CategoryName = @"player2";////////////////////////
 static NSString* gateUpCategoryName = @"gateUpCategoryName";
 static NSString* gateDownCategoryName = @"gateDownCategoryName";
 static NSString* aiKeeperCategoryName = @"aiKeeperCategoryName";
@@ -168,9 +168,9 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
         _soccer.physicsBody.contactTestBitMask = borderCategory | player1Category|player2Category|gateUpCategory|gateDownCategory|aiForwardCategory|aiKeeperCategory;
         
         _player2.physicsBody.contactTestBitMask = redMushroomCategory | greenMushroomCategory;
-        _greenMushroom.physicsBody.contactTestBitMask = borderCategory|player2Category;
-        border.physicsBody.contactTestBitMask = player2Category|greenMushroomCategory|redMushroomCategory;
-        _redMushroom.physicsBody.contactTestBitMask = borderCategory|player2Category;
+        _greenMushroom.physicsBody.contactTestBitMask = borderCategory|player2Category|player1Category;
+        border.physicsBody.contactTestBitMask = player2Category|greenMushroomCategory|redMushroomCategory|player2Category ;
+        _redMushroom.physicsBody.contactTestBitMask = borderCategory|player2Category|player1Category;
         
         self.physicsWorld.contactDelegate = self;
         
@@ -188,8 +188,8 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
         
         
        // [self CallingAiGateKeeper];
-        [self CallingAiGateForward];
-        [self dropingMushroom];
+        //[self CallingAiGateForward];
+        //[self dropingMushroom];
         //[self CallingMyGateKeeper];
         [self addPlayer1];
         [self addPlayer2];
@@ -493,7 +493,7 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
 }
 
 - (void) addPlayer1{
-    _player1 = [[SKSpriteNode alloc] initWithImageNamed: @"player1.png"];
+    _player1 = [[SKSpriteNode alloc] initWithImageNamed: @"gateForward.png"];
     _player1.name = player1CategoryName;
     _player1.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 + 200);
     [self addChild:_player1];
