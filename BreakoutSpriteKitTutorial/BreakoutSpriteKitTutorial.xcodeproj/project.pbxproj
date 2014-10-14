@@ -11,7 +11,6 @@
 		18372CB619E7DCEC009E92C2 /* soccer.png in Resources */ = {isa = PBXBuildFile; fileRef = 18372CB219E7DCEC009E92C2 /* soccer.png */; };
 		18479C7619EC928D005703C5 /* background-music-aac.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7419EC928D005703C5 /* background-music-aac.caf */; };
 		18479C7719EC928D005703C5 /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7519EC928D005703C5 /* pew-pew-lei.caf */; };
-		18479C8019ECA234005703C5 /* background.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7F19EC9E8A005703C5 /* background.caf */; };
 		18479C8119ECA234005703C5 /* explosion_large.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7819EC9DE3005703C5 /* explosion_large.caf */; };
 		18479C8219ECA234005703C5 /* explosion_small.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7919EC9DE3005703C5 /* explosion_small.caf */; };
 		18479C8319ECA234005703C5 /* laser_enemy.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7A19EC9DE3005703C5 /* laser_enemy.caf */; };
@@ -19,6 +18,7 @@
 		18479C8519ECA234005703C5 /* powerup.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7C19EC9DE3005703C5 /* powerup.caf */; };
 		18479C8619ECA234005703C5 /* shake.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7D19EC9DE3005703C5 /* shake.caf */; };
 		18479C8719ECA234005703C5 /* SpaceGame.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7E19EC9DE3005703C5 /* SpaceGame.caf */; };
+		18479C8919ECA590005703C5 /* newBackground.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C8819ECA4E5005703C5 /* newBackground.caf */; };
 		18D0159D19EA91CE000E8B01 /* gateForward.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D0159919EA91CE000E8B01 /* gateForward.png */; };
 		18D0159E19EA91CE000E8B01 /* gateKeeper.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D0159A19EA91CE000E8B01 /* gateKeeper.png */; };
 		18D015A419EA9D21000E8B01 /* redMushroom.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D015A319EA9D21000E8B01 /* redMushroom.png */; };
@@ -86,7 +86,7 @@
 		18479C7C19EC9DE3005703C5 /* powerup.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = powerup.caf; sourceTree = "<group>"; };
 		18479C7D19EC9DE3005703C5 /* shake.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shake.caf; sourceTree = "<group>"; };
 		18479C7E19EC9DE3005703C5 /* SpaceGame.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpaceGame.caf; sourceTree = "<group>"; };
-		18479C7F19EC9E8A005703C5 /* background.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.caf; sourceTree = "<group>"; };
+		18479C8819ECA4E5005703C5 /* newBackground.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = newBackground.caf; sourceTree = "<group>"; };
 		18D0159919EA91CE000E8B01 /* gateForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gateForward.png; sourceTree = "<group>"; };
 		18D0159A19EA91CE000E8B01 /* gateKeeper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gateKeeper.png; sourceTree = "<group>"; };
 		18D015A319EA9D21000E8B01 /* redMushroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redMushroom.png; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 		18479C7319EC928D005703C5 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				18479C7F19EC9E8A005703C5 /* background.caf */,
+				18479C8819ECA4E5005703C5 /* newBackground.caf */,
 				18479C7819EC9DE3005703C5 /* explosion_large.caf */,
 				18479C7919EC9DE3005703C5 /* explosion_small.caf */,
 				18479C7A19EC9DE3005703C5 /* laser_enemy.caf */,
@@ -455,7 +455,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18479C8019ECA234005703C5 /* background.caf in Resources */,
+				18479C8919ECA590005703C5 /* newBackground.caf in Resources */,
 				18479C8119ECA234005703C5 /* explosion_large.caf in Resources */,
 				18479C8219ECA234005703C5 /* explosion_small.caf in Resources */,
 				18479C8319ECA234005703C5 /* laser_enemy.caf in Resources */,

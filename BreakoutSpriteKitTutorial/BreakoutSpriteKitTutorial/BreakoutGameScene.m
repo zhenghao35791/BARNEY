@@ -346,7 +346,7 @@ NSTimeInterval eatRedTime = 0;
         [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
         [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
-        [self runAction:[SKAction playSoundFileNamed:@"shake.caf" waitForCompletion:NO]];
+        [self runAction:[SKAction playSoundFileNamed:@"explosion_large.caf" waitForCompletion:NO]];
 
     }
     

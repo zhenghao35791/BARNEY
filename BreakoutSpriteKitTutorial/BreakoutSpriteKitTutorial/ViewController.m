@@ -22,7 +22,7 @@
     [super viewWillLayoutSubviews];
     ////////////////////loading background music
     NSError *error;
-    NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"background" withExtension:@"caf"];
+    NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"newBackground" withExtension:@"caf"];
     self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
     
     self.backgroundMusicPlayer.numberOfLoops = -1;
