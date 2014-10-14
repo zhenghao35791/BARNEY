@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		18372CB319E7DCEC009E92C2 /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 18372CAF19E7DCEC009E92C2 /* background.jpeg */; };
 		18372CB619E7DCEC009E92C2 /* soccer.png in Resources */ = {isa = PBXBuildFile; fileRef = 18372CB219E7DCEC009E92C2 /* soccer.png */; };
+		18479C7619EC928D005703C5 /* background-music-aac.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7419EC928D005703C5 /* background-music-aac.caf */; };
+		18479C7719EC928D005703C5 /* pew-pew-lei.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7519EC928D005703C5 /* pew-pew-lei.caf */; };
+		18479C8019ECA234005703C5 /* background.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7F19EC9E8A005703C5 /* background.caf */; };
+		18479C8119ECA234005703C5 /* explosion_large.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7819EC9DE3005703C5 /* explosion_large.caf */; };
+		18479C8219ECA234005703C5 /* explosion_small.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7919EC9DE3005703C5 /* explosion_small.caf */; };
+		18479C8319ECA234005703C5 /* laser_enemy.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7A19EC9DE3005703C5 /* laser_enemy.caf */; };
+		18479C8419ECA234005703C5 /* laser_ship.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7B19EC9DE3005703C5 /* laser_ship.caf */; };
+		18479C8519ECA234005703C5 /* powerup.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7C19EC9DE3005703C5 /* powerup.caf */; };
+		18479C8619ECA234005703C5 /* shake.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7D19EC9DE3005703C5 /* shake.caf */; };
+		18479C8719ECA234005703C5 /* SpaceGame.caf in Resources */ = {isa = PBXBuildFile; fileRef = 18479C7E19EC9DE3005703C5 /* SpaceGame.caf */; };
 		18D0159D19EA91CE000E8B01 /* gateForward.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D0159919EA91CE000E8B01 /* gateForward.png */; };
 		18D0159E19EA91CE000E8B01 /* gateKeeper.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D0159A19EA91CE000E8B01 /* gateKeeper.png */; };
 		18D015A419EA9D21000E8B01 /* redMushroom.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D015A319EA9D21000E8B01 /* redMushroom.png */; };
@@ -67,6 +77,16 @@
 /* Begin PBXFileReference section */
 		18372CAF19E7DCEC009E92C2 /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
 		18372CB219E7DCEC009E92C2 /* soccer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soccer.png; sourceTree = "<group>"; };
+		18479C7419EC928D005703C5 /* background-music-aac.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "background-music-aac.caf"; sourceTree = "<group>"; };
+		18479C7519EC928D005703C5 /* pew-pew-lei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pew-pew-lei.caf"; sourceTree = "<group>"; };
+		18479C7819EC9DE3005703C5 /* explosion_large.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion_large.caf; sourceTree = "<group>"; };
+		18479C7919EC9DE3005703C5 /* explosion_small.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion_small.caf; sourceTree = "<group>"; };
+		18479C7A19EC9DE3005703C5 /* laser_enemy.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = laser_enemy.caf; sourceTree = "<group>"; };
+		18479C7B19EC9DE3005703C5 /* laser_ship.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = laser_ship.caf; sourceTree = "<group>"; };
+		18479C7C19EC9DE3005703C5 /* powerup.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = powerup.caf; sourceTree = "<group>"; };
+		18479C7D19EC9DE3005703C5 /* shake.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shake.caf; sourceTree = "<group>"; };
+		18479C7E19EC9DE3005703C5 /* SpaceGame.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpaceGame.caf; sourceTree = "<group>"; };
+		18479C7F19EC9E8A005703C5 /* background.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.caf; sourceTree = "<group>"; };
 		18D0159919EA91CE000E8B01 /* gateForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gateForward.png; sourceTree = "<group>"; };
 		18D0159A19EA91CE000E8B01 /* gateKeeper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gateKeeper.png; sourceTree = "<group>"; };
 		18D015A319EA9D21000E8B01 /* redMushroom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redMushroom.png; sourceTree = "<group>"; };
@@ -148,6 +168,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18479C7319EC928D005703C5 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				18479C7F19EC9E8A005703C5 /* background.caf */,
+				18479C7819EC9DE3005703C5 /* explosion_large.caf */,
+				18479C7919EC9DE3005703C5 /* explosion_small.caf */,
+				18479C7A19EC9DE3005703C5 /* laser_enemy.caf */,
+				18479C7B19EC9DE3005703C5 /* laser_ship.caf */,
+				18479C7C19EC9DE3005703C5 /* powerup.caf */,
+				18479C7D19EC9DE3005703C5 /* shake.caf */,
+				18479C7E19EC9DE3005703C5 /* SpaceGame.caf */,
+				18479C7419EC928D005703C5 /* background-music-aac.caf */,
+				18479C7519EC928D005703C5 /* pew-pew-lei.caf */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		1B19F54E19EBAC9200BF9B8C /* level1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +307,7 @@
 		66DF6A1E17FB871B00CC9BD1 /* BreakoutSpriteKitTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				18479C7319EC928D005703C5 /* Sounds */,
 				1B19F56719EBD83300BF9B8C /* information */,
 				1B19F54F19EBAC9B00BF9B8C /* level3 */,
 				1B19F54E19EBAC9200BF9B8C /* level1 */,
@@ -417,6 +455,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18479C8019ECA234005703C5 /* background.caf in Resources */,
+				18479C8119ECA234005703C5 /* explosion_large.caf in Resources */,
+				18479C8219ECA234005703C5 /* explosion_small.caf in Resources */,
+				18479C8319ECA234005703C5 /* laser_enemy.caf in Resources */,
+				18479C8419ECA234005703C5 /* laser_ship.caf in Resources */,
+				18479C8519ECA234005703C5 /* powerup.caf in Resources */,
+				18479C8619ECA234005703C5 /* shake.caf in Resources */,
+				18479C8719ECA234005703C5 /* SpaceGame.caf in Resources */,
 				18EC42EB19EB957400CFB641 /* gateForward.png in Resources */,
 				18372CB619E7DCEC009E92C2 /* soccer.png in Resources */,
 				66DF6A5E17FB87DB00CC9BD1 /* bg~ipad.png in Resources */,
@@ -427,6 +473,7 @@
 				1B984AEE19E8D40B007533CF /* Gate_UP_normal.png in Resources */,
 				66DF6A3617FB871B00CC9BD1 /* Images.xcassets in Resources */,
 				1B984AEC19E8D40B007533CF /* Gate_down_small.png in Resources */,
+				18479C7619EC928D005703C5 /* background-music-aac.caf in Resources */,
 				18D0159D19EA91CE000E8B01 /* gateForward.png in Resources */,
 				18D0159E19EA91CE000E8B01 /* gateKeeper.png in Resources */,
 				1B984AF619E8DEE3007533CF /* game_over_bg.png in Resources */,
@@ -439,6 +486,7 @@
 				18D015A419EA9D21000E8B01 /* redMushroom.png in Resources */,
 				66DF6A5F17FB87DB00CC9BD1 /* bg~iphone.png in Resources */,
 				66DF6A2C17FB871B00CC9BD1 /* Main.storyboard in Resources */,
+				18479C7719EC928D005703C5 /* pew-pew-lei.caf in Resources */,
 				1B984AEF19E8D40B007533CF /* Gate_UP_small.png in Resources */,
 				18EC42ED19EB95B700CFB641 /* player2.png in Resources */,
 				1B19F56E19EBDF2900BF9B8C /* information.png in Resources */,

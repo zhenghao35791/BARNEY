@@ -279,6 +279,8 @@ NSTimeInterval eatRedTime1 = 0;
         [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
         [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
+        [self runAction:[SKAction playSoundFileNamed:@"explosion_large.caf" waitForCompletion:NO]];
+
         
     }
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateDownCategory) {
@@ -288,6 +290,8 @@ NSTimeInterval eatRedTime1 = 0;
         [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
         [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
+        [self runAction:[SKAction playSoundFileNamed:@"explosion_large.caf" waitForCompletion:NO]];
+
         
     }
     
@@ -321,7 +325,8 @@ NSTimeInterval eatRedTime1 = 0;
         
         _isEatingGreen1 = true;
         eatGreenTime1 = CACurrentMediaTime();
-        
+        [self runAction:[SKAction playSoundFileNamed:@"pew-pew-lei.caf" waitForCompletion:NO]];
+
     }
     
     if (firstBody.categoryBitMask == player2Category && secondBody.categoryBitMask == redMushroomCategory ) {
@@ -329,6 +334,8 @@ NSTimeInterval eatRedTime1 = 0;
         [secondBody.node removeFromParent];
         _isEatingRed1 = true;
         eatRedTime1 = CACurrentMediaTime();
+        [self runAction:[SKAction playSoundFileNamed:@"pew-pew-lei.caf" waitForCompletion:NO]];
+
     }
     
     
@@ -338,6 +345,8 @@ NSTimeInterval eatRedTime1 = 0;
         [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
         [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
+        [self runAction:[SKAction playSoundFileNamed:@"shake.caf" waitForCompletion:NO]];
+
     }
     
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask== aiForwardCategory ) {
@@ -506,7 +515,8 @@ NSTimeInterval eatRedTime1 = 0;
         if(randomInt==0)[self CallingGreenMushroom];
         if(randomInt==1) [self CallingRedMushroom];
         [NSThread sleepForTimeInterval:[self getRandomNumberBetween:5 to:10]];
-        
+        [self runAction:[SKAction playSoundFileNamed:@"powerup.caf" waitForCompletion:NO]];
+
     }
 }
 

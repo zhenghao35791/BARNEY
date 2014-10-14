@@ -20,11 +20,18 @@
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    //[_results setObject:@"" forKey:@"myScore"];
-    //[_results setObject:@"" forKey:@"enemyScore"];
+    ////////////////////loading background music
+    NSError *error;
+    NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"background" withExtension:@"caf"];
+    self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
     
-    // Configure the view.
-   // NSLog(@"test1");
+    self.backgroundMusicPlayer.numberOfLoops = -1;
+    [self.backgroundMusicPlayer prepareToPlay];
+    [self.backgroundMusicPlayer play];
+    ////////////////////
+    
+    
+    
     SKView * skView = (SKView *)self.view;
     NSLog(@"skView.class:%@",skView.class);
     if (!skView.scene) {
