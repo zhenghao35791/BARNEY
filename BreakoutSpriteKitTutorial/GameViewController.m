@@ -147,5 +147,7 @@
 
 
 - (IBAction)getResult:(id)sender {
+    //multiP_result
+    [self performSegueWithIdentifier:@"multiP_result" sender:self];//page nivagation
 }
 @end
