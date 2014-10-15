@@ -21,6 +21,7 @@
 @interface GameViewController : UIViewController <UIAlertViewDelegate, GameDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *waitingLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *backGroundImage;
+- (IBAction)getResult:(id)sender;
 
 @property (nonatomic, weak) id <GameViewControllerDelegate> delegate;
 @property (nonatomic, strong) Game *game;

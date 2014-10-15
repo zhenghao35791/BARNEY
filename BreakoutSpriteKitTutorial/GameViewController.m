@@ -121,7 +121,7 @@
     if (!skView.scene) {
         skView.showsFPS = YES;
         skView.showsNodeCount = YES;
-        NSString *model = [[NSUserDefaults standardUserDefaults]objectForKey:@"model"];
+        //NSString *model = [[NSUserDefaults standardUserDefaults]objectForKey:@"model"];
         // Create and configure the scene.
         //  NSLog(@"test3");
         SKScene * scene;
@@ -146,4 +146,6 @@
 }
 
 
+- (IBAction)getResult:(id)sender {
+}
 @end

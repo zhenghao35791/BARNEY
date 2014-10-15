@@ -41,6 +41,7 @@
 		1B984AEF19E8D40B007533CF /* Gate_UP_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AE919E8D40B007533CF /* Gate_UP_small.png */; };
 		1B984AF619E8DEE3007533CF /* game_over_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B984AF519E8DEE3007533CF /* game_over_bg.png */; };
 		1B984AF919E8FF94007533CF /* GameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B984AF819E8FF94007533CF /* GameOverViewController.m */; };
+		1BE4F18319EE186B00DEA5FE /* MultiPResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE4F18219EE186B00DEA5FE /* MultiPResultViewController.m */; };
 		66DF6A1717FB871B00CC9BD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DF6A1617FB871B00CC9BD1 /* Foundation.framework */; };
 		66DF6A1917FB871B00CC9BD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DF6A1817FB871B00CC9BD1 /* CoreGraphics.framework */; };
 		66DF6A1B17FB871B00CC9BD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66DF6A1A17FB871B00CC9BD1 /* UIKit.framework */; };
@@ -172,6 +173,8 @@
 		1B984AF719E8FF94007533CF /* GameOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverViewController.h; sourceTree = "<group>"; };
 		1B984AF819E8FF94007533CF /* GameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverViewController.m; sourceTree = "<group>"; };
 		1B984AFA19E915CF007533CF /* SystemSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemSetting.h; sourceTree = "<group>"; };
+		1BE4F18119EE186B00DEA5FE /* MultiPResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiPResultViewController.h; sourceTree = "<group>"; };
+		1BE4F18219EE186B00DEA5FE /* MultiPResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiPResultViewController.m; sourceTree = "<group>"; };
 		66DF6A1317FB871B00CC9BD1 /* BreakoutSpriteKitTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakoutSpriteKitTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DF6A1617FB871B00CC9BD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66DF6A1817FB871B00CC9BD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -568,6 +571,8 @@
 				6B634EB519ED1DCE0081243F /* OnlineGame.h */,
 				6B634EB619ED1DCE0081243F /* Game.h */,
 				6B634EB719ED1DCE0081243F /* Game.m */,
+				1BE4F18119EE186B00DEA5FE /* MultiPResultViewController.h */,
+				1BE4F18219EE186B00DEA5FE /* MultiPResultViewController.m */,
 			);
 			name = NetWork;
 			sourceTree = "<group>";
@@ -818,6 +823,7 @@
 				6B634F2019ED1EAE0081243F /* Global.m in Sources */,
 				6B634F0E19ED1E960081243F /* JoinViewController.m in Sources */,
 				6B634F1E19ED1EAE0081243F /* UIButton+SnapAdditions.m in Sources */,
+				1BE4F18319EE186B00DEA5FE /* MultiPResultViewController.m in Sources */,
 				6B634F3E19ED1EC50081243F /* GameOutcomeQueue.m in Sources */,
 				66DF6A2F17FB871B00CC9BD1 /* ViewController.m in Sources */,
 				6B634F3919ED1EC50081243F /* PacketSignInResponse.m in Sources */,
