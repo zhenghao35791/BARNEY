@@ -66,7 +66,7 @@ NSTimeInterval eatRedTime3 = 0;
         //_aAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
         //[_aAudioPlayer stop];
         //[_aAudioPlayer play];
-        _maxGameTime = 10;
+        _maxGameTime = 30;
         _gateDownScore = 0;
         _gateUpScore = 0;
         _internalCounter= 0;
@@ -282,10 +282,33 @@ NSTimeInterval eatRedTime3 = 0;
         NSLog(@"gateupsoring");
         _gateUpScore++;
         [self alertStatus:@"soring" :@"Notice" :0];
+        [_soccer removeFromParent];
         [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
         [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
         [self runAction:[SKAction playSoundFileNamed:@"explosion_large.caf" waitForCompletion:NO]];
+        
+        
+        _soccer = [SKSpriteNode spriteNodeWithImageNamed: @"soccer.png"];
+        _soccer.name = soccerCategoryName;
+        _soccer.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+        [self addChild:_soccer];
+        
+        // 2
+        _soccer.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:_soccer.frame.size.width/2];
+        // _soccer.physicsBody.usesPreciseCollisionDetection =  YES;
+        // 3
+        _soccer.physicsBody.friction = 0.2f;
+        // 4
+        _soccer.physicsBody.restitution = 1.0f;
+        // 5
+        _soccer.physicsBody.linearDamping = 0.2f;
+        // 6
+        _soccer.physicsBody.allowsRotation = YES;
+        //7
+        _soccer.physicsBody.mass = 10;
+        _soccer.physicsBody.categoryBitMask = soccerCategory;
+        _soccer.physicsBody.contactTestBitMask = borderCategory | player1Category|player2Category|gateUpCategory|gateDownCategory|aiForwardCategory|aiKeeperCategory;
 
 
     }
@@ -293,10 +316,33 @@ NSTimeInterval eatRedTime3 = 0;
         NSLog(@"gatedownsoring");
         _gateDownScore++;
         [self alertStatus:@"goal" :@"Notice" :0];
+        [_soccer removeFromParent];
         [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
         [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
         [self runAction:[SKAction playSoundFileNamed:@"explosion_large.caf" waitForCompletion:NO]];
+        
+        
+        _soccer = [SKSpriteNode spriteNodeWithImageNamed: @"soccer.png"];
+        _soccer.name = soccerCategoryName;
+        _soccer.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+        [self addChild:_soccer];
+        
+        // 2
+        _soccer.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:_soccer.frame.size.width/2];
+        // _soccer.physicsBody.usesPreciseCollisionDetection =  YES;
+        // 3
+        _soccer.physicsBody.friction = 0.2f;
+        // 4
+        _soccer.physicsBody.restitution = 1.0f;
+        // 5
+        _soccer.physicsBody.linearDamping = 0.2f;
+        // 6
+        _soccer.physicsBody.allowsRotation = YES;
+        //7
+        _soccer.physicsBody.mass = 10;
+        _soccer.physicsBody.categoryBitMask = soccerCategory;
+        _soccer.physicsBody.contactTestBitMask = borderCategory | player1Category|player2Category|gateUpCategory|gateDownCategory|aiForwardCategory|aiKeeperCategory;
 
 
     }
