@@ -224,7 +224,7 @@
 }
 
 - (IBAction)informationHelper:(id)sender {
-    
+    [[NSUserDefaults standardUserDefaults]setObject:@"single" forKey:@"infoFrom"];
     [self performSegueWithIdentifier:@"single_game_info" sender:self];//page nivagation
 }
 @end

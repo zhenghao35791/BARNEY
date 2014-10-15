@@ -6,10 +6,11 @@
 //  Copyright (c) 2013 Barbara Köhler. All rights reserved.
 /////
 #import <UIKit/UIKit.h>
-#import "BreakoutGameScene.h"
+#import "BreakoutGameScene3.h"
 #import <AVFoundation/AVFoundation.h>
 #import "GameOverViewController.h"
 #import "ViewController.h"
+#import "Math.h"
 
 
 static NSString* soccerCategoryName = @"soccer";
@@ -36,7 +37,7 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
 
 
 
-@interface BreakoutGameScene()
+@interface BreakoutGameScene3()
 
 @property (nonatomic) BOOL isFingerOnPlayer1;
 @property (nonatomic) BOOL isFingerOnPlayer2;
@@ -46,12 +47,12 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
 @end
 
 
-@implementation BreakoutGameScene
+@implementation BreakoutGameScene3
 
-NSTimeInterval startTime;
-NSTimeInterval endTime;
-NSTimeInterval eatGreenTime = 0;
-NSTimeInterval eatRedTime = 0;
+NSTimeInterval startTime3;
+NSTimeInterval endTime3;
+NSTimeInterval eatGreenTime3 = 0;
+NSTimeInterval eatRedTime3 = 0;
 
 
 
@@ -191,7 +192,7 @@ NSTimeInterval eatRedTime = 0;
         
         self.physicsWorld.contactDelegate = self;
         
-        startTime = CACurrentMediaTime();
+        startTime3 = CACurrentMediaTime();
         
         
         //loading internal
@@ -291,7 +292,7 @@ NSTimeInterval eatRedTime = 0;
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateDownCategory) {
         NSLog(@"gatedownsoring");
         _gateDownScore++;
-        [self alertStatus:@"soring" :@"Notice" :0];
+        [self alertStatus:@"goal" :@"Notice" :0];
         [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
         [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
@@ -329,7 +330,7 @@ NSTimeInterval eatRedTime = 0;
         [self addChild:_gateDown];
         
         _isEatingGreen = TRUE;
-        eatGreenTime = CACurrentMediaTime();
+        eatGreenTime3 = CACurrentMediaTime();
         [self runAction:[SKAction playSoundFileNamed:@"pew-pew-lei.caf" waitForCompletion:NO]];
 
 
@@ -339,7 +340,7 @@ NSTimeInterval eatRedTime = 0;
          NSLog(@"redMushroom");
         [secondBody.node removeFromParent];
         _isEatingRed = true;
-        eatRedTime = CACurrentMediaTime();
+        eatRedTime3 = CACurrentMediaTime();
         [self runAction:[SKAction playSoundFileNamed:@"pew-pew-lei.caf" waitForCompletion:NO]];
 
     }
@@ -363,7 +364,7 @@ NSTimeInterval eatRedTime = 0;
 }
 
 - (void) setEatingGreenBOOL{
-    if( !eatGreenTime==0 &&CACurrentMediaTime()-eatGreenTime > 5 && _isEatingGreen){
+    if( !eatGreenTime3==0 &&CACurrentMediaTime()-eatGreenTime3 > 5 && _isEatingGreen){
         _isEatingGreen = false;
         [_gateDown removeFromParent];
         [_gateDown removeFromParent];
@@ -381,7 +382,7 @@ NSTimeInterval eatRedTime = 0;
 
 
 - (void) setEatingRedBOOL{
-    if( !eatRedTime==0 &&CACurrentMediaTime()-eatRedTime > 5){
+    if( !eatRedTime3==0 &&CACurrentMediaTime()-eatRedTime3 > 5){
         _isEatingRed = false;
     }
 }
@@ -405,13 +406,13 @@ NSTimeInterval eatRedTime = 0;
     ///////////////////////////
    if(!_isEatingRed) {
        CGPoint moving = CGPointMake(_soccer.position.x - _aiForward.position.x, _soccer.position.y - _aiForward.position.y);
-       SKAction *offensive = [SKAction moveTo:CGPointMake(_soccer.position.x, _soccer.position.y) duration:8];
+       SKAction *offensive = [SKAction moveTo:CGPointMake(_soccer.position.x, _soccer.position.y) duration:2];
        if(fabs(_soccer.position.x-_aiForward.position.x)>
           15 || fabs(_soccer.position.y-_aiForward.position.y)>
           70 ){
            NSLog(@"%f  %f",fabs(_soccer.position.x-_aiForward.position.x),fabs(_soccer.position.y-_aiForward.position.y));
-           [_aiForward runAction:[SKAction repeatActionForever:offensive]];
-           _aiForward.physicsBody.velocity  = CGVectorMake(moving.x, moving.y);
+       [_aiForward runAction:[SKAction repeatActionForever:offensive]];
+        _aiForward.physicsBody.velocity  = CGVectorMake(moving.x, moving.y);
        }
    }
     if(_isEatingRed){
@@ -422,8 +423,8 @@ NSTimeInterval eatRedTime = 0;
     }
     
     
-    endTime = currentTime;
-   _internalCounter= (endTime - startTime);
+    endTime3 = currentTime;
+   _internalCounter= (endTime3 - startTime3);
     if(_maxGameTime - _internalCounter>0)
         {  //if counting down to 0 show counter
             _internal.text = [NSString stringWithFormat:@"%i           %i : %i", _maxGameTime -_internalCounter,_gateDownScore,_gateUpScore];
@@ -495,7 +496,7 @@ NSTimeInterval eatRedTime = 0;
     CGPoint path2 = CGPointMake(_aiKeeper.position.x, _aiKeeper.position.y);
     CGPathMoveToPoint(cgpath,NULL, start.x, start.y);
     CGPathAddCurveToPoint(cgpath, NULL, path1.x, path1.y, path2.x, path2.y, end.x, end.y);
-    SKAction *defend = [SKAction followPath:cgpath asOffset:NO orientToPath:YES duration:10];
+    SKAction *defend = [SKAction followPath:cgpath asOffset:NO orientToPath:YES duration:2];
     _aiKeeper.physicsBody.dynamic = NO;
     _aiKeeper.physicsBody.allowsRotation = NO;
 
@@ -611,7 +612,7 @@ NSTimeInterval eatRedTime = 0;
     CGPoint path2 = CGPointMake(_myKeeper.position.x, _myKeeper.position.y);
     CGPathMoveToPoint(cgpath,NULL, start.x, start.y);
     CGPathAddCurveToPoint(cgpath, NULL, path1.x, path1.y, path2.x, path2.y, end.x, end.y);
-    SKAction *defend = [SKAction followPath:cgpath asOffset:NO orientToPath:YES duration:2];
+    SKAction *defend = [SKAction followPath:cgpath asOffset:NO orientToPath:YES duration:4];
     _myKeeper.physicsBody.dynamic = NO;
     _myKeeper.physicsBody.allowsRotation = NO;
     
