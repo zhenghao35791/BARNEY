@@ -7,6 +7,7 @@
 //
 
 #import "MultiPResultViewController.h"
+#import "MainViewController.h"
 
 @interface MultiPResultViewController ()
 
@@ -59,7 +60,8 @@
 
 - (IBAction)goHome:(id)sender {
     //multiP_result
-    [self performSegueWithIdentifier:@"multiP_result" sender:self];//page nivagation
-
+    MainViewController *controller = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    [self presentViewController:controller animated:YES completion:nil];
+    
 }
 @end
