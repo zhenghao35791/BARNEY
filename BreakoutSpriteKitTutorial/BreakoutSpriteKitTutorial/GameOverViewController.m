@@ -42,10 +42,12 @@
     _currentScore.text = result;
     NSString *currentUser = [[NSUserDefaults standardUserDefaults]objectForKey:@"userName"];
     NSString *rank = [self getRankBy:currentUser and:result];
-    if([rank isEqualToString:@"ERROR"] || (NSNull *)rank == [NSNull null])
+    if([rank isEqualToString:@"ERROR"] || (NSNull *)rank == [NSNull null]){
         [self alertStatus:@"connection failed" :@"failed to update score to database" :0];
-    _currentRanking.text = rank;
+    _currentRanking.text = @"connection error";
+    }
     NSLog(@"rank : %@",rank);
+    _currentRanking.text = rank;
     //[self.view setNeedsDisplay];
 }
 
