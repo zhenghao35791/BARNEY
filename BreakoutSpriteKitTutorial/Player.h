@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GameObject.h"
 
 
 
 
-@interface Player : GameObject{
+@interface Player :NSObject{
 }
 - (id) initWithPostion :(float)positionX positionY:(float)positionY;
 @property (nonatomic, copy) NSString *name;

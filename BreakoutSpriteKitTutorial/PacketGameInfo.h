@@ -7,7 +7,6 @@
 //
 
 #import "Packet.h"
-#import "GameObject.h"
 @interface PacketGameInfo : Packet
 
 @property (nonatomic, strong) NSDictionary *players;

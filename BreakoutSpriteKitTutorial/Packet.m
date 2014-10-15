@@ -146,7 +146,7 @@ const size_t PACKET_HEADER_SIZE = 10;
             float positionY = [data rw_floatAtOffset:offset];
             offset += sizeof(float);
             
-            GameObject *player = [[GameObject alloc] initWithPostion:positionX positionY:positionY];
+            Player *player = [[Player alloc] initWithPostion:positionX positionY:positionY];
             player.name = [data rw_stringAtOffset:offset bytesRead:&count];
             offset += count;
             

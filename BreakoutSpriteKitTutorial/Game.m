@@ -402,7 +402,7 @@ GameState;
         
           NSMutableDictionary *players = [NSMutableDictionary dictionaryWithCapacity:2];
           __block int index = 0;
-            GameObject *playerInfo = [GameOutcomeQueue dequeue];
+            Player *playerInfo = [GameOutcomeQueue dequeue];
 
             [players setObject:playerInfo forKey:@"Game"];
         
