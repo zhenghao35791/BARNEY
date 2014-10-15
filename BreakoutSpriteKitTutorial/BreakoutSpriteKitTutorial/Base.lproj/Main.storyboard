@@ -33,6 +33,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="atest" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUZ-hL-n25">
                                 <rect key="frame" x="112" y="181" width="608" height="785"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="40"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>

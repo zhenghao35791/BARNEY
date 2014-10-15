@@ -23,14 +23,27 @@
         self.helperText.editable = YES;
         self.helperText.font = [UIFont fontWithName:@"Arial" size:40];
         //self.helperText.editable = NO;
-        self.helperText.text = @"single game info";
+        NSMutableString *scoreInfo = [[NSMutableString alloc] init];
+        [scoreInfo appendString:@"Single Game Information"];
+        [scoreInfo appendString:@"\n1.Please enter your name before playing, and kindly check your game state by clicking the “check” button."];
+        [scoreInfo appendString:@"\n2.You can get access to level 1 at any circumstance."];
+        [scoreInfo appendString:@"\n3.When you get more than 5 scores, level 2 will be unlocking"];
+        [scoreInfo appendString:@"\n4.Similarly, 10 scores will unlock level 3s."];
+
+        self.helperText.text = scoreInfo;
         self.helperText.editable = NO;
     }
     if([from_Info isEqualToString:@"home"]){
         self.helperText.editable = YES;
         self.helperText.font = [UIFont fontWithName:@"Arial" size:40];
         //self.helperText.editable = NO;
-        self.helperText.text = @"any game info";
+        NSMutableString *scoreInfo = [[NSMutableString alloc] init];
+        [scoreInfo appendString:@"Game Information"];
+        [scoreInfo appendString:@"\n1.To start multi-player game, players must be connect by a network such as wifi/blutooth."];
+        [scoreInfo appendString:@"\n2.Player can host a game by clicking the “Host Game”. If the host see any one join its game, he can start the game by click the “start” button."];
+        [scoreInfo appendString:@"\n3.To join a Game, players can click “Join Game” button to check who is hosting a game. If there is any game that is waiting for users to join, he can join the game directly by tap the host user name to join it."];
+        
+        self.helperText.text = scoreInfo;
         self.helperText.editable = NO;
     }
 
