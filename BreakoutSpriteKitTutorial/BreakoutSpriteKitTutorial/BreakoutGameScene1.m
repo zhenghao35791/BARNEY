@@ -57,7 +57,7 @@ NSTimeInterval eatRedTime1 = 0;
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        _maxGameTime = 60;
+        _maxGameTime = 15;
         _gateDownScore = 0;
         _gateUpScore = 0;
         _internalCounter= 0;
@@ -74,7 +74,7 @@ NSTimeInterval eatRedTime1 = 0;
         _internalCounter= 0;
         _gateUpScore = 0;
         _gateDownScore = 0;
-        _maxGameTime = 60;
+        _maxGameTime = 15;
         
         // Setup the scene
         screenRect = [[UIScreen mainScreen]bounds];

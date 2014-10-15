@@ -65,7 +65,7 @@ NSTimeInterval eatRedTime = 0;
         //_aAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
         //[_aAudioPlayer stop];
         //[_aAudioPlayer play];
-        _maxGameTime = 10;
+        _maxGameTime = 30;
         _gateDownScore = 0;
         _gateUpScore = 0;
         _internalCounter= 0;
