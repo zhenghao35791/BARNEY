@@ -64,7 +64,6 @@
 		66DF6A5E17FB87DB00CC9BD1 /* bg~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DF6A5817FB87DA00CC9BD1 /* bg~ipad.png */; };
 		66DF6A5F17FB87DB00CC9BD1 /* bg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DF6A5917FB87DA00CC9BD1 /* bg~iphone.png */; };
 		6B634EB819ED1DCE0081243F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634EAF19ED1DCE0081243F /* Player.m */; };
-		6B634EBB19ED1DCE0081243F /* OnlineGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634EB419ED1DCE0081243F /* OnlineGame.m */; };
 		6B634EBC19ED1DCE0081243F /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634EB719ED1DCE0081243F /* Game.m */; };
 		6B634EBF19ED1DD60081243F /* PeerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634EBE19ED1DD60081243F /* PeerCell.m */; };
 		6B634EC519ED1DFC0081243F /* PlayerIcon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B634EC019ED1DFC0081243F /* PlayerIcon1.png */; };
@@ -116,7 +115,6 @@
 		6B634F3C19ED1EC50081243F /* PacketGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F2F19ED1EC50081243F /* PacketGameInfo.m */; };
 		6B634F3D19ED1EC50081243F /* GameIncomeQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F3119ED1EC50081243F /* GameIncomeQueue.m */; };
 		6B634F3E19ED1EC50081243F /* GameOutcomeQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F3319ED1EC50081243F /* GameOutcomeQueue.m */; };
-		6B634F3F19ED1EC50081243F /* PackSyncPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F3519ED1EC50081243F /* PackSyncPacket.m */; };
 		6B634F4119ED1FD20081243F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B634F4019ED1FD20081243F /* GameKit.framework */; };
 		6B634F4419ED24150081243F /* BreakoutGameSceneNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F4319ED24150081243F /* BreakoutGameSceneNet.m */; };
 /* End PBXBuildFile section */
@@ -202,8 +200,6 @@
 		66DF6A5917FB87DA00CC9BD1 /* bg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg~iphone.png"; sourceTree = "<group>"; };
 		6B634EAE19ED1DCE0081243F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		6B634EAF19ED1DCE0081243F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
-		6B634EB419ED1DCE0081243F /* OnlineGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineGame.m; sourceTree = "<group>"; };
-		6B634EB519ED1DCE0081243F /* OnlineGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineGame.h; sourceTree = "<group>"; };
 		6B634EB619ED1DCE0081243F /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		6B634EB719ED1DCE0081243F /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		6B634EBD19ED1DD60081243F /* PeerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeerCell.h; sourceTree = "<group>"; };
@@ -276,8 +272,6 @@
 		6B634F3119ED1EC50081243F /* GameIncomeQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameIncomeQueue.m; sourceTree = "<group>"; };
 		6B634F3219ED1EC50081243F /* GameOutcomeQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOutcomeQueue.h; sourceTree = "<group>"; };
 		6B634F3319ED1EC50081243F /* GameOutcomeQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOutcomeQueue.m; sourceTree = "<group>"; };
-		6B634F3419ED1EC50081243F /* PackSyncPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackSyncPacket.h; sourceTree = "<group>"; };
-		6B634F3519ED1EC50081243F /* PackSyncPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackSyncPacket.m; sourceTree = "<group>"; };
 		6B634F4019ED1FD20081243F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		6B634F4219ED24150081243F /* BreakoutGameSceneNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BreakoutGameSceneNet.h; path = BreakoutSpriteKitTutorial/BreakoutGameSceneNet.h; sourceTree = "<group>"; };
 		6B634F4319ED24150081243F /* BreakoutGameSceneNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BreakoutGameSceneNet.m; path = BreakoutSpriteKitTutorial/BreakoutGameSceneNet.m; sourceTree = "<group>"; };
@@ -552,20 +546,17 @@
 		6B634EAD19ED1DB50081243F /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
-				6B634F4219ED24150081243F /* BreakoutGameSceneNet.h */,
-				6B634F4319ED24150081243F /* BreakoutGameSceneNet.m */,
+				6B9B281F19EE3F03000993C0 /* Model */,
+				6B634F2419ED1EC50081243F /* MatchmakingServer.h */,
+				6B634F2519ED1EC50081243F /* MatchmakingServer.m */,
+				6B634F2619ED1EC50081243F /* MatchmakingClient.h */,
+				6B634F2719ED1EC50081243F /* MatchmakingClient.m */,
+				6B634F3019ED1EC50081243F /* GameIncomeQueue.h */,
+				6B634F3119ED1EC50081243F /* GameIncomeQueue.m */,
+				6B634F3219ED1EC50081243F /* GameOutcomeQueue.h */,
+				6B634F3319ED1EC50081243F /* GameOutcomeQueue.m */,
 				6B634F2119ED1EBB0081243F /* Packet */,
 				6B634EF919ED1E8D0081243F /* ViewController */,
-				6B634EBD19ED1DD60081243F /* PeerCell.h */,
-				6B634EBE19ED1DD60081243F /* PeerCell.m */,
-				6B634EAE19ED1DCE0081243F /* Player.h */,
-				6B634EAF19ED1DCE0081243F /* Player.m */,
-				6B634EB419ED1DCE0081243F /* OnlineGame.m */,
-				6B634EB519ED1DCE0081243F /* OnlineGame.h */,
-				6B634EB619ED1DCE0081243F /* Game.h */,
-				6B634EB719ED1DCE0081243F /* Game.m */,
-				1BE4F18119EE186B00DEA5FE /* MultiPResultViewController.h */,
-				1BE4F18219EE186B00DEA5FE /* MultiPResultViewController.m */,
 			);
 			name = NetWork;
 			sourceTree = "<group>";
@@ -573,6 +564,10 @@
 		6B634EF919ED1E8D0081243F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6B634F4219ED24150081243F /* BreakoutGameSceneNet.h */,
+				6B634F4319ED24150081243F /* BreakoutGameSceneNet.m */,
+				1BE4F18119EE186B00DEA5FE /* MultiPResultViewController.h */,
+				1BE4F18219EE186B00DEA5FE /* MultiPResultViewController.m */,
 				6B634EFC19ED1E960081243F /* JoinViewController.xib */,
 				6B634EFD19ED1E960081243F /* HostViewController.xib */,
 				6B634EFE19ED1E960081243F /* MainViewController.h */,
@@ -591,6 +586,8 @@
 		6B634F1119ED1EA30081243F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				6B634EBD19ED1DD60081243F /* PeerCell.h */,
+				6B634EBE19ED1DD60081243F /* PeerCell.m */,
 				6B634F1219ED1EAE0081243F /* NSData+SnapAdditions.h */,
 				6B634F1319ED1EAE0081243F /* NSData+SnapAdditions.m */,
 				6B634F1419ED1EAE0081243F /* UIFont+SnapAdditions.h */,
@@ -610,10 +607,6 @@
 			children = (
 				6B634F2219ED1EC50081243F /* Packet.h */,
 				6B634F2319ED1EC50081243F /* Packet.m */,
-				6B634F2419ED1EC50081243F /* MatchmakingServer.h */,
-				6B634F2519ED1EC50081243F /* MatchmakingServer.m */,
-				6B634F2619ED1EC50081243F /* MatchmakingClient.h */,
-				6B634F2719ED1EC50081243F /* MatchmakingClient.m */,
 				6B634F2819ED1EC50081243F /* PacketSignInResponse.h */,
 				6B634F2919ED1EC50081243F /* PacketSignInResponse.m */,
 				6B634F2A19ED1EC50081243F /* PacketServerReady.h */,
@@ -622,14 +615,19 @@
 				6B634F2D19ED1EC50081243F /* PacketOtherClientQuit.m */,
 				6B634F2E19ED1EC50081243F /* PacketGameInfo.h */,
 				6B634F2F19ED1EC50081243F /* PacketGameInfo.m */,
-				6B634F3019ED1EC50081243F /* GameIncomeQueue.h */,
-				6B634F3119ED1EC50081243F /* GameIncomeQueue.m */,
-				6B634F3219ED1EC50081243F /* GameOutcomeQueue.h */,
-				6B634F3319ED1EC50081243F /* GameOutcomeQueue.m */,
-				6B634F3419ED1EC50081243F /* PackSyncPacket.h */,
-				6B634F3519ED1EC50081243F /* PackSyncPacket.m */,
 			);
 			name = Packet;
+			sourceTree = "<group>";
+		};
+		6B9B281F19EE3F03000993C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6B634EB619ED1DCE0081243F /* Game.h */,
+				6B634EB719ED1DCE0081243F /* Game.m */,
+				6B634EAE19ED1DCE0081243F /* Player.h */,
+				6B634EAF19ED1DCE0081243F /* Player.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -819,7 +817,6 @@
 				6B634F3919ED1EC50081243F /* PacketSignInResponse.m in Sources */,
 				6B634F1D19ED1EAE0081243F /* UIFont+SnapAdditions.m in Sources */,
 				6B634F3C19ED1EC50081243F /* PacketGameInfo.m in Sources */,
-				6B634EBB19ED1DCE0081243F /* OnlineGame.m in Sources */,
 				6B634F3719ED1EC50081243F /* MatchmakingServer.m in Sources */,
 				1B19F56A19EBD84700BF9B8C /* InforViewController.m in Sources */,
 				6B634F3619ED1EC50081243F /* Packet.m in Sources */,
@@ -829,7 +826,6 @@
 				1B4070EF19EB9E71000861DD /* WelcomeViewController.m in Sources */,
 				6B634F3A19ED1EC50081243F /* PacketServerReady.m in Sources */,
 				6B634F1F19ED1EAE0081243F /* NSMutableArray+QueueAdditions.m in Sources */,
-				6B634F3F19ED1EC50081243F /* PackSyncPacket.m in Sources */,
 				6B634F4419ED24150081243F /* BreakoutGameSceneNet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
