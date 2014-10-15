@@ -306,6 +306,10 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateUpCategory) {
         NSLog(@"gateupsoring");
         _gateUpScore++;
+        Player *gateUpScore = [[Player alloc] initWithPostion:_gateUpScore positionY:_gateDownScore];
+        gateUpScore.name = @"gateScore";
+        [GameOutcomeQueue addContent:gateUpScore];
+
         [self alertStatus:@"soring" :@"Notice" :0];
         [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
@@ -317,6 +321,10 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateDownCategory) {
         NSLog(@"gatedownsoring");
         _gateDownScore++;
+        Player *gateDownScore = [[Player alloc] initWithPostion:_gateUpScore positionY:_gateDownScore];
+        gateDownScore.name = @"gateScore";
+        [GameOutcomeQueue addContent:gateDownScore];
+        
         [self alertStatus:@"soring" :@"Notice" :0];
         [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
@@ -421,6 +429,11 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
             {
                 [_soccer setPosition:CGPointMake(tmpPlayer.positionX, tmpPlayer.positionY)];
             }
+            else if([tmpPlayer.name isEqualToString:@"gateScore"])
+            {
+                _gateUpScore = (int)tmpPlayer.positionX;
+                _gateDownScore = (int)tmpPlayer.positionY;
+            }
             else
             {
                 if(_isServer)
@@ -464,11 +477,23 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
     }
     
     else{
-        NSString *myScore = [NSString stringWithFormat:@"%i",_gateDownScore];
-        NSString *enenmyScore = [NSString stringWithFormat:@"%i",_gateUpScore];
+        
         _internal.text = [NSString stringWithFormat:@"Game over, please check result."];
-        [[NSUserDefaults standardUserDefaults]setObject:myScore forKey:@"myScore"];
-        [[NSUserDefaults standardUserDefaults]setObject:enenmyScore forKey:@"enemyScore"];
+        if(_isServer)
+        {
+            NSString *myScore = [NSString stringWithFormat:@"%i",_gateDownScore];
+            NSString *enenmyScore = [NSString stringWithFormat:@"%i",_gateUpScore];
+            [[NSUserDefaults standardUserDefaults]setObject:myScore forKey:@"myScore"];
+            [[NSUserDefaults standardUserDefaults]setObject:enenmyScore forKey:@"enemyScore"];
+        }
+        else
+        {
+            NSString *myScore = [NSString stringWithFormat:@"%i",_gateUpScore];
+            NSString *enenmyScore = [NSString stringWithFormat:@"%i",_gateDownScore];
+            [[NSUserDefaults standardUserDefaults]setObject:myScore forKey:@"myScore"];
+            [[NSUserDefaults standardUserDefaults]setObject:enenmyScore forKey:@"enemyScore"];
+
+        }
         //[self removeFromParent]
         [_soccer removeFromParent];
         [_player2 removeFromParent];
