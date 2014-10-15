@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "BreakoutGameScene.h"
 #import "BreakoutGameScene1.h"
+#import "BreakoutGameScene3.h"
 #import <AVFoundation/AVFoundation.h>
 
 @implementation ViewController
@@ -61,7 +62,7 @@ NSURL *url;
         if([model isEqualToString:@"level2"])
             scene = [BreakoutGameScene sceneWithSize:_skView.bounds.size];
         if([model isEqualToString:@"level3"])
-            scene = [BreakoutGameScene sceneWithSize:_skView.bounds.size];
+            scene = [BreakoutGameScene3 sceneWithSize:_skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
         
         //NSLog(@"test4");

@@ -10,5 +10,6 @@
 
 @interface InforViewController : UIViewController
 - (IBAction)clickBack:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *helperText;
 
 @end
