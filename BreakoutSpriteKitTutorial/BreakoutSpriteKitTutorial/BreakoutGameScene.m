@@ -439,11 +439,40 @@ NSTimeInterval eatRedTime = 0;
         [_redMushroom removeFromParent];
         [_greenMushroom removeFromParent];
         //[_aAudioPlayer stop];
+        //[self removeAllActions];
+        //[self removeAllChildren];
+        
+        [self setAlltoNil];
     }
     
     [self setEatingGreenBOOL];
     [self setEatingRedBOOL];
+    //[self setAlltoNil];
 }
+
+- (void) setAlltoNil{
+    _selectedNode = nil;
+    _player1= nil;
+    _player2= nil;
+    _aiForward= nil;
+    _aiKeeper= nil;
+    _myKeeper= nil;
+    
+    _soccer= nil;
+    _gateUp= nil;
+    _gateDown= nil;
+    //_background= nil;
+    _internal= nil;
+    _myScore= nil;
+    _aIcon= nil;
+    _scoringLabel= nil;
+    _enemyScore= nil;
+    _redMushroom= nil;
+    _greenMushroom= nil;
+    
+    
+}
+
 
 
 

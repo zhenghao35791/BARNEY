@@ -18,6 +18,7 @@
 //    //SKView * skView = (SKView *)self.view;
 //}
 AVAudioPlayer * backgroundMusicPlayer;
+NSURL *url;
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
@@ -34,7 +35,7 @@ AVAudioPlayer * backgroundMusicPlayer;
 //        [self.backgroundMusicPlayer play];
 //    }
     //AVAudioPlayer * backgroundMusicPlayer;
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"newBackground" ofType:@"caf"]];
+    url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"newBackground" ofType:@"caf"]];
     backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     //[_aAudioPlayer stop];
     [backgroundMusicPlayer play];
@@ -46,26 +47,26 @@ AVAudioPlayer * backgroundMusicPlayer;
     
     
     
-    SKView * skView = (SKView *)self.view;
-    NSLog(@"skView.class:%@",skView.class);
-    if (!skView.scene) {
-        skView.showsFPS = YES;
-        skView.showsNodeCount = YES;
+    _skView = (SKView *)self.view;
+    NSLog(@"skView.class:%@",_skView.class);
+    if (!_skView.scene) {
+        _skView.showsFPS = YES;
+        _skView.showsNodeCount = YES;
          NSString *model = [[NSUserDefaults standardUserDefaults]objectForKey:@"model"];
         // Create and configure the scene.
       //  NSLog(@"test3");
         SKScene * scene;
         if([model isEqualToString:@"level1"])
-            scene = [BreakoutGameScene1 sceneWithSize:skView.bounds.size];
+            scene = [BreakoutGameScene1 sceneWithSize:_skView.bounds.size];
         if([model isEqualToString:@"level2"])
-            scene = [BreakoutGameScene sceneWithSize:skView.bounds.size];
+            scene = [BreakoutGameScene sceneWithSize:_skView.bounds.size];
         if([model isEqualToString:@"level3"])
-            scene = [BreakoutGameScene sceneWithSize:skView.bounds.size];
+            scene = [BreakoutGameScene sceneWithSize:_skView.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
         
         //NSLog(@"test4");
         // Present the scene.
-        [skView presentScene:scene];
+        [_skView presentScene:scene];
     }
 }
 
@@ -89,11 +90,25 @@ AVAudioPlayer * backgroundMusicPlayer;
     // Release any cached data, images, etc that aren't in use.
 }
 
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:YES];
+    _skView = nil;
+}
+
+
 - (IBAction)results:(id)sender {
     //[[NSUserDefaults standardUserDefaults]setObject:@"level2" forKey:@"from_level"];
     //[self performSegueWithIdentifier:@"single_game_over" sender:self];//page nivagation
     //if([self.backgroundMusicPlayer ]){
+    [self viewDidDisappear:NO];
     [backgroundMusicPlayer stop];
+    //url = nil;
+    backgroundMusicPlayer = nil;
+    url = nil;
+    [self viewDidDisappear:NO];
+    _skView = nil;
+    
+
     
     //}
     [self performSegueWithIdentifier:@"single_game_over" sender:self];//page nivagation
