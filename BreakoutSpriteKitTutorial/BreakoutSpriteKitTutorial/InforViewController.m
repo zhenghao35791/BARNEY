@@ -7,6 +7,7 @@
 //
 
 #import "InforViewController.h"
+#import "MainViewController.h"
 
 @interface InforViewController ()
 
@@ -71,6 +72,10 @@
     if([from_Info isEqualToString:@"single"])
         [self performSegueWithIdentifier:@"info_2_single_home" sender:self];//page nivagation
     if([from_Info isEqualToString:@"home"])
-        [self performSegueWithIdentifier:@"info_2_home" sender:self];//page nivagation
+    {
+        
+            MainViewController *controller = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+            [self presentViewController:controller animated:YES completion:nil];
+    }
 }
 @end

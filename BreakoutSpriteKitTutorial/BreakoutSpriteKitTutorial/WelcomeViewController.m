@@ -8,6 +8,7 @@
 
 #import "WelcomeViewController.h"
 #import "SystemSetting.h"
+#import "MainViewController.h"
 
 @interface WelcomeViewController ()
 
@@ -87,8 +88,8 @@
 }
 
 - (IBAction)Quit:(id)sender {
-    [self performSegueWithIdentifier:@"game_segue" sender:self];//page nivagation
-}
+    MainViewController *controller = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    [self presentViewController:controller animated:YES completion:nil];}
 
 - (IBAction)backgroundTap:(id)sender {
     [self.view endEditing:YES];

@@ -8,6 +8,7 @@
 
 #import "GameOverViewController.h"
 #import "SystemSetting.h"
+#import "MainViewController.h"
 //#import "ViewController.h"
 
 @interface GameOverViewController ()
@@ -170,7 +171,8 @@
 //}
 
 - (IBAction)clickHome:(id)sender {
-    [self performSegueWithIdentifier:@"single_continue" sender:self];//page nivagation
+    MainViewController *controller = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    [self presentViewController:controller animated:YES completion:nil];
 
 }
 

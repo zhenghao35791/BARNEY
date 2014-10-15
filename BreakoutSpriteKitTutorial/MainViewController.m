@@ -358,4 +358,12 @@
 }
 
 
+- (IBAction)touchInfor:(id)sender {
+    [[NSUserDefaults standardUserDefaults]setObject:@"home" forKey:@"infoFrom"];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"gameInfo"];
+    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:vc animated:YES completion:NULL];
+
+}
 @end
