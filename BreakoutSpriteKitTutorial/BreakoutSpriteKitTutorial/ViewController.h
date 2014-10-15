@@ -11,7 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface ViewController : UIViewController
-//@property SKView * skView;
+@property (weak,nonatomic) SKView * skView;
 - (IBAction)results:(id)sender;
 
 
