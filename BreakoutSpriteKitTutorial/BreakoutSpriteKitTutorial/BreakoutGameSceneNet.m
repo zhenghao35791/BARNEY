@@ -472,19 +472,19 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
     _internalCounter= (_endTime1 - _startTime1);
     if(_maxGameTime -_internalCounter>0)
     {  //if counting down to 0 show counter
-        _internal.text = [NSString stringWithFormat:@"%li           %i : %i",
+        _internal.text = [NSString stringWithFormat:@"%i           %i : %i",
                           _maxGameTime -_internalCounter,_gateDownScore,_gateUpScore];
     }
     
     else{
         
         _internal.text = [NSString stringWithFormat:@"Game over, please check result."];
-        if(_isServer)
+        if(!_isServer)
         {
             NSString *myScore = [NSString stringWithFormat:@"%i",_gateDownScore];
             NSString *enenmyScore = [NSString stringWithFormat:@"%i",_gateUpScore];
             [[NSUserDefaults standardUserDefaults]setObject:myScore forKey:@"myScore"];
-            [[NSUserDefaults standardUserDefaults]setObject:enenmyScore forKey:@"enemyScore"];
+            [[NSUserDefaults standardUserDefaults]setObject:enenmyScore  forKey:@"enemyScore"];
         }
         else
         {
