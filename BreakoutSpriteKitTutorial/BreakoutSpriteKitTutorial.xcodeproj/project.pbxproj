@@ -63,8 +63,6 @@
 		66DF6A5E17FB87DB00CC9BD1 /* bg~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DF6A5817FB87DA00CC9BD1 /* bg~ipad.png */; };
 		66DF6A5F17FB87DB00CC9BD1 /* bg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 66DF6A5917FB87DA00CC9BD1 /* bg~iphone.png */; };
 		6B634EB819ED1DCE0081243F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634EAF19ED1DCE0081243F /* Player.m */; };
-		6B634EB919ED1DCE0081243F /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634EB119ED1DCE0081243F /* GameObject.m */; };
-		6B634EBA19ED1DCE0081243F /* FootBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634EB319ED1DCE0081243F /* FootBall.m */; };
 		6B634EBB19ED1DCE0081243F /* OnlineGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634EB419ED1DCE0081243F /* OnlineGame.m */; };
 		6B634EBC19ED1DCE0081243F /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634EB719ED1DCE0081243F /* Game.m */; };
 		6B634EBF19ED1DD60081243F /* PeerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634EBE19ED1DD60081243F /* PeerCell.m */; };
@@ -103,7 +101,6 @@
 		6B634F0D19ED1E960081243F /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F0219ED1E960081243F /* HostViewController.m */; };
 		6B634F0E19ED1E960081243F /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F0419ED1E960081243F /* JoinViewController.m */; };
 		6B634F0F19ED1E960081243F /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F0619ED1E960081243F /* GameViewController.m */; };
-		6B634F1019ED1E960081243F /* ViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B634F0719ED1E960081243F /* ViewController1.xib */; };
 		6B634F1C19ED1EAE0081243F /* NSData+SnapAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F1319ED1EAE0081243F /* NSData+SnapAdditions.m */; };
 		6B634F1D19ED1EAE0081243F /* UIFont+SnapAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F1519ED1EAE0081243F /* UIFont+SnapAdditions.m */; };
 		6B634F1E19ED1EAE0081243F /* UIButton+SnapAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F1719ED1EAE0081243F /* UIButton+SnapAdditions.m */; };
@@ -202,10 +199,6 @@
 		66DF6A5917FB87DA00CC9BD1 /* bg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg~iphone.png"; sourceTree = "<group>"; };
 		6B634EAE19ED1DCE0081243F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		6B634EAF19ED1DCE0081243F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
-		6B634EB019ED1DCE0081243F /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
-		6B634EB119ED1DCE0081243F /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
-		6B634EB219ED1DCE0081243F /* FootBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootBall.h; sourceTree = "<group>"; };
-		6B634EB319ED1DCE0081243F /* FootBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootBall.m; sourceTree = "<group>"; };
 		6B634EB419ED1DCE0081243F /* OnlineGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineGame.m; sourceTree = "<group>"; };
 		6B634EB519ED1DCE0081243F /* OnlineGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineGame.h; sourceTree = "<group>"; };
 		6B634EB619ED1DCE0081243F /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
@@ -252,7 +245,6 @@
 		6B634F0419ED1E960081243F /* JoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
 		6B634F0519ED1E960081243F /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		6B634F0619ED1E960081243F /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		6B634F0719ED1E960081243F /* ViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController1.xib; sourceTree = "<group>"; };
 		6B634F1219ED1EAE0081243F /* NSData+SnapAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SnapAdditions.h"; sourceTree = "<group>"; };
 		6B634F1319ED1EAE0081243F /* NSData+SnapAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SnapAdditions.m"; sourceTree = "<group>"; };
 		6B634F1419ED1EAE0081243F /* UIFont+SnapAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+SnapAdditions.h"; sourceTree = "<group>"; };
@@ -558,15 +550,11 @@
 				6B634F4219ED24150081243F /* BreakoutGameSceneNet.h */,
 				6B634F4319ED24150081243F /* BreakoutGameSceneNet.m */,
 				6B634F2119ED1EBB0081243F /* Packet */,
-				6B634EF919ED1E8D0081243F /* ViewController.h */,
+				6B634EF919ED1E8D0081243F /* ViewController */,
 				6B634EBD19ED1DD60081243F /* PeerCell.h */,
 				6B634EBE19ED1DD60081243F /* PeerCell.m */,
 				6B634EAE19ED1DCE0081243F /* Player.h */,
 				6B634EAF19ED1DCE0081243F /* Player.m */,
-				6B634EB019ED1DCE0081243F /* GameObject.h */,
-				6B634EB119ED1DCE0081243F /* GameObject.m */,
-				6B634EB219ED1DCE0081243F /* FootBall.h */,
-				6B634EB319ED1DCE0081243F /* FootBall.m */,
 				6B634EB419ED1DCE0081243F /* OnlineGame.m */,
 				6B634EB519ED1DCE0081243F /* OnlineGame.h */,
 				6B634EB619ED1DCE0081243F /* Game.h */,
@@ -577,7 +565,7 @@
 			name = NetWork;
 			sourceTree = "<group>";
 		};
-		6B634EF919ED1E8D0081243F /* ViewController.h */ = {
+		6B634EF919ED1E8D0081243F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				6B634EFC19ED1E960081243F /* JoinViewController.xib */,
@@ -591,9 +579,8 @@
 				6B634F0419ED1E960081243F /* JoinViewController.m */,
 				6B634F0519ED1E960081243F /* GameViewController.h */,
 				6B634F0619ED1E960081243F /* GameViewController.m */,
-				6B634F0719ED1E960081243F /* ViewController1.xib */,
 			);
-			name = ViewController.h;
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		6B634F1119ED1EA30081243F /* Categories */ = {
@@ -722,7 +709,6 @@
 				18479C8919ECA590005703C5 /* newBackground.caf in Resources */,
 				18479C8119ECA234005703C5 /* explosion_large.caf in Resources */,
 				6B634EDC19ED1E2A0081243F /* CellBackgroundSelected.png in Resources */,
-				6B634F1019ED1E960081243F /* ViewController1.xib in Resources */,
 				6B634EC819ED1DFC0081243F /* PlayerIcon4.png in Resources */,
 				6B634EC919ED1DFC0081243F /* PlayerIcon5.png in Resources */,
 				6B634EC619ED1DFC0081243F /* PlayerIcon2.png in Resources */,
@@ -808,8 +794,6 @@
 			files = (
 				6B634EBC19ED1DCE0081243F /* Game.m in Sources */,
 				6B634F0F19ED1E960081243F /* GameViewController.m in Sources */,
-				6B634EBA19ED1DCE0081243F /* FootBall.m in Sources */,
-				6B634EB919ED1DCE0081243F /* GameObject.m in Sources */,
 				6B634F0D19ED1E960081243F /* HostViewController.m in Sources */,
 				6B634F0B19ED1E960081243F /* MainViewController.m in Sources */,
 				6B634F3D19ED1EC50081243F /* GameIncomeQueue.m in Sources */,
