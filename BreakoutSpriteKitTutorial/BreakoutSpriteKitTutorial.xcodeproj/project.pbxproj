@@ -117,6 +117,7 @@
 		6B634F3E19ED1EC50081243F /* GameOutcomeQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F3319ED1EC50081243F /* GameOutcomeQueue.m */; };
 		6B634F4119ED1FD20081243F /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B634F4019ED1FD20081243F /* GameKit.framework */; };
 		6B634F4419ED24150081243F /* BreakoutGameSceneNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B634F4319ED24150081243F /* BreakoutGameSceneNet.m */; };
+		6B9B282319EE5061000993C0 /* Head-Soccer-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B9B282219EE5061000993C0 /* Head-Soccer-Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,7 +174,7 @@
 		1BE4F18219EE186B00DEA5FE /* MultiPResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiPResultViewController.m; sourceTree = "<group>"; };
 		1BE4F18419EE1D5700DEA5FE /* BreakoutGameScene3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreakoutGameScene3.h; sourceTree = "<group>"; };
 		1BE4F18519EE1D5700DEA5FE /* BreakoutGameScene3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreakoutGameScene3.m; sourceTree = "<group>"; };
-		66DF6A1317FB871B00CC9BD1 /* BreakoutSpriteKitTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakoutSpriteKitTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		66DF6A1317FB871B00CC9BD1 /* SoccerSpark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoccerSpark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66DF6A1617FB871B00CC9BD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		66DF6A1817FB871B00CC9BD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		66DF6A1A17FB871B00CC9BD1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -275,6 +276,7 @@
 		6B634F4019ED1FD20081243F /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		6B634F4219ED24150081243F /* BreakoutGameSceneNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BreakoutGameSceneNet.h; path = BreakoutSpriteKitTutorial/BreakoutGameSceneNet.h; sourceTree = "<group>"; };
 		6B634F4319ED24150081243F /* BreakoutGameSceneNet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BreakoutGameSceneNet.m; path = BreakoutSpriteKitTutorial/BreakoutGameSceneNet.m; sourceTree = "<group>"; };
+		6B9B282219EE5061000993C0 /* Head-Soccer-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Head-Soccer-Icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +372,7 @@
 				6B634ED319ED1E2A0081243F /* CellBackground@2x.png */,
 				6B634ED419ED1E2A0081243F /* CellBackgroundSelected.png */,
 				6B634ED519ED1E2A0081243F /* CellBackgroundSelected@2x.png */,
+				6B9B282219EE5061000993C0 /* Head-Soccer-Icon.png */,
 				6B634ECA19ED1E110081243F /* HostGame.png */,
 				6B634ECB19ED1E110081243F /* background1.png */,
 				6B634EC019ED1DFC0081243F /* PlayerIcon1.png */,
@@ -450,7 +453,7 @@
 		66DF6A1417FB871B00CC9BD1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				66DF6A1317FB871B00CC9BD1 /* BreakoutSpriteKitTutorial.app */,
+				66DF6A1317FB871B00CC9BD1 /* SoccerSpark.app */,
 				66DF6A3B17FB871B00CC9BD1 /* BreakoutSpriteKitTutorialTests.xctest */,
 			);
 			name = Products;
@@ -647,7 +650,7 @@
 			);
 			name = BreakoutSpriteKitTutorial;
 			productName = BreakoutSpriteKitTutorial;
-			productReference = 66DF6A1317FB871B00CC9BD1 /* BreakoutSpriteKitTutorial.app */;
+			productReference = 66DF6A1317FB871B00CC9BD1 /* SoccerSpark.app */;
 			productType = "com.apple.product-type.application";
 		};
 		66DF6A3A17FB871B00CC9BD1 /* BreakoutSpriteKitTutorialTests */ = {
@@ -728,6 +731,7 @@
 				6B634EEA19ED1E370081243F /* ExitButtonPressed.png in Resources */,
 				18479C8619ECA234005703C5 /* shake.caf in Resources */,
 				18479C8719ECA234005703C5 /* SpaceGame.caf in Resources */,
+				6B9B282319EE5061000993C0 /* Head-Soccer-Icon.png in Resources */,
 				6B634EC519ED1DFC0081243F /* PlayerIcon1.png in Resources */,
 				6B634EE819ED1E370081243F /* ExitButton.png in Resources */,
 				18EC42EB19EB957400CFB641 /* gateForward.png in Resources */,
@@ -949,14 +953,12 @@
 		66DF6A4D17FB871B00CC9BD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BreakoutSpriteKitTutorial/BreakoutSpriteKitTutorial-Prefix.pch";
 				INFOPLIST_FILE = "BreakoutSpriteKitTutorial/BreakoutSpriteKitTutorial-Info.plist";
-				PRODUCT_NAME = BreakoutSpriteKitTutorial;
+				PRODUCT_NAME = SoccerSpark;
 				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -967,14 +969,12 @@
 		66DF6A4E17FB871B00CC9BD1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BreakoutSpriteKitTutorial/BreakoutSpriteKitTutorial-Prefix.pch";
 				INFOPLIST_FILE = "BreakoutSpriteKitTutorial/BreakoutSpriteKitTutorial-Info.plist";
-				PRODUCT_NAME = BreakoutSpriteKitTutorial;
+				PRODUCT_NAME = SoccerSpark;
 				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				TARGETED_DEVICE_FAMILY = 2;
