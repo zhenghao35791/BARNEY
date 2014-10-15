@@ -16,7 +16,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString *from_Info = [[NSUserDefaults standardUserDefaults]objectForKey:@"infoFrom"];
+    //[self.helperText setFont:[UIFont fontWithName:@"Arial" size:40]];
     // Do any additional setup after loading the view.
+    if([from_Info isEqualToString:@"single"]){
+        self.helperText.editable = YES;
+        self.helperText.font = [UIFont fontWithName:@"Arial" size:40];
+        //self.helperText.editable = NO;
+        self.helperText.text = @"single game info";
+        self.helperText.editable = NO;
+    }
+    if([from_Info isEqualToString:@"home"]){
+        self.helperText.editable = YES;
+        self.helperText.font = [UIFont fontWithName:@"Arial" size:40];
+        //self.helperText.editable = NO;
+        self.helperText.text = @"any game info";
+        self.helperText.editable = NO;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,6 +53,11 @@
 
 - (IBAction)clickBack:(id)sender {
     
-     [self performSegueWithIdentifier:@"info_2_single_home" sender:self];//page nivagation
+    NSString *from_Info = [[NSUserDefaults standardUserDefaults]objectForKey:@"infoFrom"];
+    // Do any additional setup after loading the view.
+    if([from_Info isEqualToString:@"single"])
+        [self performSegueWithIdentifier:@"info_2_single_home" sender:self];//page nivagation
+    if([from_Info isEqualToString:@"home"])
+        [self performSegueWithIdentifier:@"info_2_home" sender:self];//page nivagation
 }
 @end
