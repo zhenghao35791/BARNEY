@@ -105,7 +105,8 @@
             _ScoreInformation.text = scoreInfo;
         }
         else{
-            
+            @try
+            {
             NSLog(@"_score: %@",_score);
             NSMutableString *scoreInfo = [[NSMutableString alloc] init];;
             [scoreInfo appendString:@"Your score is "];
@@ -129,6 +130,13 @@
             _ScoreInformation.text = scoreInfo;
             NSLog(@"scoreInfo: %@",_ScoreInformation.text);
         }
+            @catch (NSException *exception) {
+                _ScoreInformation.text = @"connection failed";
+                NSLog(@"Exception: %@", exception);
+                [self alertStatus:@"connection failed" :@"Notice" :0];
+                //sampleDetail.text = self.sampleDetailInit;
+        }
+                }
     }
 }
 
@@ -194,8 +202,11 @@
             if(![jsonData[@"score"] isEqualToString:@""]){
                 score = jsonData[@"score"];
             }
-            else{
+            else if([jsonData[@"score"] isEqualToString:@"ERROR"]){
                 score = @"ERROR";
+            }
+            else{
+                score = @"0";
             }
             
         }
@@ -208,7 +219,7 @@
     @catch (NSException *exception) {
         score = @"exception";
         NSLog(@"Exception: %@", exception);
-        [self alertStatus:@"Please set preference for notification service." :@"Notice" :0];
+        [self alertStatus:@"connection failed" :@"Notice" :0];
         //sampleDetail.text = self.sampleDetailInit;
     }
     return score;
