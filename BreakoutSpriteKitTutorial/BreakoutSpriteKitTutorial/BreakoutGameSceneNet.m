@@ -36,6 +36,8 @@ static const uint32_t aiKeeperCategory = 0x1 << 6;
 static const uint32_t aiForwardCategory = 0x1 << 7;
 static const uint32_t greenMushroomCategory = 0x1 << 8;
 static const uint32_t redMushroomCategory = 0x1 << 9;
+static NSTimeInterval goalTime;
+static NSTimeInterval goalTimeInterver;
 
 
 
@@ -71,10 +73,10 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
         NSLog(@"Player name %@", name);
         localName = name;
         
-        
+        goalTimeInterver = 0;
         _eatGreenTime1 = 0;
         _eatRedTime1 = 0;
-        _maxGameTime = 60;
+        _maxGameTime = 160;
         _gateDownScore = 0;
         _gateUpScore = 0;
         _internalCounter= 0;
@@ -91,7 +93,7 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
         _internalCounter= 0;
         _gateUpScore = 0;
         _gateDownScore = 0;
-        _maxGameTime = 60;
+        _maxGameTime = 160;
         
         // Setup the scene
         screenRect = [[UIScreen mainScreen]bounds];
@@ -305,31 +307,173 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
     
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateUpCategory) {
         NSLog(@"gateupsoring");
-        _gateUpScore++;
+        goalTime = CACurrentMediaTime();
+        
+        if(CACurrentMediaTime() - goalTimeInterver > 2 && _isServer)
+        {
+            _gateDownScore++;
+            NSLog(@"score: %d", _gateDownScore);
+            NSLog(@"current time: %f", CACurrentMediaTime());
+            NSLog(@"last time: %f", goalTimeInterver);
+        
+        
+        goalTimeInterver = CACurrentMediaTime();
+
+
         Player *gateUpScore = [[Player alloc] initWithPostion:_gateUpScore positionY:_gateDownScore];
         gateUpScore.name = @"gateScore";
         [GameOutcomeQueue addContent:gateUpScore];
+        }
 
-        [self alertStatus:@"soring" :@"Notice" :0];
-        [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
+        [self alertStatus:@"scoring" :@"Notice" :0];
+        
+        
+//        [_gateUp removeFromParent];
+//        [_gateDown removeFromParent];
+        
+     
+        
+        
+        
+        
+        [_soccer removeFromParent];
+       // [_player1 removeFromParent];
+        //[_player2 removeFromParent];
+       //[_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
+        [_player1 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 + 200) duration:1]];
        // [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
         [self runAction:[SKAction playSoundFileNamed:@"explosion_large.caf" waitForCompletion:NO]];
+        
+        
+        
+        
+//        _gateDown = [[SKSpriteNode alloc] initWithImageNamed: @"Gate_UP_large.png"];
+//        _gateDown.position = CGPointMake(screenWidth/2+10,screenHeight-40);
+//        _gateDown.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateDown.frame.size];
+//        _gateDown.name = gateDownCategoryName;
+//        _gateDown.physicsBody.dynamic = NO;
+//        _gateUp.physicsBody.categoryBitMask = gateUpCategory;
+//        _gateDown.physicsBody.categoryBitMask = gateDownCategory;
+//        
+//        _gateUp = [[SKSpriteNode alloc] initWithImageNamed: @"Gate_down_normal.png"];
+//        _gateUp.position = CGPointMake(screenWidth/2,40);
+//        _gateUp.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateUp.frame.size];
+//        _gateUp.name = gateUpCategoryName;
+//        _gateUp.physicsBody.dynamic = NO;
+//        _gateDown.physicsBody.categoryBitMask = gateUpCategory;
+//        [self addChild:_gateUp];
+//        [self addChild:_gateDown];
+        
+        
+//        [self addPlayer1];
+//        [self addPlayer2];
+        
+        _soccer = [SKSpriteNode spriteNodeWithImageNamed: @"soccer.png"];
+        _soccer.name = soccerCategoryName;
+        _soccer.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+        [self addChild:_soccer];
+        
+        // 2
+        _soccer.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:_soccer.frame.size.width/2];
+        // _soccer.physicsBody.usesPreciseCollisionDetection =  YES;
+        // 3
+        _soccer.physicsBody.friction = 0.2f;
+        // 4
+        _soccer.physicsBody.restitution = 1.0f;
+        // 5
+        _soccer.physicsBody.linearDamping = 0.2f;
+        // 6
+        _soccer.physicsBody.allowsRotation = YES;
+        //7
+        _soccer.physicsBody.mass = 10;
+        _soccer.physicsBody.categoryBitMask = soccerCategory;
+        _soccer.physicsBody.contactTestBitMask = borderCategory | player1Category|player2Category|gateUpCategory|gateDownCategory|aiForwardCategory|aiKeeperCategory;
 
         
     }
     if (firstBody.categoryBitMask == soccerCategory && secondBody.categoryBitMask == gateDownCategory) {
         NSLog(@"gatedownsoring");
-        _gateDownScore++;
+        goalTime = CACurrentMediaTime();
+        if(CACurrentMediaTime() - goalTimeInterver > 2 && _isServer)
+        {
+            _gateUpScore++;
+            NSLog(@"score: %d", _gateUpScore);
+            NSLog(@"current time: %f", CACurrentMediaTime());
+            NSLog(@"last time: %f", goalTimeInterver);
+        
+        goalTimeInterver = CACurrentMediaTime();
         Player *gateDownScore = [[Player alloc] initWithPostion:_gateUpScore positionY:_gateDownScore];
         gateDownScore.name = @"gateScore";
         [GameOutcomeQueue addContent:gateDownScore];
+        }
         
-        [self alertStatus:@"soring" :@"Notice" :0];
+        [self alertStatus:@"scoring" :@"Notice" :0];
+        
+        
+        
+//        
+//        [_gateUp removeFromParent];
+//        [_gateDown removeFromParent];
+    
+        
+        
+        
+        
+        [_soccer removeFromParent];
+//        [_player1 removeFromParent];
+//        [_player2 removeFromParent];
         [_soccer runAction:[SKAction moveTo:CGPointMake(screenWidth/2, screenHeight/2) duration:1]];
         [_player2 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 - 100) duration:1]];
+        [_player1 runAction:[SKAction moveTo:CGPointMake(self.frame.size.width/2, self.frame.size.height/2 + 200) duration:1]];
+      
        // [_aiForward runAction:[SKAction moveTo:CGPointMake(screenWidth/2, self.frame.size.height/2 + 100)duration:1]];
         [self runAction:[SKAction playSoundFileNamed:@"explosion_large.caf" waitForCompletion:NO]];
+        
+        
+        
+        
+//        
+//        _gateDown = [[SKSpriteNode alloc] initWithImageNamed: @"Gate_UP_large.png"];
+//        _gateDown.position = CGPointMake(screenWidth/2+10,screenHeight-40);
+//        _gateDown.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateDown.frame.size];
+//        _gateDown.name = gateDownCategoryName;
+//        _gateDown.physicsBody.dynamic = NO;
+//        _gateUp.physicsBody.categoryBitMask = gateUpCategory;
+//        _gateDown.physicsBody.categoryBitMask = gateDownCategory;
+//        
+//        _gateUp = [[SKSpriteNode alloc] initWithImageNamed: @"Gate_down_normal.png"];
+//        _gateUp.position = CGPointMake(screenWidth/2,40);
+//        _gateUp.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_gateUp.frame.size];
+//        _gateUp.name = gateUpCategoryName;
+//        _gateUp.physicsBody.dynamic = NO;
+//        _gateDown.physicsBody.categoryBitMask = gateUpCategory;
+//        [self addChild:_gateUp];
+//        [self addChild:_gateDown];
+
+//        [self addPlayer1];
+//        [self addPlayer2];
+        
+        _soccer = [SKSpriteNode spriteNodeWithImageNamed: @"soccer.png"];
+        _soccer.name = soccerCategoryName;
+        _soccer.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+        [self addChild:_soccer];
+        
+        // 2
+        _soccer.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:_soccer.frame.size.width/2];
+        // _soccer.physicsBody.usesPreciseCollisionDetection =  YES;
+        // 3
+        _soccer.physicsBody.friction = 0.2f;
+        // 4
+        _soccer.physicsBody.restitution = 1.0f;
+        // 5
+        _soccer.physicsBody.linearDamping = 0.2f;
+        // 6
+        _soccer.physicsBody.allowsRotation = YES;
+        //7
+        _soccer.physicsBody.mass = 10;
+        _soccer.physicsBody.categoryBitMask = soccerCategory;
+        _soccer.physicsBody.contactTestBitMask = borderCategory | player1Category|player2Category|gateUpCategory|gateDownCategory|aiForwardCategory|aiKeeperCategory;
 
         
     }
@@ -421,13 +565,14 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
     {
         tmpPlayer = [GameIncomeQueue dequeue];
         
-        NSLog(@"new player postion %@", tmpPlayer);
+        //NSLog(@"new player postion %@", tmpPlayer);
         
         if(tmpPlayer.name != nil)
         {
-            if([tmpPlayer.name isEqualToString:soccerCategoryName])
+            if([tmpPlayer.name isEqualToString:soccerCategoryName] )
             {
-                [_soccer setPosition:CGPointMake(tmpPlayer.positionX, tmpPlayer.positionY)];
+                if(CACurrentMediaTime() - goalTime > 2)
+                    [_soccer setPosition:CGPointMake(tmpPlayer.positionX, tmpPlayer.positionY)];
             }
             else if([tmpPlayer.name isEqualToString:@"gateScore"])
             {
@@ -457,7 +602,8 @@ static const uint32_t redMushroomCategory = 0x1 << 9;
         }
         
     }
-
+    
+   
     
     /* Called before each frame is rendered */
     static int maxSpeed = 20;

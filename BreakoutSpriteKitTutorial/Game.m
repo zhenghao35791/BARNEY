@@ -174,7 +174,7 @@ GameState;
 - (void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state
 {
 #ifdef DEBUG
-	NSLog(@"Game: peer %@ changed state %d", peerID, state);
+	//NSLog(@"Game: peer %@ changed state %d", peerID, state);
 #endif
     
     if (state == GKPeerStateDisconnected)
@@ -221,7 +221,7 @@ GameState;
 - (void)receiveData:(NSData *)data fromPeer:(NSString *)peerID inSession:(GKSession *)session context:(void *)context
 {
 #ifdef DEBUG
-    NSLog(@"Game: receive data from peer: %@, data: %@, length: %d", peerID, data, [data length]);
+    //NSLog(@"Game: receive data from peer: %@, data: %@, length: %d", peerID, data, [data length]);
 #endif
     
     Packet *packet = [Packet packetWithData:data];
@@ -256,7 +256,7 @@ GameState;
 
 - (void)serverReceivedPacket:(Packet *)packet fromPlayer:(Player *)player
 {
-    NSLog(@"server received from client '%@'", packet);
+    //NSLog(@"server received from client '%@'", packet);
     switch (packet.packetType)
     {
         case PacketTypeSignInResponse:
@@ -273,7 +273,7 @@ GameState;
                     [self sendPacketToAllClients:packet];
                 }
                 
-                NSLog(@"server received sign in from client '%@'", player.name);
+                //NSLog(@"server received sign in from client '%@'", player.name);
             }
             break;
             
@@ -291,7 +291,7 @@ GameState;
             break;
             
         default:
-            NSLog(@"Server received unexpected packet: %@", packet);
+            //NSLog(@"Server received unexpected packet: %@", packet);
             break;
     }
 }
@@ -315,7 +315,7 @@ GameState;
 {
     switch (packet.packetType)
     {
-        NSLog(@"Client received  packet: %@", packet);
+        //NSLog(@"Client received  packet: %@", packet);
         case PacketTypeSignInRequest:
             if (_state == GameStateWaitingForSignIn)
             {
@@ -336,7 +336,7 @@ GameState;
                 
                 [self beginGame];
                 
-                NSLog(@"the players are: %@", _players);
+                //NSLog(@"the players are: %@", _players);
                 
             }
              break;
@@ -363,7 +363,7 @@ GameState;
 - (void)handleGameInfoPacket:(PacketGameInfo *)packet
 {
 
-    NSLog(@"pack received %@", packet);
+    //NSLog(@"pack received %@", packet);
     //Player *player = tmpPlayer;
     //NSLog(@"new packet game %@", packet.packetType);
 
@@ -389,7 +389,7 @@ GameState;
     [ticketsThreadone setName:@"Thread-1"];
     [ticketsThreadone start];
     
-    NSLog(@"out queue number %d", [GameOutcomeQueue count]);
+    //NSLog(@"out queue number %d", [GameOutcomeQueue count]);
 
 }
 
